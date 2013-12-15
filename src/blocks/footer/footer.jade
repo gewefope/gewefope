@@ -1,0 +1,26 @@
+- var date = new Date();
+- var year = date.getFullYear();
+mixin b-footer(modifer)
+    if(modifer == 'link')
+        .b-footer
+            .b-footer__table
+                .b-footer__table__col.b-footer__table__col_left
+                    p.b-footer__item Data provided by <a href="http://openweathermap.org">OpenWeatherMap</a>.
+                    p.b-footer__litem
+                        | Site is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.
+                        //| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.
+                    p.b-footer__ltem
+                        | ©
+                        =year
+                        | &nbsp;World Fly
+    else
+        .b-footer
+            .b-footer__table
+                .b-footer__table__col.b-footer__table__col_left
+                    p.b-footer__item
+                        | Site is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.
+                        //| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.
+                    p.b-footer__item
+                        | ©
+                        =year
+                        | &nbsp;World Fly

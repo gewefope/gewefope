@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         jade: {
             html: {
                 files: {
-                    'public/': ['src/views/*.jade', 'src/**/*.jade']
+                    'public/': ['src/views/*.jade', 'src/views/**/*.jade']
                 },
                 options: {
                     pretty: true,
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                     'compress': true
                 },
                 files: {
-                    'public/default.css': 'src/blocks/default.styl'
+                    'public/global.css': 'src/blocks/global.styl'
                 }
             }
         },
@@ -31,19 +31,24 @@ module.exports = function (grunt) {
                 browsers: ['last 2 version', 'ie 9']
             },
             single_file: {
-                src: 'public/default.css',
-                dest: 'public/default.css'
+                src: 'public/global.css',
+                dest: 'public/global.css'
             }
         },
         csso: {
             compress: {
                 options: {
                     report: 'min',
-                    banner: '/* (c) World Fly */'
+                    banner: '/* (c) World Fly */\n'
                 },
                 files: {
-                    'public/default.min.css': ['public/default.css']
+                    'public/global.min.css': ['public/global.css']
                 }
+            }
+        },
+        shell: {
+            listFolders: {
+                command: 'node app.js'
             }
         }
 
@@ -54,7 +59,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso');
+    grunt.loadNpmTasks('grunt-shell');
 
 
     grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso']);
+    grunt.registerTask('server', ['shell']);
 };

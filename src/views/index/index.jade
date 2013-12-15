@@ -1,0 +1,64 @@
+include ../../blocks/default.jade
+
+doctype 5
+html.no-js
+    head
+        +i-head('Index')
+        link(rel='stylesheet', href='/stylesheets/default.css?/dev_ver/'+Math.floor(Math.random()*100000))
+    body.b-page
+        .b-header.b-container
+            +b-logo('slogan')
+        .b-page__body.b-container
+            p.b-page__body_ask How do you want to choose a location?
+            .b-chcontainer.b-container
+            .b-chcontainer__item
+                a.b-chcontainer__item__link.b-chcontainer__item_search(href='/search')
+                    img.b-chcontainer__item__img.b-chcontainer__item__img_search(src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTEwcHgiIGhlaWdodD0iMTEwcHgiIHZpZXdCb3g9IjAgMCAxMTAgMTEwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMTAgMTEwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxjaXJjbGUgZmlsbD0iI0ZGRkZGRiIgc3Ryb2tlPSIjNjY2NjY2IiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU0Ljk5MjQzMTYiIGN5PSI1NC45NTk5NjA5IiByPSI0NC45OTk3NTU5Ii8+DQo8bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMzMzMiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiB4MT0iOS45OTI2NzU4IiB5MT0iOTkuOTU5OTYwOSIgeDI9IjQ3LjQ1MDY4MzYiIHkyPSI2Mi43MzE0NDUzIi8+DQo8Y2lyY2xlIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iIzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1OC42Nzk2ODc1IiBjeT0iNDkuMTYyMTA5NCIgcj0iMjAiLz4NCjwvc3ZnPg0K', alt='Search')
+                    br
+                    | Search
+                form(action='/search').b-chcontainer__item__form
+                    input(type='search', name='q', required, autofocus).b-chcontainer__item__form__input
+                    button(type='submit').b-chcontainer__item__form__button Search
+                .b-chcontainer__item
+                    a.b-chcontainer__item__link.b-chcontainer__item_loc(href='/location')
+                        img.b-chcontainer-item-img.b-chcontainer__item__img_geoloc(src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiMzMzMiIHN0cm9rZT0iIzMzMyIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+', alt='Geolocation')
+                        br
+                        | Geolocation
+        +b-footer
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script.
+          $(document).ready(function(){
+            $('.b-chcontainer__item_loc').click(function(){
+              $('.b-chcontainer__item__img_geoloc').attr('src','data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiNmMDAiIHN0cm9rZT0iI2YwMCIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+');
+              if(getCookie('latitude') == undefined || getCookie('longitude') == undefined){
+                if(Modernizr.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(a){
+                    setCookie('latitude',a.coords.latitude);
+                    setCookie('longitude',a.coords.longitude);
+                    setCookie('geoLocationError', 'false');
+                    document.location.href='/location'
+                  },
+                  function(){
+                    setCookie('geoLocationError', 'true');
+                    document.location.href='/location';
+                  }
+                  );
+                }else{
+                  setCookie('geoLocationError', 'true');
+                  document.location.href='/location';
+                }
+              }else{
+                setCookie('geoLocationError', 'false');
+                document.location.href='/location';
+              }
+            return false;
+            });
+            $('.b-chcontainer__item_search').click(function(){
+              //$('.b-chcontainer__item_search').hide();
+              //displayChange('b-chcontainer__item__form', 'block')
+              //$('.b-chcontainer__item__form').css('display': 'inline-block');
+              $('.b-chcontainer__item_search').addClass('b-chcontainer__item_invis');
+              $('.b-chcontainer__item__form').addClass('b-chcontainer__item_vis');
+              return false;
+            });
+          });
