@@ -1,8 +1,16 @@
 
-/*
- * GET home page.
- */
+app.get('/', function (req, res) {
+    res.render('public/index.html');
+});
 
-exports.index = function(req, res){
-  res.render('dist/index.html/index.js', { title: 'Express' });
-};
+app.get('/location', function (req, res) {
+    res.render('public/location.html');
+});
+
+app.get('/city/:id', function (req, res) {
+    res.render('public/city.html');
+});
+
+app.get('/search', function (req, res) {
+    res.render('public/search.html');
+});

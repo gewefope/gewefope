@@ -11,14 +11,18 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
   font-family: 'Open Sans', sans-serif
-  color: #000
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  -o-box-sizing: border-box
+  -ms-box-sizing: border-box
+  box-sizing: border-box
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -43,33 +47,107 @@ table
   border-collapse: collapse;
   border-spacing: 0;
 
-
 html, body
-  font: 14px/28px 'Open Sans', sans-serif
+  font: 14px / 28px 'Open Sans', sans-serif
 
 a
   color: #00B7FF
 
+@import 'all'
+
 .b-page
+  color #000
 
+/*  b-chcontainer  (begin)  */
+.b-chcontainer
+  text-align center
+  margin 0 auto
+  padding-top 7%
 
+  @media screen and (max-width: 760px)
+    padding-top 0
 
-.b-container
-  text-align: center
-  margin: 0 auto
-  padding-top: 9%
+.b-chcontainer__item
+  display inline-block
+  width 200px
 
-.b-container-item
-  display: inline-block
+.b-chcontainer__item_invis
+  display none
 
+.b-chcontainer__item_vis
+  display inline-block !important
 
+.b-chcontainer__item__form
+  display none
+  width 200px
+  height 140px
+  vertical-align middle
 
+.b-chcontainer__item__form__input
+  width 178px
+  vertical-align middle
+  border 1px solid #c4c4c4
 
+  @media screen and (max-width: 760px)
+    width 100%
 
+.b-chcontainer__item__form__button
+  border 0 none
+  width 20px
+  background url() #fff
 
+.b-chcontainer__item__form__input:focus
+  outline none
+  border-color #96C0E6
 
+/*  b-chcontainer  (end)  */
 
+/*  b-disabled  (begin)  */
+.b-disabled
+  opacity 0.4
 
+/*  b-disabled  (end)  */
 
+.b-search-header__pagename
+  font-size 1.7em
+  padding .8em 0 0 4em
 
+  @media screen and (max-width: 760px)
+    padding 0 1.5em 0 1.5em
 
+.b-search-header__query
+  font-size 1em
+  border 1px dashed #dedede
+
+.b-search-header__query:focus
+  border 1px solid #96C0E6
+
+/*    s*/
+
+.b-wlist
+  padding 2em 0 2em 3em
+
+.b-wlist__error
+  font-size 2em
+  color #98002b
+
+.b-wlist__line
+  border-left 4px solid #dedede
+  margin-bottom 20px
+  padding 5px 0 5px 10px
+
+.b-wlist__line:hover, .b-wlist__line:focus
+  border-left-color #f00
+
+.b-wlist__link
+  font-size 1.34em
+  color #03003f
+
+.b-wlist__country
+  font-size 1.23em
+
+.b-wlist__temp
+  font-size 1.4em
+
+.b-wlist__sky
+  padding-left 1em

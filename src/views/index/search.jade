@@ -1,1 +1,24 @@
+include ../../blocks/default.jade
+doctype 5
+html.no-js
+    head
+        +i-head('Search')
+        style.
+            .b-footer{position:static}
+    body.b-page
+        .b-header.b-container
+            +b-logo('slogan', 'link')
+        .b-container.b-container_searchheader
+            form(action='', name='searchf').b-search-header
+                h1.b-search-header__pagename
+                    |Search for a location:
+                    input(value='', type='search', name='q').b-search-header__query
+        .b-container.b-container_searchbody
+            .b-wlist
+        +b-footer('link')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='/js/global.min.js')
+        script.
+            window.onload = function(){lego.search_init();};
+        +i-stat
 

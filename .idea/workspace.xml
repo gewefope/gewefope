@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="252c4029-86b6-4f21-bcdf-633adfbe4631" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/default.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/footer/footer.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/i-head/i-head.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/index/index.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/logo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stat.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/workarounds/missing-hyphens2.http" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/blocks/default.styl" afterPath="" />
+    <list default="true" id="252c4029-86b6-4f21-bcdf-633adfbe4631" name="Default" comment="Update">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/chcontainer/chcontainer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/chcontainer/chcontainer.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/weather/city.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/disabled/disabled.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/global.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/global.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/header/header.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/library.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/link/link.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/weather/location.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/reset.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/index/search.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/search/search.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/search/search.styl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/weather/weather.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/blocks/wlist/wlist.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/Readme_zh-cn.md" afterPath="$PROJECT_DIR$/node_modules/jade/Readme_zh-cn.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/.npmignore" afterPath="$PROJECT_DIR$/node_modules/jade/.npmignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/character-parser/.npmignore" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/character-parser/.npmignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/.npmignore" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/.npmignore" />
@@ -32,6 +37,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/README.md" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/Readme.md" afterPath="$PROJECT_DIR$/node_modules/jade/Readme.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/node_modules/promise/Readme.md" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/node_modules/promise/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/attrs.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/attrs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/beta-sticker-1.png.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/beta-sticker-1.png.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt/node_modules/iconv-lite/test/big5File.txt" afterPath="$PROJECT_DIR$/node_modules/grunt/node_modules/iconv-lite/test/big5File.txt" />
@@ -40,25 +46,33 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block-comment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/block.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/case.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-html-build/node_modules/js-beautify/js/lib/cli.js" afterPath="$PROJECT_DIR$/node_modules/grunt-html-build/node_modules/js-beautify/js/lib/cli.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/js-beautify/js/lib/cli.js" afterPath="$PROJECT_DIR$/node_modules/js-beautify/js/lib/cli.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/code.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/comment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/compiler.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/compiler.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/component.json" afterPath="$PROJECT_DIR$/node_modules/jade/component.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/container/container.styl" afterPath="$PROJECT_DIR$/src/blocks/container/container.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/crlf.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/crlf.http" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/default.min.css" afterPath="$PROJECT_DIR$/public/default.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/default.jade" afterPath="$PROJECT_DIR$/src/blocks/default.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/doctype.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/doctypes.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/doctypes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/each.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/error/error.styl" afterPath="$PROJECT_DIR$/src/blocks/error/error.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/file1.styl" afterPath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/file1.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/subdir/file2.styl" afterPath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/subdir/file2.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/filename-name.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/filename-name.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/filter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/filters-client.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/filters-client.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/filters.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/filters.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/footer/footer.jade" afterPath="$PROJECT_DIR$/src/blocks/footer/footer.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt/node_modules/iconv-lite/test/gbkFile.txt" afterPath="$PROJECT_DIR$/node_modules/grunt/node_modules/iconv-lite/test/gbkFile.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/generic.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/no-filename/generic.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gruntfile.js" afterPath="$PROJECT_DIR$/gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/history.md" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/history.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/i-head/i-head.jade" afterPath="$PROJECT_DIR$/src/blocks/i-head/i-head.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/index/index.jade" afterPath="$PROJECT_DIR$/src/views/index/index.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/character-parser/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/character-parser/index.js" />
@@ -67,6 +81,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/with/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/with/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/test/index.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/with/node_modules/uglify-js/node_modules/uglify-to-browserify/test/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/index.styl" afterPath="$PROJECT_DIR$/node_modules/grunt-stylus/test/src/index.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/inline-tags.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/inline-tags.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/jade-language.md" afterPath="$PROJECT_DIR$/node_modules/jade/jade-language.md" />
@@ -83,6 +98,16 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-firefox-3.6.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-firefox-3.6.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-safari-5.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/osx-safari-5.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/gaze/node_modules/globule/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/node_modules/faye-websocket/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/node_modules/faye-websocket/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/node_modules/noptify/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr/node_modules/noptify/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-html-build/node_modules/js-beautify/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-html-build/node_modules/js-beautify/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-stylus/package.json" afterPath="$PROJECT_DIR$/node_modules/grunt-stylus/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/with/package.json" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/with/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/js-beautify/package.json" afterPath="$PROJECT_DIR$/node_modules/js-beautify/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/parser.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/plain.txt.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/encoding/plain.txt.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/preamble.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/preamble/preamble.http" />
@@ -91,10 +116,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/self-closing.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/self-closing.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/lib/shared.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/lib/shared.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/grunt-stylus/tasks/stylus.js" afterPath="$PROJECT_DIR$/node_modules/grunt-stylus/tasks/stylus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/t.styl" afterPath="$PROJECT_DIR$/src/blocks/t.styl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/tag.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/nodes/text.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/lib/transformers.js" afterPath="$PROJECT_DIR$/node_modules/jade/node_modules/transformers/lib/transformers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/jade/lib/utils.js" afterPath="$PROJECT_DIR$/node_modules/jade/lib/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/blocks/weather/weather.styl" afterPath="$PROJECT_DIR$/src/blocks/weather/weather.styl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-chrome-12.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-chrome-12.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-7.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-7.http" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-8.http" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/multiparty/test/fixture/http/special-chars-in-filename/xp-ie-8.http" />
@@ -124,54 +152,34 @@
       <file leaf-file-name="gruntfile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="36" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="101" max-vertical-offset="1080">
+            <state line="25" column="67" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2385">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/index/index.jade">
+      <file leaf-file-name="city.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/weather/city.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="18" selection-start="3478" selection-end="3478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-              <folding>
-                <marker date="1387090751000" expanded="true" signature="3678:6376" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="3738:5881" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="4981:5712" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5025:5562" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5097:5357" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5387:5523" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5566:5696" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5716:5841" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5945:6362" placeholder="{...}" />
-                <marker date="1387090751000" expanded="true" signature="5961:6151" placeholder="//..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/blocks/footer/footer.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="58" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+            <state line="38" column="12" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/blocks/default.jade">
+      <file leaf-file-name="location.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/weather/location.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+            <state line="39" column="52" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.59754854" vertical-offset="0" max-vertical-offset="979">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="i-head.jade" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/blocks/i-head/i-head.jade">
+      <file leaf-file-name="weather.styl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/blocks/container/weather/weather.styl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
@@ -195,22 +203,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/blocks/container/weather/weather.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/container/container.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/wcontent/wcontent.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/weather/now/now.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/weather/forecast/forecast.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/weather/select/select.styl" />
+        <option value="$PROJECT_DIR$/src/blocks/chcontainer/chcontainer.js" />
+        <option value="$PROJECT_DIR$/src/blocks/search/search.js" />
+        <option value="$PROJECT_DIR$/src/views/index/search.jade" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/src/js/library.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/src/blocks/weather/weather.js" />
+        <option value="$PROJECT_DIR$/src/views/weather/city.jade" />
         <option value="$PROJECT_DIR$/src/blocks/error/error.styl" />
         <option value="$PROJECT_DIR$/src/blocks/weather/weather.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/default.styl" />
-        <option value="$PROJECT_DIR$/src/blocks/footer/footer.jade" />
-        <option value="$PROJECT_DIR$/src/blocks/default.jade" />
-        <option value="$PROJECT_DIR$/src/blocks/i-head/i-head.jade" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/blocks/global.styl" />
+        <option value="$PROJECT_DIR$/public/global.css" />
+        <option value="$PROJECT_DIR$/src/blocks/container/container.styl" />
         <option value="$PROJECT_DIR$/gruntfile.js" />
-        <option value="$PROJECT_DIR$/src/views/index/index.jade" />
+        <option value="$PROJECT_DIR$/src/blocks/reset.styl" />
+        <option value="$PROJECT_DIR$/src/views/weather/location.jade" />
       </list>
     </option>
   </component>
@@ -293,6 +301,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weather" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -330,7 +342,73 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="blocks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blocks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="container" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grunt" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blocks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="container" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weather" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,6 +427,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/blocks/disabled" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/blocks" />
       <recent name="$PROJECT_DIR$/src/blocks/stat" />
     </key>
   </component>
@@ -419,18 +500,24 @@
       <created>1386868912051</created>
       <updated>1386868912051</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update">
+      <created>1387091405673</created>
+      <updated>1387091405673</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969216" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969216" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6703079" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6703079" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969216" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -439,8 +526,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -450,121 +535,126 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Init commit&#10;Rewrite Gewefope to grunt and BEM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init commit&#10;Rewrite Gewefope to grunt and BEM" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/default.css">
+    <entry file="file://$PROJECT_DIR$/src/blocks/error/error.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/default.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1380" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-stylus/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-html-build/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/grunt-jade/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/js-beautify/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+        <state line="5" column="14" selection-start="91" selection-end="91" vertical-scroll-proportion="0.076608784" vertical-offset="0" max-vertical-offset="979">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/src/blocks/weather/weather.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+        <state line="3" column="40" selection-start="131" selection-end="140" vertical-scroll-proportion="0.04658385" vertical-offset="0" max-vertical-offset="3525">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/blocks/wcontent/wcontent.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="39" selection-end="39" vertical-scroll-proportion="0.04596527" vertical-offset="0" max-vertical-offset="979">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="19" selection-start="139" selection-end="139" vertical-scroll-proportion="0.109947644" vertical-offset="0" max-vertical-offset="955">
+        <state line="6" column="23" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/index/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="18" selection-start="3478" selection-end="3478" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding>
-            <marker date="1387090751000" expanded="true" signature="3678:6376" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="3738:5881" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="4981:5712" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5025:5562" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5097:5357" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5387:5523" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5566:5696" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5716:5841" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5945:6362" placeholder="{...}" />
-            <marker date="1387090751000" expanded="true" signature="5961:6151" placeholder="//..." />
-          </folding>
+        <state line="27" column="36" selection-start="3599" selection-end="3599" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blocks/weather/now/now.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blocks/global.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1032" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blocks/reset.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="38" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="156" column="20" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.7201226" vertical-offset="1635" max-vertical-offset="7215">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="36" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+        <state line="25" column="67" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blocks/footer/footer.jade">
+    <entry file="file://$PROJECT_DIR$/src/blocks/container/container.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="58" selection-end="81" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+        <state line="7" column="29" selection-start="122" selection-end="122" vertical-scroll-proportion="0.1072523" vertical-offset="0" max-vertical-offset="979">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blocks/default.jade">
+    <entry file="file://$PROJECT_DIR$/src/blocks/weather/weather.styl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+        <state line="14" column="27" selection-start="280" selection-end="280" vertical-scroll-proportion="0.2145046" vertical-offset="0" max-vertical-offset="979">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/blocks/i-head/i-head.jade">
+    <entry file="file://$PROJECT_DIR$/src/views/weather/city.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="966">
+        <state line="38" column="12" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blocks/chcontainer/chcontainer.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/blocks/container/weather/weather.styl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="979">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/weather/location.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="52" selection-start="1740" selection-end="1740" vertical-scroll-proportion="0.59754854" vertical-offset="0" max-vertical-offset="979">
           <folding />
         </state>
       </provider>

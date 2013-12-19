@@ -1,1 +1,47 @@
+include ../../blocks/default.jade
+doctype 5
+html.no-js
+    head
+        +i-head('Location')
+        style.
+            .b-logo__name{color: #fff}
+    body.b-page
+        .b-wcontent
+            .b-header.b-container
+                +b-logo('', 'link')
 
+            article.b-container-weather.b-container-weather_weather
+                h1.b-weather__locname
+                    span.b-weather__locname_city
+                    span.b-weather__locname_country
+
+                .b-weather__data
+                    .b-weather__data__main
+                        span.b-weather__data__main_temp
+                        span.b-weather__data__main_sky
+                            span.b-weather__data__main_sky_descr
+                            span.b-weather__data__main_sky_fdescr
+
+                    .b-weather__data__wind.b-weather__data_sec
+                        span.b-weather__data__wind_val
+                    .b-weather__data__pres.b-weather__data_sec
+                        span.b-weather__data__pres_val
+                    .b-weather__data__hum.b-weather__data_sec
+                        span.b-weather__data__hum_val
+
+            .b-container-weather.b-container-weather_loading
+                img(src='/images/ajax-loader.gif')
+
+            .b-container-weather.b-container-weather_error
+                .b-error
+                    p.b-error__text No
+
+            +b-footer('link')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='/js/global.min.js')
+        script.
+            window.onload = function(){lego.weather_city()};
+        script(src='//maps.googleapis.com/maps/api/js?key=AIzaSyCMxJbbsTWz3trqfIugu4muMDhpUIAnTDs&sensor=false&lang=en')
+        .b-map#b-map
+        +i-stat
+                     
