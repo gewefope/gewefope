@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         jade: {
             html: {
                 files: {
-                    'public/': ['src/views/*.jade', 'src/views/**/*.jade']
+                    'public/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
                 },
                 options: {
                     pretty: true,
@@ -91,10 +91,10 @@ module.exports = function (grunt) {
 
                 },
                 files:{
-                    'public/index.html': 'public/index.html',
-                    'public/city.html': 'public/city.html',
-                    'public/location.html': 'public/location.html',
-                    'public/search.html': 'public/search.html'
+                    'public/pages/index.html': 'public/pages/index.html',
+                    'public/pages/city.html': 'public/pages/city.html',
+                    'public/pages/location.html': 'public/pages/location.html',
+                    'public/pages/search.html': 'public/pages/search.html'
                 }
             }
         },
