@@ -151,7 +151,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
 
 
-    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik', 'htmlmin']);
+    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik']);
     //grunt.registerTask('server', ['shell:server']);
     grunt.registerTask('server', ['connect', 'watch']);
 };

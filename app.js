@@ -41,7 +41,7 @@ app.get('/search', function (req, res) {
 app.get('/location', function (req, res) {
     //res.render('public/location.html');
     //res.sendfile(__dirname + '/public/pages/location.html');
-    res.sendfile('/public/pages/location.html');
+    res.sendfile('public/pages/location.html');
 });
 
 app.get('/city/:id', function (req, res) {
