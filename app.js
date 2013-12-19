@@ -12,7 +12,6 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'public'));
-app.engine('html', require('ejs').renderFile);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -28,19 +27,23 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function (req, res) {
-    res.render('public/index.html');
+    //res.render('public/index.html');
+    res.sendfile(__dirname + '/public/index.html');
 });
 
 app.get('/search', function (req, res) {
-    res.render('public/search.html');
+    //res.render('public/search.html');
+    res.sendfile(__dirname + '/public/search.html');
 });
 
 app.get('/location', function (req, res) {
-    res.render('public/location.html');
+    //res.render('public/location.html');
+    res.sendfile(__dirname + '/public/location.html');
 });
 
 app.get('/city/:id', function (req, res) {
-    res.render('public/city.html');
+//    res.render('public/city.html');
+    res.sendfile(__dirname + '/public/city.html');
 });
 
 

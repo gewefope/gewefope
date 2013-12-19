@@ -23,7 +23,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //'public/global.css': 'src/blocks/global.styl'
-                    'public/global.css': ['src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl']
+                    'public/css/global.css': ['src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl']
                 }
             }
         },
@@ -32,8 +32,8 @@ module.exports = function (grunt) {
                 browsers: ['last 2 version', 'ie 9']
             },
             single_file: {
-                src: 'public/global.css',
-                dest: 'public/global.css'
+                src: 'public/css/global.css',
+                dest: 'public/css/global.css'
             }
         },
         uglify: {
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                     banner: '/* (c) World Fly */\n'
                 },
                 files: {
-                    'public/global.min.css': ['public/global.css']
+                    'public/css/global.min.css': ['public/css/global.css']
                 }
             }
         },
@@ -91,7 +91,10 @@ module.exports = function (grunt) {
 
                 },
                 files:{
-                    'public/index.html': 'public/index.html'
+                    'public/index.html': 'public/index.html',
+                    'public/city.html': 'public/city.html',
+                    'public/location.html': 'public/location.html',
+                    'public/search.html': 'public/search.html'
                 }
             }
         },

@@ -35,9 +35,9 @@ lego.getWeather = function (type, b, c) {
  * @param {string} name Имя cookie
  * @param {string} value Значение cookie
  */
-lego.setCookie = function(name, value){
+lego.setCookie = function (name, value) {
     var age = new Date(new Date().getTime() + 60 * 100000),
-     val = value + "; expires=" + age.toUTCString();
+        val = value + "; expires=" + age.toUTCString();
     document.cookie = name + "=" + val;
 };
 
@@ -48,7 +48,7 @@ lego.setCookie = function(name, value){
  * @param {string} name Имя cookie
  * @return {string}  Значение cookie
  */
-lego.getCookie = function(name){
+lego.getCookie = function (name) {
     var matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
@@ -61,7 +61,7 @@ lego.getCookie = function(name){
  * @param name Name of the parameter to get.
  * @return Значение параметра
  */
-lego.getURLParameter = function(name){
+lego.getURLParameter = function (name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 };
 
@@ -69,7 +69,7 @@ lego.getURLParameter = function(name){
  * Определяет местоположение
  *
  */
-lego.geoLocation = function(){
+lego.geoLocation = function () {
     var error;
     if (Modernizr.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {

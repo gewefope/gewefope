@@ -214,7 +214,7 @@ lego.weather_city = function () {
         });
 
 
-}
+};
 
 lego.weather_error = function (errorCod) {
     var errorText;
