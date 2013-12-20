@@ -70,25 +70,25 @@ lego.getURLParameter = function (name) {
  *
  */
 lego.geoLocation = function () {
-    var error;
+    var result;
     if (Modernizr.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             lego.setCookie("latitude", position.coords.latitude);
             lego.setCookie("longitude", position.coords.longitude);
             console.info("Location successfully determined.");
             lego.setCookie("geoLocationError", "false");
-            error = false;
+            result = true;
         }, function () {
             console.warn("During detection location the error occurred.");
             lego.setCookie("geoLocationError", "true");
-            error = true;
+            result = false;
         });
 
     } else {
         console.warn("During detection location the error occurred.");
         lego.setCookie("geoLocationError", "true");
-        error = true;
+        result = false;
     }
 
-    return error;
+    return result;
 };

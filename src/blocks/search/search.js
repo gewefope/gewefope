@@ -1,38 +1,4 @@
-//function errorLink() {
-//
-////        if (getCookie('latitude') == undefined || getCookie('longitude') == undefined) {
-////            if (Modernizr.geolocation) {
-////                navigator.geolocation.getCurrentPosition(function (a) {
-////                        setCookie('latitude', a.coords.latitude);
-////                        setCookie('longitude', a.coords.longitude);
-////                        setCookie('geoLocationError', 'false');
-////                        document.location.href = '/location';
-////                    },
-////                    function () {
-////                        setCookie('geoLocationError', 'true');
-////                        document.location.href = '/location';
-////                    }
-////                );
-////            } else {
-////                setCookie('geoLocationError', 'true');
-////                document.location.href = '/location';
-////            }
-////        } else {
-////            setCookie('geoLocationError', 'false');
-////            document.location.href = '/location';
-////        }
-////        return false;
-//    });
-//}
-
-lego.search_error = function () {
-    $('<div class=\"b-wlist__error\">Nothing was found. <a class=\"b-wlist__error__link\" href=\"/\">Geolocation?</a></div>').appendTo('.b-wlist');
-    $('.b-wlist__error__link').click(function () {
-        lego.geoLocation();
-    });
-};
-
-lego.search_init = (function () {
+lego.search_init = function () {
     var query = lego.getURLParameter('q');
     $('.b-search__q').text(query);
     document.searchf.q.value = query;
@@ -61,9 +27,15 @@ lego.search_init = (function () {
             }
         })
         .fail(function (jqxhr, textStatus, error) {
-            errorLink();
+            lego.search_error();
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
         });
-});
+};
 
+lego.search_error = function () {
+    $('<div class=\"b-wlist__error\">Nothing was found. <a class=\"b-wlist__error__link\" href=\"/\">Geolocation?</a></div>').appendTo('.b-wlist');
+    $('.b-wlist__error__link').click(function () {
+        lego.geoLocation();
+    });
+};

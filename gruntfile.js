@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         jade: {
             html: {
                 files: {
-                    'public/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
+                    'dist/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
                 },
                 options: {
                     pretty: true,
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //'public/global.css': 'src/blocks/global.styl'
-                    'public/css/global.css': ['src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl']
+                    'dist/public/css/global.css': ['src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl']
                 }
             }
         },
@@ -32,8 +32,8 @@ module.exports = function (grunt) {
                 browsers: ['last 2 version', 'ie 9']
             },
             single_file: {
-                src: 'public/css/global.css',
-                dest: 'public/css/global.css'
+                src: 'dist/public/css/global.css',
+                dest: 'dist/public/css/global.css'
             }
         },
         uglify: {
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                     banner: '/* (c) World Fly */ \n'
                 },
                 files: {
-                    'public/lib.min.js': ['src/js/library.js']
+                    'dist/public/lib.min.js': ['src/js/library.js']
                 }
             },
             borschik: {
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                     banner: '/* (c) World Fly */ \n'
                 },
                 files: {
-                    'public/js/global.min.js': ['public/js/global.js']
+                    'dist/public/js/global.min.js': ['dist/public/js/global.js']
                 }
             }
         },
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
                     banner: '/* (c) World Fly */\n'
                 },
                 files: {
-                    'public/css/global.min.css': ['public/css/global.css']
+                    'dist/public/css/global.min.css': ['dist/public/css/global.css']
                 }
             }
         },
@@ -72,12 +72,7 @@ module.exports = function (grunt) {
                 command: 'node app.js'
             },
             broschik1: {
-                command: 'node_modules/.bin/borschik --input=src/blocks/global.js --minimize=no --output=public/global.js'
-            }
-        },
-        borschik: {
-            files: {
-                'public/global.js': ['src/blocks/global.js']
+                command: 'node_modules/.bin/borschik --input=src/blocks/global.js --minimize=no --output=dist/public/global.js'
             }
         },
         htmlmin: {
@@ -91,10 +86,10 @@ module.exports = function (grunt) {
 
                 },
                 files:{
-                    'public/pages/index.html': 'public/pages/index.html',
-                    'public/pages/city.html': 'public/pages/city.html',
-                    'public/pages/location.html': 'public/pages/location.html',
-                    'public/pages/search.html': 'public/pages/search.html'
+                    'dist/pages/index.html': 'dist/pages/index.html',
+                    'dist/pages/city.html': 'dist/pages/city.html',
+                    'dist/pages/location.html': 'dist/pages/location.html',
+                    'dist/pages/search.html': 'dist/pages/search.html'
                 }
             }
         },
@@ -104,7 +99,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js'],
-                dest: 'public/js/global.js'
+                dest: 'dist/public/js/global.js'
             }
         },
         watch: {
@@ -147,11 +142,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
 
 
     grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik']);
-    //grunt.registerTask('server', ['shell:server']);
-    grunt.registerTask('server', ['connect', 'watch']);
 };
