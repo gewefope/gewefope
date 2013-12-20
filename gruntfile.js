@@ -69,7 +69,7 @@ module.exports = function (grunt) {
         },
         shell: {
             server: {
-                command: 'node app.js'
+                command: 'node server.js'
             },
             broschik1: {
                 command: 'node_modules/.bin/borschik --input=src/blocks/global.js --minimize=no --output=dist/public/global.js'
