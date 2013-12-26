@@ -13,7 +13,8 @@ server.use(express.logger('dev'));
 //app.use(express.methodOverride());
 server.use(server.router);
 //TODO: Разобраться со статическими файлами
-server.use(express.static(path.join(__dirname + '/dist/public/')));
+//server.use(express.static(path.join(__dirname + '/dist/public/')));
+server.use(express.static(__dirname + '/dist/public'));
 //server.use('/files', express.static('dist/public'));
 
 // development only
