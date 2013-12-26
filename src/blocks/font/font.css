@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Linear';
+    src: local('Linear');
+    src: url('/fonts/linear.woff'), url('/fonts/linear.ttf');
+}
+
+.b-text_linear {
+    font-family: 'Linear';
+}

@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         jade: {
             html: {
                 files: {
-                    'dist/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
+                    'pages/': ['src/views/*.jade', 'src/views/**/*.jade']
                 },
                 options: {
                     pretty: true,

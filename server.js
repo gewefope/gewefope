@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express'),
     http = require('http'),
     path = require('path'),
@@ -17,8 +12,9 @@ server.use(express.logger('dev'));
 //app.use(express.urlencoded());
 //app.use(express.methodOverride());
 server.use(server.router);
-//app.use(express.static(path.join(__dirname + '/dist/public/')));
-server.use('/files', express.static('dist/public/'));
+//TODO: Разобраться со статическими файлами
+server.use(express.static(path.join(__dirname + '/dist/public/')));
+//server.use('/files', express.static('dist/public'));
 
 // development only
 if ('development' == server.get('env')) {
@@ -28,30 +24,28 @@ if ('development' == server.get('env')) {
 server.get('/', function (req, res) {
     //res.render('public/index.html');
     //res.sendfile(__dirname + '/public/pages/index.html');
-    res.sendfile(__dirname + '/dist/pages/index.html');
+    res.sendfile(__dirname + '/pages/index.html');
 });
 
 server.get('/search', function (req, res) {
     //res.render('public/search.html');
     //res.sendfile(__dirname + '/public/pages/search.html');
-    res.sendfile(__dirname + '/dist/pages/search.html');
+    res.sendfile(__dirname + '/pages/search.html');
 });
 
 server.get('/location', function (req, res) {
     //res.render('public/location.html');
     //res.sendfile(__dirname + '/public/pages/location.html');
-    res.sendfile(__dirname + '/dist/pages/location.html');
+    res.sendfile(__dirname + '/pages/location.html');
 });
 
 server.get('/city/:id', function (req, res) {
 //    res.render('public/city.html');
     //res.sendfile(__dirname + '/public/pages/city.html');
-    res.sendfile(__dirname + '/dist/pages/city.html');
+    res.sendfile(__dirname + '/pages/city.html');
 });
 
 
-
-
-http.createServer(server).listen(server.get('port'), function(){
-  console.log('Express server listening on port ' + server.get('port'));
+http.createServer(server).listen(server.get('port'), function () {
+    console.log('Express server listening on port ' + server.get('port'));
 });
