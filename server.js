@@ -26,25 +26,25 @@ if ('development' == server.get('env')) {
 server.get('/', function (req, res) {
 //    res.render(__dirname + '/dist/pages/index.html');
     //res.sendfile(__dirname + '/public/pages/index.html');
-//    res.sendfile(__dirname + '/pages/index.html');
+    res.sendfile(__dirname + '/dist/pages/index.html');
 });
 
 server.get('/search', function (req, res) {
-    res.render(__dirname + '/dist/pages/search.html');
+//    res.render(__dirname + '/dist/pages/search.html');
     //res.sendfile(__dirname + '/public/pages/search.html');
-//    res.sendfile(__dirname + '/pages/search.html');
+    res.sendfile(__dirname + '/dist/pages/search.html');
 });
 
 server.get('/location', function (req, res) {
-    res.render(__dirname + '/dist/pages/location.html');
+//    res.render(__dirname + '/dist/pages/location.html');
     //res.sendfile(__dirname + '/public/pages/location.html');
-//    res.sendfile(__dirname + '/pages/location.html');
+    res.sendfile(__dirname + '/dist/pages/location.html');
 });
 
 server.get('/city/:id', function (req, res) {
-    res.render(__dirname + '/dist/pages/city.html');
+//    res.render(__dirname + '/dist/pages/city.html');
     //res.sendfile(__dirname + '/public/pages/city.html');
-//    res.sendfile(__dirname + '/pages/city.html');
+    res.sendfile(__dirname + '/dist/pages/city.html');
 });
 
 
