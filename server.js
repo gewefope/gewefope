@@ -1,7 +1,8 @@
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    server = express();
+    server = express(),
+    fs = require('fs');
 
 // all environments
 server.set('port', process.env.PORT || 3000);
@@ -24,9 +25,14 @@ if ('development' == server.get('env')) {
 }
 
 server.get('/', function (req, res) {
-    res.render(__dirname + '/dist/pages/index.html');
+//    res.render(__dirname + '/dist/pages/index.html');
     //res.sendfile(__dirname + '/public/pages/index.html');
 //    res.sendfile(__dirname + '/pages/index.html');
+
+    fs.readFile(__dirname + '/dist/pages/index.html', 'utf8', function(err, text){
+        res.status(200);
+        res.send(text);
+    });
 });
 
 server.get('/search', function (req, res) {
