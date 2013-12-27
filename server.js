@@ -1,13 +1,12 @@
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    server = express(),
-    fs = require('fs');
+    server = express();
 
 // all environments
 server.set('port', process.env.PORT || 3000);
-server.set('views', path.join(__dirname, '/dist/pages'));
-server.engine('html', require('ejs').renderFile);
+//server.set('views', path.join(__dirname, '/dist/pages'));
+//server.engine('html', require('ejs').renderFile);
 //app.use(express.favicon());
 server.use(express.logger('dev'));
 //app.use(express.json());
@@ -15,7 +14,7 @@ server.use(express.logger('dev'));
 server.use(express.methodOverride());
 server.use(server.router);
 //TODO: Разобраться со статическими файлами
-server.use(express.static(path.join(__dirname, 'dist/public')));
+server.use(express.static(path.join(__dirname, '/dist/public')));
 //server.use(express.static(__dirname + '/dist/public'));
 //server.use('/files', express.static('dist/public'));
 
@@ -28,11 +27,6 @@ server.get('/', function (req, res) {
 //    res.render(__dirname + '/dist/pages/index.html');
     //res.sendfile(__dirname + '/public/pages/index.html');
 //    res.sendfile(__dirname + '/pages/index.html');
-
-    fs.readFile(__dirname + '/dist/pages/index.html', 'utf8', function(err, text){
-        res.status(200);
-        res.send(text);
-    });
 });
 
 server.get('/search', function (req, res) {
