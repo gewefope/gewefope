@@ -5,7 +5,7 @@ module.exports = function (grunt) {
         jade: {
             html: {
                 files: {
-                    'pages/': ['src/views/*.jade', 'src/views/**/*.jade']
+                    'dist/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
                 },
                 options: {
                     pretty: true,
@@ -22,8 +22,7 @@ module.exports = function (grunt) {
                     'compress': true
                 },
                 files: {
-                    //'public/global.css': 'src/blocks/global.styl'
-                    'dist/public/css/global.css': ['src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl']
+                    'dist/public/css/global.css': ['src/blocks/font/font.styl', 'src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl', 'src/blocks/loader/loader.styl']
                 }
             }
         },
@@ -85,7 +84,7 @@ module.exports = function (grunt) {
                     removeEmptyAttributes: true
 
                 },
-                files:{
+                files: {
                     'dist/pages/index.html': 'dist/pages/index.html',
                     'dist/pages/city.html': 'dist/pages/city.html',
                     'dist/pages/location.html': 'dist/pages/location.html',
@@ -129,6 +128,20 @@ module.exports = function (grunt) {
                     base: 'public/'
                 }
             }
+        },
+        svgmin: {
+            options: {
+                plugins: [
+                    {
+                        removeViewBox: false
+                    }
+                ]
+            },
+            dist: {
+                files: {
+                    'dist/public/img/loader.svg': 'src/blocks/loader/loader.svg'
+                }
+            }
         }
 
     });
@@ -142,7 +155,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-svgmin');
 
 
-    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik']);
+    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik', 'svgmin']);
 };
