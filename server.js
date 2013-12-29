@@ -18,25 +18,35 @@ if ('development' == server.get('env')) {
 }
 
 server.get('/', function (req, res) {
-    res.set('Content-Type', 'text/html');
-    res.sendfile(__dirname + '/dist/pages/index.html');
+    res.status(200)
+        .set('Content-Type', 'text/html')
+        .sendfile(__dirname + '/dist/pages/index.html');
 });
 
 server.get('/search', function (req, res) {
-    res.set('Content-Type', 'text/html');
-    res.sendfile(__dirname + '/dist/pages/search.html');
+    res.status(200)
+        .set('Content-Type', 'text/html')
+        .sendfile(__dirname + '/dist/pages/search.html');
 });
 
 server.get('/location', function (req, res) {
-    res.set('Content-Type', 'text/html');
-    res.sendfile(__dirname + '/dist/pages/location.html');
+    res.status(200)
+        .set('Content-Type', 'text/html')
+        .sendfile(__dirname + '/dist/pages/location.html');
 });
 
 server.get('/city/:id', function (req, res) {
-    res.set('Content-Type', 'text/html');
-    res.sendfile(__dirname + '/dist/pages/city.html');
+    res.status(200)
+        .set('Content-Type', 'text/html')
+        .sendfile(__dirname + '/dist/pages/city.html');
 });
 
+server.use(function (req, res) {
+        res.status(404)
+            .set('Content-Type', 'text/html')
+            .send('404');
+            //.sendfile(__dirname + '/server/404.html');
+});
 
 http.createServer(server).listen(server.get('port'), function () {
     console.log('Express server listening on port ' + server.get('port'));
