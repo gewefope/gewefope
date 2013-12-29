@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Linear';
+  src: local('Linear');
+  src: url("//st.worldfly.org/gewefope/0.0.1/font/linear.woff"),url("//st.worldfly.org/gewefope/0.0.1/font/linear.ttf");
+}
+
+.b-text_linear {
+  font-family: Linear;
+}
+
 html,
 body,
 div,
@@ -473,4 +483,58 @@ table {
   font-size: 25em;
   font-weight: 300;
   padding-top: .4em;
+}
+
+.b-loader {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-transform: translate(0,0);
+}
+
+.b-loader__spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .4;
+  background: url("/img/loader.svg");
+  background-size: 100% 100%;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+
+.b-loader_size_s {
+  width: 16px;
+  height: 16px;
+}
+
+.b-loader_size_m {
+  width: 32px;
+  height: 32px;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
