@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Linear';
   src: local('Linear');
-  src: url("//st.worldfly.org/gewefope/0.0.1/font/linear.woff"),url("//st.worldfly.org/gewefope/0.0.1/font/linear.ttf");
+  src: url("//archive.worldfly.org/gewefope/0.0.1/font/linear.woff"),url("//archive.worldfly.org/gewefope/0.0.1/font/linear.ttf");
 }
 
 .b-text_linear {
