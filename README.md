@@ -1,4 +1,4 @@
-Gewefope
+Gewefope [![Build Status](https://travis-ci.org/skhokhlov/gewefope.png?branch=master)](https://travis-ci.org/skhokhlov/gewefope)
 ========
 Website with weather forecast.
 
