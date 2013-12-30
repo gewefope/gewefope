@@ -1,6 +1,7 @@
-var express = require('express'),
-    http = require('http'),
-    server = express();
+var express = require('express')
+    , http = require('http')
+    , server = express()
+    ;
 
 
 server.set('port', process.env.PORT || 3000);
@@ -19,25 +20,29 @@ if ('development' == server.get('env')) {
 server.get('/', function (req, res) {
     res.status(200)
         .set('Content-Type', 'text/html')
-        .sendfile(__dirname + '/dist/pages/index.html');
+        .sendfile(__dirname + '/dist/pages/index.html')
+    ;
 });
 
 server.get('/search', function (req, res) {
     res.status(200)
         .set('Content-Type', 'text/html')
-        .sendfile(__dirname + '/dist/pages/search.html');
+        .sendfile(__dirname + '/dist/pages/search.html')
+    ;
 });
 
 server.get('/location', function (req, res) {
     res.status(200)
         .set('Content-Type', 'text/html')
-        .sendfile(__dirname + '/dist/pages/location.html');
+        .sendfile(__dirname + '/dist/pages/location.html')
+    ;
 });
 
 server.get('/city/:id', function (req, res) {
     res.status(200)
         .set('Content-Type', 'text/html')
-        .sendfile(__dirname + '/dist/pages/city.html');
+        .sendfile(__dirname + '/dist/pages/city.html')
+    ;
 });
 
 server.use(function (req, res) {
@@ -49,5 +54,5 @@ server.use(function (req, res) {
 });
 
 http.createServer(server).listen(server.get('port'), function () {
-    console.log('Express server listening on port ' + server.get('port'));
+    console.log('Server listening on port ' + server.get('port'));
 });
