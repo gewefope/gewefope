@@ -1,6 +1,11 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 before_script:
-  - npm install -g grunt-cli
-  - grunt
+- npm install -g grunt-cli
+- grunt
+deploy:
+  api_key:
+    app: debug-gewefope
+    provider: heroku
+    secure: f45WdJvUsk2BDW8fdn76S7qhJGUMOqMk8UW+hyCGg+TBk3Kpc6JILlqMDOcNTehR9GU1L7YNj9WdHpUtkYvormptb0Mvx5SbiHBJz7AhkfKsia8Kh1t2ei7kuzyRp54MlN9rUgudSn02w8rqL0IDK+SUwoNOBMzhJgMtye0g5FA=
