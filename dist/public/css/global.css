@@ -330,6 +330,22 @@ table {
   display: none;
 }
 
+.b-weather-forecast__line {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 4px;
+  width: 400px;
+}
+
+.b-weather-forecast__section {
+  display: inline-block;
+}
+
+.b-weather-forecast__section__date {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
 .b-weather-select__item {
   display: inline-block;
   padding-right: 1.1em;

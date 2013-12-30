@@ -1,6 +1,7 @@
 var express = require('express')
     , http = require('http')
     , server = express()
+    //, request = require('request')
     ;
 
 
@@ -24,6 +25,29 @@ server.get('/', function (req, res) {
     ;
 });
 
+//server.get('/api/:first/:second/:third/:four', function (req, res) {
+//    var param = {
+//        first: req.params.first,
+//        second: req.params.second,
+//        third: req.params.third,
+//        four: req.params.four,
+//        host: 'http://api.openweathermap.org/data/2.5/',
+//        params: 'mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
+//    };
+//
+//    if (param.first == 'search') {
+//        request(param.host + 'find?' + param.params + '&q=' + param.second, function (err, response, body) {
+//            if (!err && response.statusCode == 200) {
+//                res.send(body);
+//            } else {
+//                res.status(502)
+//                    .send('502');
+//            }
+//        });
+//    }
+//
+//});
+
 server.get('/search', function (req, res) {
     res.status(200)
         .set('Content-Type', 'text/html')
@@ -46,10 +70,10 @@ server.get('/city/:id', function (req, res) {
 });
 
 server.use(function (req, res) {
-        res.status(404)
-            .set('Content-Type', 'text/html')
-            .send('404')
-            //.sendfile(__dirname + '/server/404.html')
+    res.status(404)
+        .set('Content-Type', 'text/html')
+        .send('404')
+        //.sendfile(__dirname + '/server/404.html')
     ;
 });
 

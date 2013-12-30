@@ -282,9 +282,16 @@ lego.search_error = function () {
                             default:
                                 date.monthtxt = '<!-- Error -->';
                         }
-                        var template = '<div class=\"b-weather-forecast__line\"><div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div><div class=\"b-weather-forecast__section b-weather-forecast__section_content\"><div class=\"b-weather-forecast__temp\">{temp}</div></div></div>';
+                        var template =
+                                '<div class=\"b-weather-forecast__line\">' +
+                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
+                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
+                                        '<div class=\"b-weather-forecast__section__item b-weather-forecast__temp\">{temp}</div>' +
+                                    '</div>' +
+                                '</div>'
+                            ;
 
-                        var insert = template.replace('{date}', date.day + ' ' + date.monthtxt)
+                        var insert = template.replace('{date}', date.day + ' <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
                             .replace('{temp}', item.temp.max);
 
                         $(insert).appendTo('.b-weather-forecast');
