@@ -1,3 +1,5 @@
+'use strict'
+
 var request = require('request'),
     should = require('should');
 describe('Test for HTTP status code handling\n', function(){

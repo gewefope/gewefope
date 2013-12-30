@@ -1,6 +1,5 @@
 var express = require('express'),
     http = require('http'),
-    path = require('path'),
     server = express();
 
 
@@ -10,7 +9,7 @@ server.use(express.logger('dev'));
 
 server.use(express.methodOverride());
 server.use(server.router);
-server.use(express.static(path.join(__dirname, '/dist/public')));
+server.use(express.static(require('path').join(__dirname, '/dist/public')));
 
 // development only
 if ('development' == server.get('env')) {
@@ -44,8 +43,9 @@ server.get('/city/:id', function (req, res) {
 server.use(function (req, res) {
         res.status(404)
             .set('Content-Type', 'text/html')
-            .send('404');
-            //.sendfile(__dirname + '/server/404.html');
+            .send('404')
+            //.sendfile(__dirname + '/server/404.html')
+    ;
 });
 
 http.createServer(server).listen(server.get('port'), function () {
