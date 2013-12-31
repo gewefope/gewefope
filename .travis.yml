@@ -6,6 +6,7 @@ before_script:
 - grunt
 deploy:
   api_key:
-    app: debug-gewefope
     provider: heroku
-    secure: f45WdJvUsk2BDW8fdn76S7qhJGUMOqMk8UW+hyCGg+TBk3Kpc6JILlqMDOcNTehR9GU1L7YNj9WdHpUtkYvormptb0Mvx5SbiHBJz7AhkfKsia8Kh1t2ei7kuzyRp54MlN9rUgudSn02w8rqL0IDK+SUwoNOBMzhJgMtye0g5FA=
+    secure: E7M+Hr43y46yMmBV2vKZFowPbb5vnhZTj4MFWUApxRDgwBM42m3ySbbe7ooDbu50CkauxSSyOfAaNZ1er5NtSmUHqi7Dv+MIlqGyJ0+YeISxhxFyM039iIMF0M9k/yiZ3+YIzH3VFw2JE0367+tYIRHROigSnvoOg760GX0U/ck=
+    app: debug-gewefope
+    strategy: git
