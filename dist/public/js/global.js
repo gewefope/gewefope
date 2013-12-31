@@ -215,7 +215,7 @@ lego.search_error = function () {
                     }
                     $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                     $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
-                    $('.b-wcontainer_loading').hide();
+                    $('.b-loader').hide();
                     console.log('weather data was loaded');
                     google.maps.event.addDomListener(window, 'load', function () {
                         var a = {zoom: 13, center: new google.maps.LatLng(coords.lat, coords.lon), disableDefaultUI: !0, mapTypeId: google.maps.MapTypeId.TERRAIN};
@@ -241,6 +241,7 @@ lego.search_error = function () {
                             day: dt.getDay(),
                             month: dt.getMonth() + 1,
                             monthtxt: ''
+
                         };
                         switch (date.month) {
                             case 1:
@@ -291,8 +292,9 @@ lego.search_error = function () {
                                 '</div>'
                             ;
 
-                        var insert = template.replace('{date}', date.day + ' <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
-                            .replace('{temp}', item.temp.max);
+//                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
+                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
+                            .replace('{temp}', item.temp.max + '℃');
 
                         $(insert).appendTo('.b-weather-forecast');
                     });
@@ -368,7 +370,7 @@ lego.weather_city = function () {
                 }
                 $('.b-weather__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                 $('.b-weather__data__hum_val').text('Humidity ' + data.main.humidity + '%');
-                $('.b-wcontainer_loading').hide();
+                $('.b-loader').hide();
                 console.log('weather data was loaded');
                 //function mapInit(){var a={zoom:13,center:new google.maps.LatLng(getCookie('latitude'),getCookie('longitude')),disableDefaultUI:!0,mapTypeId:google.maps.MapTypeId.TERRAIN};new google.maps.Map(document.getElementById('b-map'),a)}
                 google.maps.event.addDomListener(window, 'load', function () {
@@ -390,8 +392,8 @@ lego.weather_city = function () {
 
 lego.weather_error = function (errorCod) {
     var errorText;
-    $('.b-container_weather').hide();
-    $('.b-container_error').show();
+    $('.b-container-weather_weather').hide();
+    $('.b-container-weather_error').show();
     if (errorCod == 0) {
         errorText = 'Geolocation error';
     } else if (errorCod == 1) {

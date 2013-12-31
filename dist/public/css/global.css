@@ -232,12 +232,20 @@ table {
 }
 
 .b-wcontent {
-  position: absolute;
+  position: fixed;
   z-index: 20;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.45);
   width: 100%;
   height: 100%;
   color: #fff !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 760px) {
+  .b-wcontent {
+    overflow-x: scroll;
+  }
 }
 
 .b-footer {
@@ -251,8 +259,8 @@ table {
 
 @media screen and (max-width: 760px) {
   .b-footer {
-    position: relative;
-    top: 1.2em;
+    position: static;
+    padding-top: 1.2em;
   }
 }
 
@@ -331,8 +339,8 @@ table {
 }
 
 .b-weather-forecast__line {
-  border-bottom: 1px solid #fff;
-  padding-bottom: 4px;
+  border-bottom: 1px dashed #cfcfcf;
+  padding: 1px 5px 4px 5px;
   width: 400px;
 }
 
@@ -344,6 +352,11 @@ table {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+.b-weather-forecast__section__day {
+  font-size: 1.5em;
+  padding-right: 5px;
 }
 
 .b-weather-select__item {
@@ -365,6 +378,7 @@ table {
 .b-map,
 #map-canvas {
   height: 100%;
+  width: 100%;
 }
 
 .b-disabled {

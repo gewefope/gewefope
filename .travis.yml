@@ -4,9 +4,3 @@ node_js:
 before_script:
 - npm install -g grunt-cli
 - grunt
-deploy:
-  api_key:
-    provider: heroku
-    secure: 5b8a8624-fb5b-43e1-b3e0-646667681ccf
-    app: debug-gewefope
-    strategy: git
