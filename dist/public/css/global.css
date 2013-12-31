@@ -210,16 +210,10 @@ table {
 .b-container-weather {
   width: 100%;
   padding: 10px 20px;
-  margin-bottom: -100px;
 }
 
 .b-container-weather_weather {
   padding: 3em 15em 0 15em;
-}
-
-.b-container-weather_error {
-  z-index: 30;
-  display: none;
 }
 
 .b-link {
@@ -262,6 +256,10 @@ table {
     position: static;
     padding-top: 1.2em;
   }
+}
+
+.b-footer_st {
+  position: static !important;
 }
 
 .b-footer__table {
@@ -366,10 +364,12 @@ table {
 
 .b-weather-forecast__temp_max {
   font-size: 1.3em;
+  color: #ffd9bc;
 }
 
 .b-weather-forecast__temp_min {
   font-size: 1em;
+  color: #adbfff;
 }
 
 .b-weather-select__item {
@@ -391,7 +391,8 @@ table {
 .b-map,
 #map-canvas {
   height: 100%;
-  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .b-disabled {
@@ -515,6 +516,7 @@ table {
 }
 
 .b-error {
+  z-index: 30;
   display: none;
   position: absolute;
   width: 100%;
@@ -526,6 +528,10 @@ table {
   font-size: 25em;
   font-weight: 300;
   padding-top: .4em;
+}
+
+.b-error__descr {
+  font-size: 5em;
 }
 
 .b-loader {

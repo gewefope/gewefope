@@ -1,8 +1,8 @@
 lego.weather_location = function () {
     var coords = {
-        'lat': lego.getCookie('latitude'),
-        'lon': lego.getCookie('longitude'),
-        'error': lego.getCookie('geoLocationError')
+        lat: lego.getCookie('latitude'),
+        lon: lego.getCookie('longitude'),
+        error: lego.getCookie('geoLocationError')
     };
     if (coords.lat === undefined || coords.lon === undefined) {
         lego.geoLocation();
@@ -51,11 +51,22 @@ lego.weather_location = function () {
                     $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                     $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                     $('.b-loader').hide();
-                    console.log('weather data was loaded');
+
+//TODO: Разобраться с картой
+
                     google.maps.event.addDomListener(window, 'load', function () {
-                        var a = {zoom: 13, center: new google.maps.LatLng(coords.lat, coords.lon), disableDefaultUI: !0, mapTypeId: google.maps.MapTypeId.TERRAIN};
+                        var a = {
+                            zoom: 13,
+                            center: new google.maps.LatLng(coords.lat, coords.lon),
+                            disableDefaultUI: !0,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        };
                         new google.maps.Map(document.getElementById('b-map'), a)
                     });
+
+//                    lego.loadMap(coords.lat, coords.lon, 13, 'b-map');
+
+
                 } else {
                     console.warn('data error');
                     lego.weather_error(1);
@@ -149,18 +160,33 @@ lego.weather_location = function () {
         lego.weather_error(0);
         console.warn('Geolocation error');
     }
+
+
     //tabs
+
+    // проверка хэша и открытие соответсвующей вкладки
+    if(window.location.hash == '#forecast'){
+        $('.b-weather-select__item_forecast').addClass('b-weather-select__item_active');
+        $('.b-weather-select__item_now').removeClass('b-weather-select__item_active');
+        $('.b-weather-forecast').addClass('b-weather_active');
+        $('.b-weather-now').removeClass('b-weather_active');
+        $('.b-footer').addClass('b-footer_st');
+    }
+
+    // Основная логика вкладок
     $('.b-weather-select__item_now').click(function () {
         $(this).addClass('b-weather-select__item_active');
         $('.b-weather-select__item_forecast').removeClass('b-weather-select__item_active');
         $('.b-weather-now').addClass('b-weather_active');
         $('.b-weather-forecast').removeClass('b-weather_active');
+        $('.b-footer').removeClass('b-footer_st');
     });
     $('.b-weather-select__item_forecast').click(function () {
         $(this).addClass('b-weather-select__item_active');
         $('.b-weather-select__item_now').removeClass('b-weather-select__item_active');
         $('.b-weather-forecast').addClass('b-weather_active');
         $('.b-weather-now').removeClass('b-weather_active');
+        $('.b-footer').addClass('b-footer_st');
     });
 };
 
@@ -211,7 +237,7 @@ lego.weather_city = function () {
                 $('.b-weather__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                 $('.b-weather__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                 $('.b-loader').hide();
-                console.log('weather data was loaded');
+
                 //function mapInit(){var a={zoom:13,center:new google.maps.LatLng(getCookie('latitude'),getCookie('longitude')),disableDefaultUI:!0,mapTypeId:google.maps.MapTypeId.TERRAIN};new google.maps.Map(document.getElementById('b-map'),a)}
                 google.maps.event.addDomListener(window, 'load', function () {
                     var a = {zoom: 13, center: new google.maps.LatLng(data.coord.lat, data.coord.lon), disableDefaultUI: !0, mapTypeId: google.maps.MapTypeId.TERRAIN};
@@ -230,14 +256,21 @@ lego.weather_city = function () {
 
 };
 
+
 lego.weather_error = function (errorCod) {
     var errorText;
+
     $('.b-container-weather_weather').hide();
-    $('.b-container-weather_error').show();
+    $('.b-error').show();
+
     if (errorCod == 0) {
         errorText = 'Geolocation error';
     } else if (errorCod == 1) {
         errorText = 'Weather error';
     }
-    $('.b-error').append('<p class=\"b-error__descr\">' + errorText + '</p>');
+
+    if(errorText != null){
+        $('.b-error').append('<p class=\"b-error__descr\">' + errorText + '</p>');
+    }
+
 };

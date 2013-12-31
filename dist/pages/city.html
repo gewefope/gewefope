@@ -26,10 +26,8 @@
         </div>
       </article>
       <div class="b-container-weather b-loader b-loader_size_m"><span class="b-loader__spinner"></span></div>
-      <div class="b-container-weather b-container-weather_error">
-        <div class="b-error">
-          <p class="b-error__text">No</p>
-        </div>
+      <div class="b-container-weather b-error">
+        <p class="b-error__text">No</p>
       </div>
       <div class="b-footer">
         <div class="b-footer__table">
@@ -38,16 +36,19 @@
             <p class="b-footer__litem">Site is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.
               <!--| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.-->
             </p>
-            <p class="b-footer__ltem">©2013&nbsp;World Fly
+            <p class="b-footer__ltem">©2014&nbsp;World Fly
             </p>
           </div>
         </div>
       </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="/js/global.min.js"></script>
-    <script>window.onload = function(){lego.weather_city()};</script>
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBmhXMS0sIZXZwLTg3xuiPeJF2x0PVpsf8&amp;sensor=false&amp;lang=en"></script>
+    <script src="/js/global.min.js"></script>
+    <script>
+      window.onload = function(){lego.weather_city()};
+      
+    </script>
     <div id="b-map" class="b-map"></div>
     <div class="i-stat">
       <script>

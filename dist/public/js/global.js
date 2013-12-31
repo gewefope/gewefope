@@ -91,7 +91,37 @@ lego.geoLocation = function () {
     }
 
     return result;
-};;lego.chcontainer_init = function () {
+};
+
+
+//
+///*
+//* Инициализирует карты
+//*
+//* @param lat
+//* @param lon
+//* @param zoom
+//* @param dom
+//*
+// */
+//lego.loadMap = function(lat, lon, zoom, dom){
+//    var map;
+//    function initialize() {
+//        var mapOptions = {
+//            zoom: zoom,
+//            center: new google.maps.LatLng(lat, lon),
+//            disableDefaultUI: !0,
+//            mapTypeId: google.maps.MapTypeId.TERRAIN
+//        };
+//        map = new google.maps.Map(document.getElementById(dom),
+//            mapOptions);
+//    }
+//
+//    google.maps.event.addDomListener(window, 'load', initialize);
+//};
+
+
+;lego.chcontainer_init = function () {
     $('.b-chcontainer__item_loc').click(function () {
         $('.b-chcontainer__item__img_geoloc').attr('src', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiNmMDAiIHN0cm9rZT0iI2YwMCIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+');
         if (lego.getCookie('latitude') == undefined || lego.getCookie('longitude') == undefined) {
@@ -165,9 +195,9 @@ lego.search_error = function () {
     });
 };;lego.weather_location = function () {
     var coords = {
-        'lat': lego.getCookie('latitude'),
-        'lon': lego.getCookie('longitude'),
-        'error': lego.getCookie('geoLocationError')
+        lat: lego.getCookie('latitude'),
+        lon: lego.getCookie('longitude'),
+        error: lego.getCookie('geoLocationError')
     };
     if (coords.lat === undefined || coords.lon === undefined) {
         lego.geoLocation();
@@ -216,11 +246,22 @@ lego.search_error = function () {
                     $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                     $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                     $('.b-loader').hide();
-                    console.log('weather data was loaded');
+
+//TODO: Разобраться с картой
+
                     google.maps.event.addDomListener(window, 'load', function () {
-                        var a = {zoom: 13, center: new google.maps.LatLng(coords.lat, coords.lon), disableDefaultUI: !0, mapTypeId: google.maps.MapTypeId.TERRAIN};
+                        var a = {
+                            zoom: 13,
+                            center: new google.maps.LatLng(coords.lat, coords.lon),
+                            disableDefaultUI: !0,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        };
                         new google.maps.Map(document.getElementById('b-map'), a)
                     });
+
+//                    lego.loadMap(coords.lat, coords.lon, 13, 'b-map');
+
+
                 } else {
                     console.warn('data error');
                     lego.weather_error(1);
@@ -314,18 +355,33 @@ lego.search_error = function () {
         lego.weather_error(0);
         console.warn('Geolocation error');
     }
+
+
     //tabs
+
+    // проверка хэша и открытие соответсвующей вкладки
+    if(window.location.hash == '#forecast'){
+        $('.b-weather-select__item_forecast').addClass('b-weather-select__item_active');
+        $('.b-weather-select__item_now').removeClass('b-weather-select__item_active');
+        $('.b-weather-forecast').addClass('b-weather_active');
+        $('.b-weather-now').removeClass('b-weather_active');
+        $('.b-footer').addClass('b-footer_st');
+    }
+
+    // Основная логика вкладок
     $('.b-weather-select__item_now').click(function () {
         $(this).addClass('b-weather-select__item_active');
         $('.b-weather-select__item_forecast').removeClass('b-weather-select__item_active');
         $('.b-weather-now').addClass('b-weather_active');
         $('.b-weather-forecast').removeClass('b-weather_active');
+        $('.b-footer').removeClass('b-footer_st');
     });
     $('.b-weather-select__item_forecast').click(function () {
         $(this).addClass('b-weather-select__item_active');
         $('.b-weather-select__item_now').removeClass('b-weather-select__item_active');
         $('.b-weather-forecast').addClass('b-weather_active');
         $('.b-weather-now').removeClass('b-weather_active');
+        $('.b-footer').addClass('b-footer_st');
     });
 };
 
@@ -376,7 +432,7 @@ lego.weather_city = function () {
                 $('.b-weather__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                 $('.b-weather__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                 $('.b-loader').hide();
-                console.log('weather data was loaded');
+
                 //function mapInit(){var a={zoom:13,center:new google.maps.LatLng(getCookie('latitude'),getCookie('longitude')),disableDefaultUI:!0,mapTypeId:google.maps.MapTypeId.TERRAIN};new google.maps.Map(document.getElementById('b-map'),a)}
                 google.maps.event.addDomListener(window, 'load', function () {
                     var a = {zoom: 13, center: new google.maps.LatLng(data.coord.lat, data.coord.lon), disableDefaultUI: !0, mapTypeId: google.maps.MapTypeId.TERRAIN};
@@ -395,14 +451,21 @@ lego.weather_city = function () {
 
 };
 
+
 lego.weather_error = function (errorCod) {
     var errorText;
+
     $('.b-container-weather_weather').hide();
-    $('.b-container-weather_error').show();
+    $('.b-error').show();
+
     if (errorCod == 0) {
         errorText = 'Geolocation error';
     } else if (errorCod == 1) {
         errorText = 'Weather error';
     }
-    $('.b-error').append('<p class=\"b-error__descr\">' + errorText + '</p>');
+
+    if(errorText != null){
+        $('.b-error').append('<p class=\"b-error__descr\">' + errorText + '</p>');
+    }
+
 };
