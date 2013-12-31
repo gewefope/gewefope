@@ -7,6 +7,6 @@ before_script:
 deploy:
   api_key:
     provider: heroku
-    secure: E7M+Hr43y46yMmBV2vKZFowPbb5vnhZTj4MFWUApxRDgwBM42m3ySbbe7ooDbu50CkauxSSyOfAaNZ1er5NtSmUHqi7Dv+MIlqGyJ0+YeISxhxFyM039iIMF0M9k/yiZ3+YIzH3VFw2JE0367+tYIRHROigSnvoOg760GX0U/ck=
+    secure: 5b8a8624-fb5b-43e1-b3e0-646667681ccf
     app: debug-gewefope
     strategy: git
