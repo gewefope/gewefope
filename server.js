@@ -9,7 +9,7 @@ server.set('port', process.env.PORT || 3000);
 
 server.use(express.logger('dev'));
 
-server.use(express.methodOverride());
+//server.use(express.methodOverride());
 server.use(server.router);
 server.use(express.static(require('path').join(__dirname, '/dist/public')));
 
