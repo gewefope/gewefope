@@ -213,7 +213,7 @@ lego.weather_location = function () {
                 if (data.cod == 200) {
                     $('.b-weather__locname_city').text(data.name);
                     $('.b-weather__locname_country').text(' ' + data.sys.country);
-                    $('.b-weather-now__data__main_temp').text(data.main.temp + '℃');
+                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
                     $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
                     $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
                     if (350 <= data.wind.deg && data.wind.deg < 10) {
@@ -283,7 +283,7 @@ lego.weather_location = function () {
                     $.each(data.list, function (i, item) {
                         var dt = new Date(item.dt * 1000);
                         var date = {
-                            day: dt.getDay(),
+                            day: dt.getDate(),
                             month: dt.getMonth() + 1,
                             monthtxt: ''
 
@@ -342,8 +342,8 @@ lego.weather_location = function () {
 
 //                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
                         var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
-                                .replace('{temp-max}', item.temp.max + '℃')
-                                .replace('{temp-min}', item.temp.min + '℃')
+                                .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
+                                .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
                             ;
 
                         $(insert).appendTo('.b-weather-forecast');
@@ -449,7 +449,7 @@ lego.weather_city = function () {
 
                     $('.b-weather__locname_city').text(data.name);
                     $('.b-weather__locname_country').text(' ' + data.sys.country);
-                    $('.b-weather-now__data__main_temp').text(data.main.temp + '℃');
+                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
                     $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
                     $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
                     if (350 <= data.wind.deg && data.wind.deg < 10) {
@@ -575,8 +575,8 @@ lego.weather_city = function () {
 
 //                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
                         var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
-                                .replace('{temp-max}', item.temp.max + '℃')
-                                .replace('{temp-min}', item.temp.min + '℃')
+                                .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
+                                .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
                             ;
 
                         $(insert).appendTo('.b-weather-forecast');
