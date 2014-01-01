@@ -332,18 +332,21 @@ lego.weather_location = function () {
                                 '<div class=\"b-weather-forecast__line\">' +
                                     '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
                                     '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
-                                    '<div class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
-                                    '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
-                                    '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
+                                        '<span class="b-weather-forecast__section__item b-weather-forecast__main">{main}</span>'+
+                                        '<span class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
+                                            '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
+                                            '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
+                                        '</span>' +
+
                                     '</div>' +
-                                    '</div>' +
-                                    '</div>'
+                                '</div>'
                             ;
 
 //                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
                         var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
                                 .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
                                 .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
+                                .replace('{main}', item.weather[0].main)
                             ;
 
                         $(insert).appendTo('.b-weather-forecast');

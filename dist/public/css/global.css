@@ -218,7 +218,7 @@ table {
 
 @media screen and (max-width: 800px) {
   .b-container-weather_weather {
-    padding: 1.5em 5em 0 5em;
+    padding: 1.5em 5em 0 1em;
   }
 }
 
@@ -266,6 +266,7 @@ table {
 
 .b-footer_st {
   position: static !important;
+  padding-top: 50px;
 }
 
 .b-footer__table {
@@ -357,6 +358,14 @@ table {
   display: inline-block;
 }
 
+.b-weather-forecast__section__item {
+  border-right: 1px dotted #b1b1b1;
+}
+
+.b-weather-forecast__section__item :last-child {
+  border-right: 0;
+}
+
 .b-weather-forecast__section__date {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
@@ -366,6 +375,7 @@ table {
 .b-weather-forecast__section__day {
   font-size: 1.5em;
   padding-right: 5px;
+  width: 35px;
 }
 
 .b-weather-forecast__temp_max {
@@ -376,6 +386,12 @@ table {
 .b-weather-forecast__temp_min {
   font-size: 1em;
   color: #adbfff;
+}
+
+.b-weather-forecast__main {
+  font-size: 1.4em;
+  padding: 0 5px;
+  width: 60px;
 }
 
 .b-weather-select__item {
