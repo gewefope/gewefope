@@ -201,16 +201,7 @@ lego.weather_city = function () {
     var pathArray = window.location.pathname.split('/'),
         secondLevelLocation = pathArray[2];
 
-    var coords = {
-        lat: lego.getCookie('latitude'),
-        lon: lego.getCookie('longitude'),
-        error: lego.getCookie('geoLocationError')
-    };
-    if (coords.lat === undefined || coords.lon === undefined) {
-        lego.geoLocation();
 
-    }
-    if (coords.error != 'true') {
 
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&id=' + secondLevelLocation + '&callback=?')
             .done(function (data) {
@@ -324,13 +315,13 @@ lego.weather_city = function () {
             });
 
 
-        $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&cnt=10&lat=' + coords.lat + '&lon=' + coords.lon + '&callback=?')
+        $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&cnt=10&id=' + secondLevelLocation + '&callback=?')
             .done(function (data) {
                 if (data.cod == 200) {
                     $.each(data.list, function (i, item) {
                         var dt = new Date(item.dt * 1000);
                         var date = {
-                            day: dt.getDay(),
+                            day: dt.getDate(),
                             month: dt.getMonth() + 1,
                             monthtxt: ''
 
@@ -402,10 +393,7 @@ lego.weather_city = function () {
                 console.log('Request #2 Failed: ' + err);
             });
 
-    } else {
-        lego.weather_error(0);
-        console.warn('Geolocation error');
-    }
+
     lego.weather_tabs();
 
 };
