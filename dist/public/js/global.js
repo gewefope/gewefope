@@ -121,10 +121,11 @@ lego.geoLocation = function () {
 //};
 
 
-;lego.chcontainer_init = function () {
+
+lego.chcontainer_init = function () {
     $('.b-chcontainer__item_loc').click(function () {
         $('.b-chcontainer__item__img_geoloc').attr('src', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiNmMDAiIHN0cm9rZT0iI2YwMCIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+');
-        if (lego.getCookie('latitude') == undefined || lego.getCookie('longitude') == undefined) {
+        if (lego.getCookie('latitude') === undefined || lego.getCookie('longitude') === undefined) {
 //        if (Modernizr.geolocation) {
 //            navigator.geolocation.getCurrentPosition(function (a) {
 //                    lego.setCookie('latitude', a.coords.latitude);
@@ -153,7 +154,8 @@ lego.geoLocation = function () {
         $('.b-chcontainer__item__form').addClass('b-chcontainer__item_vis');
         return false;
     });
-};;lego.search_init = function () {
+};
+lego.search_init = function () {
     var query = lego.getURLParameter('q');
     $('.b-search__q').text(query);
     document.searchf.q.value = query;
@@ -193,8 +195,8 @@ lego.search_error = function () {
     $('.b-wlist__error__link').click(function () {
         lego.geoLocation();
     });
-};;//TODO: Переработать весь код в этом файле
-
+};
+//TODO: Переработать весь код в этом файле
 
 
 lego.weather_location = function () {
@@ -216,37 +218,38 @@ lego.weather_location = function () {
                     $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
                     $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
                     $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
-                    if (350 <= data.wind.deg && data.wind.deg < 10) {
-                        $('.b-weather-now__data__wind_val').text('Wind north ' + data.wind.speed + 'm/s');
-                    } else if (10 <= data.wind.deg && data.wind.deg < 20) {
-                        $('.b-weather-now__data__wind_val').text('Wind north northeast ' + data.wind.speed + 'm/s');
-                    } else if (20 <= data.wind.deg && data.wind.deg < 70) {
-                        $('.b-weather-now__data__wind_val').text('Wind northeast ' + data.wind.speed + 'm/s');
-                    } else if (70 <= data.wind.deg && data.wind.deg < 80) {
-                        $('.b-weather-now__data__wind_val').text('Wind east northeast ' + data.wind.speed + 'm/s');
-                    } else if (80 <= data.wind.deg && data.wind.deg < 100) {
-                        $('.b-weather-now__data__wind_val').text('Wind east ' + data.wind.speed + 'm/s');
-                    } else if (110 <= data.wind.deg && data.wind.deg < 160) {
-                        $('.b-weather-now__data__wind_val').text('Wind east southeast ' + data.wind.speed + 'm/s');
-                    } else if (160 <= data.wind.deg && data.wind.deg < 170) {
-                        $('.b-weather-now__data__wind_val').text('Wind southeast ' + data.wind.speed + 'm/s');
-                    } else if (170 <= data.wind.deg && data.wind.deg < 190) {
-                        $('.b-weather-now__data__wind_val').text('Wind south ' + data.wind.speed + 'm/s');
-                    } else if (190 <= data.wind.deg && data.wind.deg < 200) {
-                        $('.b-weather-now__data__wind_val').text('Wind south southwest ' + data.wind.speed + 'm/s');
-                    } else if (200 <= data.wind.deg && data.wind.deg < 250) {
-                        $('.b-weather-now__data__wind_val').text('Wind southwest ' + data.wind.speed + 'm/s');
-                    } else if (250 <= data.wind.deg && data.wind.deg < 260) {
-                        $('.b-weather-now__data__wind_val').text('Wind west southwest ' + data.wind.speed + 'm/s');
-                    } else if (260 <= data.wind.deg && data.wind.deg < 280) {
-                        $('.b-weather-now__data__wind_val').text('Wind west ' + data.wind.speed + 'm/s');
-                    } else if (280 <= data.wind.deg && data.wind.deg < 290) {
-                        $('.b-weather-now__data__wind_val').text('Wind northwest west ' + data.wind.speed + 'm/s');
-                    } else if (290 <= data.wind.deg && data.wind.deg < 340) {
-                        $('.b-weather-now__data__wind_val').text('Wind northwest ' + data.wind.speed + 'm/s');
-                    } else if (340 <= data.wind.deg && data.wind.deg < 350) {
-                        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + data.wind.speed + 'm/s');
-                    }
+//                    if (350 <= data.wind.deg && data.wind.deg < 10) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north ' + data.wind.speed + 'm/s');
+//                    } else if (10 <= data.wind.deg && data.wind.deg < 20) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north northeast ' + data.wind.speed + 'm/s');
+//                    } else if (20 <= data.wind.deg && data.wind.deg < 70) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northeast ' + data.wind.speed + 'm/s');
+//                    } else if (70 <= data.wind.deg && data.wind.deg < 80) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east northeast ' + data.wind.speed + 'm/s');
+//                    } else if (80 <= data.wind.deg && data.wind.deg < 100) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east ' + data.wind.speed + 'm/s');
+//                    } else if (110 <= data.wind.deg && data.wind.deg < 160) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east southeast ' + data.wind.speed + 'm/s');
+//                    } else if (160 <= data.wind.deg && data.wind.deg < 170) {
+//                        $('.b-weather-now__data__wind_val').text('Wind southeast ' + data.wind.speed + 'm/s');
+//                    } else if (170 <= data.wind.deg && data.wind.deg < 190) {
+//                        $('.b-weather-now__data__wind_val').text('Wind south ' + data.wind.speed + 'm/s');
+//                    } else if (190 <= data.wind.deg && data.wind.deg < 200) {
+//                        $('.b-weather-now__data__wind_val').text('Wind south southwest ' + data.wind.speed + 'm/s');
+//                    } else if (200 <= data.wind.deg && data.wind.deg < 250) {
+//                        $('.b-weather-now__data__wind_val').text('Wind southwest ' + data.wind.speed + 'm/s');
+//                    } else if (250 <= data.wind.deg && data.wind.deg < 260) {
+//                        $('.b-weather-now__data__wind_val').text('Wind west southwest ' + data.wind.speed + 'm/s');
+//                    } else if (260 <= data.wind.deg && data.wind.deg < 280) {
+//                        $('.b-weather-now__data__wind_val').text('Wind west ' + data.wind.speed + 'm/s');
+//                    } else if (280 <= data.wind.deg && data.wind.deg < 290) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northwest west ' + data.wind.speed + 'm/s');
+//                    } else if (290 <= data.wind.deg && data.wind.deg < 340) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northwest ' + data.wind.speed + 'm/s');
+//                    } else if (340 <= data.wind.deg && data.wind.deg < 350) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + data.wind.speed + 'm/s');
+//                    }
+                    $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
                     $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
                     $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                     $('.b-loader').hide();
@@ -260,7 +263,7 @@ lego.weather_location = function () {
                             disableDefaultUI: !0,
                             mapTypeId: google.maps.MapTypeId.TERRAIN
                         };
-                        new google.maps.Map(document.getElementById('b-map'), a)
+                        new google.maps.Map(document.getElementById('b-map'), a);
                     });
 
 //                    lego.loadMap(coords.lat, coords.lon, 13, 'b-map');
@@ -332,21 +335,23 @@ lego.weather_location = function () {
                                 '<div class=\"b-weather-forecast__line\">' +
                                     '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
                                     '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
-                                        '<span class="b-weather-forecast__section__item b-weather-forecast__main">{main}</span>'+
-                                        '<span class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
-                                            '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
-                                            '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
-                                        '</span>' +
-
+                                    '<span class="b-weather-forecast__section__item b-weather-forecast__main">{main}</span>' +
+                                    '<span class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
+                                    '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
+                                    '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
+                                    '</span>' +
+                                    '<span class="b-weather-forecast__section__item b-weather-forecast__wind">{wind}</span>' +
                                     '</div>' +
-                                '</div>'
+                                    '</div>'
                             ;
 
+
 //                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
-                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
+                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__item b-weather-forecast__section__day">' + date.day + '</span>')
                                 .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
                                 .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
                                 .replace('{main}', item.weather[0].main)
+                                .replace('{wind}', lego.windParse(item.deg, item.speed))
                             ;
 
                         $(insert).appendTo('.b-weather-forecast');
@@ -400,10 +405,9 @@ lego.weather_city = function () {
         secondLevelLocation = pathArray[2];
 
 
-
-        $.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&id=' + secondLevelLocation + '&callback=?')
-            .done(function (data) {
-                if (data.cod == 200) {
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&id=' + secondLevelLocation + '&callback=?')
+        .done(function (data) {
+            if (data.cod == 200) {
 //                $('.b-weather__locname_city').text(data.name);
 //                $('.b-weather__locname_country').text(' ' + data.sys.country);
 //                $('.b-weather__data__main_temp').text(data.main.temp + '℃');
@@ -450,146 +454,170 @@ lego.weather_city = function () {
 //                    new google.maps.Map(document.getElementById('b-map'), a)
 //                });
 
-                    $('.b-weather__locname_city').text(data.name);
-                    $('.b-weather__locname_country').text(' ' + data.sys.country);
-                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
-                    $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
-                    $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
-                    if (350 <= data.wind.deg && data.wind.deg < 10) {
-                        $('.b-weather-now__data__wind_val').text('Wind north ' + data.wind.speed + 'm/s');
-                    } else if (10 <= data.wind.deg && data.wind.deg < 20) {
-                        $('.b-weather-now__data__wind_val').text('Wind north northeast ' + data.wind.speed + 'm/s');
-                    } else if (20 <= data.wind.deg && data.wind.deg < 70) {
-                        $('.b-weather-now__data__wind_val').text('Wind northeast ' + data.wind.speed + 'm/s');
-                    } else if (70 <= data.wind.deg && data.wind.deg < 80) {
-                        $('.b-weather-now__data__wind_val').text('Wind east northeast ' + data.wind.speed + 'm/s');
-                    } else if (80 <= data.wind.deg && data.wind.deg < 100) {
-                        $('.b-weather-now__data__wind_val').text('Wind east ' + data.wind.speed + 'm/s');
-                    } else if (110 <= data.wind.deg && data.wind.deg < 160) {
-                        $('.b-weather-now__data__wind_val').text('Wind east southeast ' + data.wind.speed + 'm/s');
-                    } else if (160 <= data.wind.deg && data.wind.deg < 170) {
-                        $('.b-weather-now__data__wind_val').text('Wind southeast ' + data.wind.speed + 'm/s');
-                    } else if (170 <= data.wind.deg && data.wind.deg < 190) {
-                        $('.b-weather-now__data__wind_val').text('Wind south ' + data.wind.speed + 'm/s');
-                    } else if (190 <= data.wind.deg && data.wind.deg < 200) {
-                        $('.b-weather-now__data__wind_val').text('Wind south southwest ' + data.wind.speed + 'm/s');
-                    } else if (200 <= data.wind.deg && data.wind.deg < 250) {
-                        $('.b-weather-now__data__wind_val').text('Wind southwest ' + data.wind.speed + 'm/s');
-                    } else if (250 <= data.wind.deg && data.wind.deg < 260) {
-                        $('.b-weather-now__data__wind_val').text('Wind west southwest ' + data.wind.speed + 'm/s');
-                    } else if (260 <= data.wind.deg && data.wind.deg < 280) {
-                        $('.b-weather-now__data__wind_val').text('Wind west ' + data.wind.speed + 'm/s');
-                    } else if (280 <= data.wind.deg && data.wind.deg < 290) {
-                        $('.b-weather-now__data__wind_val').text('Wind northwest west ' + data.wind.speed + 'm/s');
-                    } else if (290 <= data.wind.deg && data.wind.deg < 340) {
-                        $('.b-weather-now__data__wind_val').text('Wind northwest ' + data.wind.speed + 'm/s');
-                    } else if (340 <= data.wind.deg && data.wind.deg < 350) {
-                        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + data.wind.speed + 'm/s');
-                    }
-                    $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
-                    $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
-                    $('.b-loader').hide();
+                $('.b-weather__locname_city').text(data.name);
+                $('.b-weather__locname_country').text(' ' + data.sys.country);
+                $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
+                $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
+                $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
+//                    if (350 <= data.wind.deg && data.wind.deg < 10) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north ' + data.wind.speed + 'm/s');
+//                    } else if (10 <= data.wind.deg && data.wind.deg < 20) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north northeast ' + data.wind.speed + 'm/s');
+//                    } else if (20 <= data.wind.deg && data.wind.deg < 70) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northeast ' + data.wind.speed + 'm/s');
+//                    } else if (70 <= data.wind.deg && data.wind.deg < 80) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east northeast ' + data.wind.speed + 'm/s');
+//                    } else if (80 <= data.wind.deg && data.wind.deg < 100) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east ' + data.wind.speed + 'm/s');
+//                    } else if (110 <= data.wind.deg && data.wind.deg < 160) {
+//                        $('.b-weather-now__data__wind_val').text('Wind east southeast ' + data.wind.speed + 'm/s');
+//                    } else if (160 <= data.wind.deg && data.wind.deg < 170) {
+//                        $('.b-weather-now__data__wind_val').text('Wind southeast ' + data.wind.speed + 'm/s');
+//                    } else if (170 <= data.wind.deg && data.wind.deg < 190) {
+//                        $('.b-weather-now__data__wind_val').text('Wind south ' + data.wind.speed + 'm/s');
+//                    } else if (190 <= data.wind.deg && data.wind.deg < 200) {
+//                        $('.b-weather-now__data__wind_val').text('Wind south southwest ' + data.wind.speed + 'm/s');
+//                    } else if (200 <= data.wind.deg && data.wind.deg < 250) {
+//                        $('.b-weather-now__data__wind_val').text('Wind southwest ' + data.wind.speed + 'm/s');
+//                    } else if (250 <= data.wind.deg && data.wind.deg < 260) {
+//                        $('.b-weather-now__data__wind_val').text('Wind west southwest ' + data.wind.speed + 'm/s');
+//                    } else if (260 <= data.wind.deg && data.wind.deg < 280) {
+//                        $('.b-weather-now__data__wind_val').text('Wind west ' + data.wind.speed + 'm/s');
+//                    } else if (280 <= data.wind.deg && data.wind.deg < 290) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northwest west ' + data.wind.speed + 'm/s');
+//                    } else if (290 <= data.wind.deg && data.wind.deg < 340) {
+//                        $('.b-weather-now__data__wind_val').text('Wind northwest ' + data.wind.speed + 'm/s');
+//                    } else if (340 <= data.wind.deg && data.wind.deg < 350) {
+//                        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + data.wind.speed + 'm/s');
+//                    }
+                $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
+                $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
+                $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
+                $('.b-loader').hide();
 
 //TODO: Разобраться с картой
 
-                    google.maps.event.addDomListener(window, 'load', function () {
-                        var a = {
-                            zoom: 13,
-                            center: new google.maps.LatLng(coords.lat, coords.lon),
-                            disableDefaultUI: !0,
-                            mapTypeId: google.maps.MapTypeId.TERRAIN
-                        };
-                        new google.maps.Map(document.getElementById('b-map'), a)
-                    });
+                google.maps.event.addDomListener(window, 'load', function () {
+                    var a = {
+                        zoom: 13,
+                        center: new google.maps.LatLng(coords.lat, coords.lon),
+                        disableDefaultUI: !0,
+                        mapTypeId: google.maps.MapTypeId.TERRAIN
+                    };
+                    new google.maps.Map(document.getElementById('b-map'), a);
+                });
 
-                } else {
-                    console.warn('data error');
-                    lego.weather_error(1);
-                }
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                var err = textStatus + ', ' + error;
-                console.log('Request Failed: ' + err);
-            });
+            } else {
+                console.warn('data error');
+                lego.weather_error(1);
+            }
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request Failed: ' + err);
+        });
 
 
-        $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&cnt=10&id=' + secondLevelLocation + '&callback=?')
-            .done(function (data) {
-                if (data.cod == 200) {
-                    $.each(data.list, function (i, item) {
-                        var dt = new Date(item.dt * 1000);
-                        var date = {
-                            day: dt.getDate(),
-                            month: dt.getMonth() + 1,
-                            monthtxt: ''
+    $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&cnt=10&id=' + secondLevelLocation + '&callback=?')
+        .done(function (data) {
+            if (data.cod == 200) {
+                $.each(data.list, function (i, item) {
+                    var dt = new Date(item.dt * 1000);
+                    var date = {
+                        day: dt.getDate(),
+                        month: dt.getMonth() + 1,
+                        monthtxt: ''
 
-                        };
-                        switch (date.month) {
-                            case 1:
-                                date.monthtxt = 'January';
-                                break;
-                            case 2:
-                                date.monthtxt = 'February';
-                                break;
-                            case 3:
-                                date.monthtxt = 'March';
-                                break;
-                            case 4:
-                                date.monthtxt = 'April';
-                                break;
-                            case 5:
-                                date.monthtxt = 'May';
-                                break;
-                            case 6:
-                                date.monthtxt = 'June';
-                                break;
-                            case 7:
-                                date.monthtxt = 'July';
-                                break;
-                            case 8:
-                                date.monthtxt = 'August';
-                                break;
-                            case 9:
-                                date.monthtxt = 'September';
-                                break;
-                            case 10:
-                                date.monthtxt = 'October';
-                                break;
-                            case 11:
-                                date.monthtxt = 'November';
-                                break;
-                            case 12:
-                                date.monthtxt = 'December';
-                                break;
-                            default:
-                                date.monthtxt = '<!-- Error -->';
-                        }
-                        var template =
-                                '<div class=\"b-weather-forecast__line\">' +
-                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
-                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
-                                    '<div class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
-                                    '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
-                                    '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</div>'
-                            ;
+                    };
+                    switch (date.month) {
+                        case 1:
+                            date.monthtxt = 'January';
+                            break;
+                        case 2:
+                            date.monthtxt = 'February';
+                            break;
+                        case 3:
+                            date.monthtxt = 'March';
+                            break;
+                        case 4:
+                            date.monthtxt = 'April';
+                            break;
+                        case 5:
+                            date.monthtxt = 'May';
+                            break;
+                        case 6:
+                            date.monthtxt = 'June';
+                            break;
+                        case 7:
+                            date.monthtxt = 'July';
+                            break;
+                        case 8:
+                            date.monthtxt = 'August';
+                            break;
+                        case 9:
+                            date.monthtxt = 'September';
+                            break;
+                        case 10:
+                            date.monthtxt = 'October';
+                            break;
+                        case 11:
+                            date.monthtxt = 'November';
+                            break;
+                        case 12:
+                            date.monthtxt = 'December';
+                            break;
+                        default:
+                            date.monthtxt = '<!-- Error -->';
+                    }
+//                        var template =
+//                                '<div class=\"b-weather-forecast__line\">' +
+//                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
+//                                    '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
+//                                    '<div class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
+//                                    '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
+//                                    '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
+//                                    '</div>' +
+//                                    '</div>' +
+//                                    '</div>'
+//                            ;
+//
+////                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
+//                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
+//                                .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
+//                                .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
+//                            ;
+
+                    var template =
+                            '<div class=\"b-weather-forecast__line\">' +
+                                '<div class=\"b-weather-forecast__section b-weather-forecast__section_date\">{date}</div>' +
+                                '<div class=\"b-weather-forecast__section b-weather-forecast__section_content\">' +
+                                '<span class="b-weather-forecast__section__item b-weather-forecast__main">{main}</span>' +
+                                '<span class=\"b-weather-forecast__section__item b-weather-forecast__temp\">' +
+                                '<span class="b-weather-forecast__temp_max">↑{temp-max}</span> ' +
+                                '<span class="b-weather-forecast__temp_min">↓{temp-min}</span>' +
+                                '</span>' +
+                                '<span class="b-weather-forecast__section__item b-weather-forecast__wind">{wind}</span>' +
+                                '</div>' +
+                                '</div>'
+                        ;
+
 
 //                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span> <span class="b-weather-forecast__section__date">' + date.monthtxt + '</span>')
-                        var insert = template.replace('{date}', '<span class="b-weather-forecast__section__day">' + date.day + '</span>')
-                                .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
-                                .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
-                            ;
+                    var insert = template.replace('{date}', '<span class="b-weather-forecast__section__item b-weather-forecast__section__day">' + date.day + '</span>')
+                            .replace('{temp-max}', (item.temp.max).toFixed(1) + '℃')
+                            .replace('{temp-min}', (item.temp.min).toFixed(1) + '℃')
+                            .replace('{main}', item.weather[0].main)
+                            .replace('{wind}', lego.windParse(item.deg, item.speed))
+                        ;
 
-                        $(insert).appendTo('.b-weather-forecast');
-                    });
-                }
-            })
-            .fail(function (jqxhr, textStatus, error) {
-                var err = textStatus + ', ' + error;
-                console.log('Request #2 Failed: ' + err);
-            });
+                    $(insert).appendTo('.b-weather-forecast');
+                });
+            }
+        })
+        .fail(function (jqxhr, textStatus, error) {
+            var err = textStatus + ', ' + error;
+            console.log('Request #2 Failed: ' + err);
+        });
 
 
     lego.weather_tabs();
@@ -631,14 +659,73 @@ lego.weather_error = function (errorCod) {
     $('.b-container-weather_weather').hide();
     $('.b-error').show();
 
-    if (errorCod == 0) {
+    if (errorCod == '0') {
         errorText = 'Geolocation error';
-    } else if (errorCod == 1) {
+    } else if (errorCod == '1') {
         errorText = 'Weather error';
     }
 
-    if (errorText != null) {
+    if (errorText !== null) {
         $('.b-error').append('<p class=\"b-error__descr\">' + errorText + '</p>');
     }
 
+};
+
+
+/*
+ *
+ * @param deg
+ * @param speed
+ * @return text
+ */
+lego.windParse = function (deg, speed) {
+    if (350 <= deg && deg < 10) {
+        //$('.b-weather-now__data__wind_val').text('Wind north ' + speed + 'm/s');
+        return 'Wind north ' + speed + 'm/s';
+    } else if (10 <= deg && deg < 20) {
+//        $('.b-weather-now__data__wind_val').text('Wind north northeast ' + speed + 'm/s');
+        return 'Wind north northeast ' + speed + 'm/s';
+    } else if (20 <= deg && deg < 70) {
+//        $('.b-weather-now__data__wind_val').text('Wind northeast ' + speed + 'm/s');
+        return 'Wind northeast ' + speed + 'm/s';
+    } else if (70 <= deg && deg < 80) {
+//        $('.b-weather-now__data__wind_val').text('Wind east northeast ' + speed + 'm/s');
+        return 'Wind east northeast ' + speed + 'm/s';
+    } else if (80 <= deg && deg < 100) {
+
+//        $('.b-weather-now__data__wind_val').text('Wind east ' + speed + 'm/s');
+        return 'Wind east ' + speed + 'm/s';
+    } else if (110 <= deg && deg < 160) {
+//        $('.b-weather-now__data__wind_val').text('Wind east southeast ' + speed + 'm/s');
+        return 'Wind east southeast ' + speed + 'm/s';
+    } else if (160 <= deg && deg < 170) {
+//        $('.b-weather-now__data__wind_val').text('Wind southeast ' + speed + 'm/s');
+        return 'Wind southeast ' + speed + 'm/s';
+    } else if (170 <= deg && deg < 190) {
+//        $('.b-weather-now__data__wind_val').text('Wind south ' + speed + 'm/s');
+        return 'Wind south ' + speed + 'm/s';
+    } else if (190 <= deg && deg < 200) {
+//        $('.b-weather-now__data__wind_val').text('Wind south southwest ' + speed + 'm/s');
+        return 'Wind south southwest ' + speed + 'm/s';
+    } else if (200 <= deg && deg < 250) {
+//        $('.b-weather-now__data__wind_val').text('Wind southwest ' + speed + 'm/s');
+        return 'Wind southwest ' + speed + 'm/s';
+    } else if (250 <= deg && deg < 260) {
+//        $('.b-weather-now__data__wind_val').text('Wind west southwest ' + speed + 'm/s');
+        return 'Wind west southwest ' + speed + 'm/s';
+    } else if (260 <= deg && deg < 280) {
+//        $('.b-weather-now__data__wind_val').text('Wind west ' + speed + 'm/s');
+        return 'Wind west ' + speed + 'm/s';
+    } else if (280 <= deg && deg < 290) {
+//        $('.b-weather-now__data__wind_val').text('Wind northwest west ' + speed + 'm/s');
+        return 'Wind northwest west ' + speed + 'm/s';
+    } else if (290 <= deg && deg < 340) {
+//        $('.b-weather-now__data__wind_val').text('Wind northwest ' + speed + 'm/s');
+        return 'Wind northwest ' + speed + 'm/s';
+    } else if (340 <= deg && deg < 350) {
+//        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + speed + 'm/s');
+        return 'Wind north northwest ' + speed + 'm/s';
+    } else {
+        console.warn('windParse error');
+    }
 };
