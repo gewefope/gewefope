@@ -93,9 +93,6 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            options: {
-                separator: ';'
-            },
             dist: {
                 src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js'],
                 dest: 'dist/public/js/global.js'
@@ -142,6 +139,15 @@ module.exports = function (grunt) {
                     'dist/public/img/loader.svg': 'src/blocks/loader/loader.svg'
                 }
             }
+        },
+        jshint: {
+            beforeconcat: {
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js'],
+
+            },
+            afterconcat: {
+                src: ['dist/public/js/global.js']
+            }
         }
 
     });
@@ -156,7 +162,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
-    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'concat', 'uglify:borschik', 'svgmin']);
+    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', 'uglify:borschik', 'svgmin']);
 };
