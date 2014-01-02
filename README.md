@@ -2,15 +2,9 @@ Gewefope [![Build Status](https://travis-ci.org/skhokhlov/gewefope.png?branch=ma
 ========
 Website with weather forecast.
 
-Run production server
+Run server
 ```
 npm install
-node server.js
-```
-
-Run development server
-```
-npm install --dev
 node server.js
 ```
 
