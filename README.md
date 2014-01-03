@@ -15,4 +15,4 @@ npm test
 
 License
 =======
-copyright 2013 Sergey Khokhlov
+copyright 2014 Sergey Khokhlov
