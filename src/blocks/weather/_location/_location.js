@@ -1,0 +1,3 @@
+lego.weather.location = function(){
+
+};
