@@ -94,7 +94,7 @@ module.exports = function (grunt) {
         },
         concat: {
             dist: {
-                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js'],
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js],
                 dest: 'dist/public/js/global.js'
             }
         },
@@ -142,7 +142,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             beforeconcat: {
-                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js'],
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js'],
 
             },
             afterconcat: {
