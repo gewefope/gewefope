@@ -5,7 +5,7 @@
 
   // Fixes missing subpixel-antialiasing bug
   overflow: hidden
-  -webkit-transform: translate(0,0)
+  -webkit-transform: translate(0, 0)
 
 .b-loader__spinner
   position: absolute
@@ -29,21 +29,38 @@
   width: 32px
   height: @width
 
+
+.b-loader__spinner_black
+  background-image: url('/img/loader_black.svg')
+
 @css {
   @-o-keyframes spin {
-    0%   { -o-transform: rotate(0deg) }
-    100% { -o-transform: rotate(360deg) }
-  }
-  @-moz-keyframes spin {
-    0%   { -moz-transform: rotate(0deg) }
-    100% { -moz-transform: rotate(360deg) }
-  }
-  @-webkit-keyframes spin {
-    0%   { -webkit-transform: rotate(0deg) }
-    100% { -webkit-transform: rotate(360deg) }
-  }
-  @keyframes spin {
-    0%   { transform: rotate(0deg) }
-    100% { transform: rotate(360deg) }
-  }
+    0% {
+      -o-transform: rotate(0deg)
+    }
+    100% {
+      -o-transform: rotate(360deg)
+    }
+  } @-moz-keyframes spin {
+      0% {
+        -moz-transform: rotate(0deg)
+      }
+      100% {
+        -moz-transform: rotate(360deg)
+      }
+    } @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg)
+        }
+        100% {
+          -webkit-transform: rotate(360deg)
+        }
+      } @keyframes spin {
+          0% {
+            transform: rotate(0deg)
+          }
+          100% {
+            transform: rotate(360deg)
+          }
+        }
 }

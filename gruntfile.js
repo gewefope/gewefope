@@ -94,7 +94,7 @@ module.exports = function (grunt) {
         },
         concat: {
             dist: {
-                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js'],
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js'],
                 dest: 'dist/public/js/global.js'
             }
         },
@@ -136,13 +136,14 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/public/img/loader.svg': 'src/blocks/loader/loader.svg'
+                    'dist/public/img/loader.svg': 'src/blocks/loader/loader.svg',
+                    'dist/public/img/loader_black.svg': 'src/blocks/loader/loader_black.svg'
                 }
             }
         },
         jshint: {
             beforeconcat: {
-                src: ['gruntfile.js', 'src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js'],
+                src: ['gruntfile.js', 'src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js']
 
             },
             afterconcat: {

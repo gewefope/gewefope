@@ -20,7 +20,7 @@ lego.search_init = function () {
                         .replace('{itemweather}', item.weather[0].main);
                     $(insert).appendTo('.b-wlist');
                 });
-                $('.b-wcontainer_loading').hide();
+                $('.b-loader').hide();
             } else {
                 console.warn('data error');
                 lego.search_error();
@@ -38,4 +38,5 @@ lego.search_error = function () {
     $('.b-wlist__error__link').click(function () {
         lego.geoLocation();
     });
+    $('.b-loader').hide();
 };
