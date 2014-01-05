@@ -1,33 +1,33 @@
 /* 2014-01-05 (c) World Fly */
 var lego = {};
 
-lego.getWeather = function (type, b, c) {
-    var adress = {
-        'main': 'http://api.openweathermap.org/data/2.5/',
-        'params': '?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
-    }, response;
-    if (type == 'search') {
-        $.ajax({
-            type: 'GET',
-            dataType: 'jsonp',
-            url: adress.main + 'find' + adress.params + '&type=like&q=' + b + '&callback=?'
-        })
-            .done(function (data) {
-                response = data;
-                return response;
-            })
-            .fail(function () {
-                alert("error");
-                return false;
-            });
-
-    } else if (type == 'forecast') {
-
-    } else if (type == 'weather') {
-
-    }
-
-};
+//lego.getWeather = function (type, b, c) {
+//    var adress = {
+//        'main': 'http://api.openweathermap.org/data/2.5/',
+//        'params': '?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
+//    }, response;
+//    if (type == 'search') {
+//        $.ajax({
+//            type: 'GET',
+//            dataType: 'jsonp',
+//            url: adress.main + 'find' + adress.params + '&type=like&q=' + b + '&callback=?'
+//        })
+//            .done(function (data) {
+//                response = data;
+//                return response;
+//            })
+//            .fail(function () {
+//                alert("error");
+//                return false;
+//            });
+//
+//    } else if (type == 'forecast') {
+//
+//    } else if (type == 'weather') {
+//
+//    }
+//
+//};
 
 /**
  *
@@ -69,29 +69,31 @@ lego.getURLParameter = function (name) {
 /**
  * Определяет местоположение
  *
+ * @param {function} success
+ * @param {function} error
  */
-lego.geoLocation = function () {
-    var result;
+lego.geoLocation = function (success, error) {
+
     if (Modernizr.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             lego.setCookie("latitude", position.coords.latitude);
             lego.setCookie("longitude", position.coords.longitude);
             console.info("Location successfully determined.");
             lego.setCookie("geoLocationError", "false");
-            result = true;
+            success();
         }, function () {
             console.warn("During detection location the error occurred.");
             lego.setCookie("geoLocationError", "true");
-            result = false;
+            error();
         });
 
     } else {
         console.warn("During detection location the error occurred.");
         lego.setCookie("geoLocationError", "true");
-        result = false;
+        error();
     }
 
-    return result;
+
 };
 
 
@@ -115,8 +117,15 @@ lego.chcontainer_init = function () {
 //            lego.setCookie('geoLocationError', 'true');
 //            document.location.href = '/location';
 //        }
-            lego.geoLocation();
-            document.location.href = '/location';
+            lego.geoLocation(function () {
+                    document.location.href = '/location';
+                },
+                function () {
+                    document.location.href = '/location';
+                });
+
+//            lego.geoLocation();
+//            document.location.href = '/location';
         } else {
             lego.setCookie('geoLocationError', 'false');
             document.location.href = '/location';
@@ -204,7 +213,7 @@ lego.mapInit = function (lat, lon, dom) {
 };
 
 
-////TODO: Переработать весь код в этом файле
+////
 //
 //
 //lego.weather_location = function () {
@@ -749,8 +758,12 @@ lego.weather_city = function () {
         .done(function (data) {
             if (data.cod == 200) {
 
-                $('.b-weather__locname_city').text(data.name);
-                $('.b-weather__locname_country').text(' ' + data.sys.country);
+//                $('.b-weather__locname_city').text(data.name);
+//                $('.b-weather__locname_country').text(' ' + data.sys.country);
+
+                var locname_template = '<span class="b-weather__locname_city">{city}</span><span class="b-weather__locname_country">{country}</span>';
+                var locname_insert = locname_template.replace('{city}', data.name)
+                    .replace('{country}', data.sys.country);
 
 
                 var now_template = '<div class="b-weather-now__data">' +
@@ -788,6 +801,7 @@ lego.weather_city = function () {
                 $('.b-loader').hide();
 
                 $(now_insert).appendTo('.b-weather-now');
+                $(locname_insert).appendTo('.b-weather__locname');
 
 //TODO: Разобраться с картой
 
@@ -917,8 +931,8 @@ lego.weather_location = function () {
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&lat=' + coords.lat + '&lon=' + coords.lon + '&callback=?')
             .done(function (data) {
                 if (data.cod == 200) {
-                    $('.b-weather__locname_city').text(data.name);
-                    $('.b-weather__locname_country').text(' ' + data.sys.country);
+//                    $('.b-weather__locname_city').text(data.name);
+//                    $('.b-weather__locname_country').text(' ' + data.sys.country);
 //                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
 //                    $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
 //                    $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
@@ -926,6 +940,9 @@ lego.weather_location = function () {
 //                    $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
 //                    $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
 
+                    var locname_template = '<span class="b-weather__locname_city">{city}</span><span class="b-weather__locname_country">{country}</span>';
+                    var locname_insert = locname_template.replace('{city}', data.name)
+                        .replace('{country}', data.sys.country);
 
                     var now_template = '<div class="b-weather-now__data">' +
                         '<div class="b-weather-now__data__main">' +
@@ -956,6 +973,7 @@ lego.weather_location = function () {
 
                     $('.b-loader').hide();
 
+                    $(locname_insert).appendTo('.b-weather__locname');
                     $(now_insert).appendTo('.b-weather-now');
 
 //TODO: Разобраться с картой

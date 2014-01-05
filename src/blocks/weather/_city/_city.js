@@ -7,8 +7,12 @@ lego.weather_city = function () {
         .done(function (data) {
             if (data.cod == 200) {
 
-                $('.b-weather__locname_city').text(data.name);
-                $('.b-weather__locname_country').text(' ' + data.sys.country);
+//                $('.b-weather__locname_city').text(data.name);
+//                $('.b-weather__locname_country').text(' ' + data.sys.country);
+
+                var locname_template = '<span class="b-weather__locname_city">{city}</span><span class="b-weather__locname_country">{country}</span>';
+                var locname_insert = locname_template.replace('{city}', data.name)
+                    .replace('{country}', data.sys.country);
 
 
                 var now_template = '<div class="b-weather-now__data">' +
@@ -46,6 +50,7 @@ lego.weather_city = function () {
                 $('.b-loader').hide();
 
                 $(now_insert).appendTo('.b-weather-now');
+                $(locname_insert).appendTo('.b-weather__locname');
 
 //TODO: Разобраться с картой
 

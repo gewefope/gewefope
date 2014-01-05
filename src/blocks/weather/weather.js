@@ -1,4 +1,4 @@
-////TODO: Переработать весь код в этом файле
+////
 //
 //
 //lego.weather_location = function () {

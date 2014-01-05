@@ -12,8 +12,8 @@ lego.weather_location = function () {
         $.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&lat=' + coords.lat + '&lon=' + coords.lon + '&callback=?')
             .done(function (data) {
                 if (data.cod == 200) {
-                    $('.b-weather__locname_city').text(data.name);
-                    $('.b-weather__locname_country').text(' ' + data.sys.country);
+//                    $('.b-weather__locname_city').text(data.name);
+//                    $('.b-weather__locname_country').text(' ' + data.sys.country);
 //                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
 //                    $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
 //                    $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
@@ -21,6 +21,9 @@ lego.weather_location = function () {
 //                    $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
 //                    $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
 
+                    var locname_template = '<span class="b-weather__locname_city">{city}</span><span class="b-weather__locname_country">{country}</span>';
+                    var locname_insert = locname_template.replace('{city}', data.name)
+                        .replace('{country}', data.sys.country);
 
                     var now_template = '<div class="b-weather-now__data">' +
                         '<div class="b-weather-now__data__main">' +
@@ -51,6 +54,7 @@ lego.weather_location = function () {
 
                     $('.b-loader').hide();
 
+                    $(locname_insert).appendTo('.b-weather__locname');
                     $(now_insert).appendTo('.b-weather-now');
 
 //TODO: Разобраться с картой

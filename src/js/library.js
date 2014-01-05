@@ -1,32 +1,32 @@
 var lego = {};
 
-lego.getWeather = function (type, b, c) {
-    var adress = {
-        'main': 'http://api.openweathermap.org/data/2.5/',
-        'params': '?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
-    }, response;
-    if (type == 'search') {
-        $.ajax({
-            type: 'GET',
-            dataType: 'jsonp',
-            url: adress.main + 'find' + adress.params + '&type=like&q=' + b + '&callback=?'
-        })
-            .done(function (data) {
-                response = data;
-                return response;
-            })
-            .fail(function () {
-                alert("error");
-                return false;
-            });
-
-    } else if (type == 'forecast') {
-
-    } else if (type == 'weather') {
-
-    }
-
-};
+//lego.getWeather = function (type, b, c) {
+//    var adress = {
+//        'main': 'http://api.openweathermap.org/data/2.5/',
+//        'params': '?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
+//    }, response;
+//    if (type == 'search') {
+//        $.ajax({
+//            type: 'GET',
+//            dataType: 'jsonp',
+//            url: adress.main + 'find' + adress.params + '&type=like&q=' + b + '&callback=?'
+//        })
+//            .done(function (data) {
+//                response = data;
+//                return response;
+//            })
+//            .fail(function () {
+//                alert("error");
+//                return false;
+//            });
+//
+//    } else if (type == 'forecast') {
+//
+//    } else if (type == 'weather') {
+//
+//    }
+//
+//};
 
 /**
  *
@@ -68,29 +68,31 @@ lego.getURLParameter = function (name) {
 /**
  * Определяет местоположение
  *
+ * @param {function} success
+ * @param {function} error
  */
-lego.geoLocation = function () {
-    var result;
+lego.geoLocation = function (success, error) {
+
     if (Modernizr.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             lego.setCookie("latitude", position.coords.latitude);
             lego.setCookie("longitude", position.coords.longitude);
             console.info("Location successfully determined.");
             lego.setCookie("geoLocationError", "false");
-            result = true;
+            success();
         }, function () {
             console.warn("During detection location the error occurred.");
             lego.setCookie("geoLocationError", "true");
-            result = false;
+            error();
         });
 
     } else {
         console.warn("During detection location the error occurred.");
         lego.setCookie("geoLocationError", "true");
-        result = false;
+        error();
     }
 
-    return result;
+
 };
 
 

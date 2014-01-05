@@ -18,8 +18,15 @@ lego.chcontainer_init = function () {
 //            lego.setCookie('geoLocationError', 'true');
 //            document.location.href = '/location';
 //        }
-            lego.geoLocation();
-            document.location.href = '/location';
+            lego.geoLocation(function () {
+                    document.location.href = '/location';
+                },
+                function () {
+                    document.location.href = '/location';
+                });
+
+//            lego.geoLocation();
+//            document.location.href = '/location';
         } else {
             lego.setCookie('geoLocationError', 'false');
             document.location.href = '/location';
