@@ -19,6 +19,7 @@ lego.chcontainer_init = function () {
 //            document.location.href = '/location';
 //        }
             lego.geoLocation();
+            document.location.href = '/location';
         } else {
             lego.setCookie('geoLocationError', 'false');
             document.location.href = '/location';

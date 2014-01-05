@@ -66,18 +66,18 @@
                                          class="b-weather-select__item b-weather-select__item_now b-weather-select__item_active">Now</a><a
                 href="#forecast" class="b-weather-select__item b-weather-select__item_forecast">Forecast</a></div>
         <div class="b-weather-now b-weather_active">
-            <div class="b-weather-now__data">
-                <div class="b-weather-now__data__main"><span class="b-weather-now__data__main_temp"></span><span
-                        class="b-weather-now__data__main_sky"><span
-                        class="b-weather-now__data__main_sky_descr"></span><span
-                        class="b-weather-now__data__main_sky_fdescr"></span></span></div>
-                <div class="b-weather-now__data__wind b-weather-now__data_sec"><span
-                        class="b-weather-now__data__wind_val"></span></div>
-                <div class="b-weather-now__data__pres b-weather-now__data_sec"><span
-                        class="b-weather-now__data__pres_val"></span></div>
-                <div class="b-weather-now__data__hum b-weather-now__data_sec"><span
-                        class="b-weather-now__data__hum_val"></span></div>
-            </div>
+            <!--.b-weather-now__data-->
+            <!--    .b-weather-now__data__main-->
+            <!--        span.b-weather-now__data__main_temp-->
+            <!--        span.b-weather-now__data__main_sky-->
+            <!--            span.b-weather-now__data__main_sky_descr-->
+            <!--            span.b-weather-now__data__main_sky_fdescr-->
+            <!--    .b-weather-now__data__wind.b-weather-now__data_sec-->
+            <!--        span.b-weather-now__data__wind_val-->
+            <!--    .b-weather-now__data__pres.b-weather-now__data_sec-->
+            <!--        span.b-weather-now__data__pres_val-->
+            <!--    .b-weather-now__data__hum.b-weather-now__data_sec-->
+            <!--        span.b-weather-now__data__hum_val-->
         </div>
         <div class="b-weather-forecast"></div>
     </div>
@@ -109,6 +109,7 @@
     window.onload = function () {
         lego.weather_location()
     };
+    //(function(){lego.weather_location()});
 
 </script>
 <div id="b-map" class="b-map"></div>

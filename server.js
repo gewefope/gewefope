@@ -1,7 +1,5 @@
-var express = require('express')
-    , http = require('http')
-    , server = express()
-    //, request = require('request')
+var express = require('express'),
+    server = express()
     ;
 
 
@@ -77,6 +75,6 @@ server.use(function (req, res) {
     ;
 });
 
-http.createServer(server).listen(server.get('port'), function () {
+require('http').createServer(server).listen(server.get('port'), function () {
     console.log('Server listening on port ' + server.get('port'));
 });

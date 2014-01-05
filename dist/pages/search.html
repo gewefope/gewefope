@@ -90,9 +90,12 @@
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="/js/global.js"></script>
-<script>window.onload = function () {
-    lego.search_init();
-};</script>
+<script>
+    //(function(){lego.search_init()});
+    window.onload = function () {
+        lego.search_init();
+    };
+</script>
 <div class="i-stat">
     <script>
         (function (d, w, c) {

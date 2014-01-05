@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     grunt.initConfig({
 
-
+        pkg: grunt.file.readJSON('package.json'),
         jade: {
             html: {
                 files: {
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                 options: {
                     'include css': true,
                     'paths': ['src/blocks/*'],
-                    'compress': true
+                    'compress': false
                 },
                 files: {
                     'dist/public/css/global.css': ['src/blocks/font/font.styl', 'src/blocks/reset.styl', 'src/blocks/page/page.styl', 'src/blocks/logo/logo.styl', 'src/blocks/container/container.styl', 'src/blocks/link/link.styl', 'src/blocks/wcontent/wcontent.styl', 'src/blocks/footer/footer.styl', 'src/blocks/weather/weather.styl', 'src/blocks/map/map.styl', 'src/blocks/disabled/disabled.styl', 'src/blocks/search/search.styl', 'src/blocks/wlist/wlist.styl', 'src/blocks/chcontainer/chcontainer.styl', 'src/blocks/header/header.styl', 'src/blocks/error/error.styl', 'src/blocks/loader/loader.styl']
@@ -47,8 +47,8 @@ module.exports = function (grunt) {
             },
             borschik: {
                 options: {
-                    report: 'min',
-                    banner: '/* (c) World Fly */ \n'
+                    report: 'gzip',
+                    banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
                 },
                 files: {
                     'dist/public/js/global.min.js': ['dist/public/js/global.js']
@@ -93,8 +93,13 @@ module.exports = function (grunt) {
             }
         },
         concat: {
+            options: {
+                separator: '\n\n\n\n',
+                stripBanners: true,
+                banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
+            },
             dist: {
-                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js'],
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js'],
                 dest: 'dist/public/js/global.js'
             }
         },
@@ -143,7 +148,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             beforeconcat: {
-                src: ['gruntfile.js', 'src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js']
+                src: ['server.js', 'gruntfile.js', 'src/js/library.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js']
 
             },
             afterconcat: {

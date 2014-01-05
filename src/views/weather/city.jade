@@ -20,18 +20,18 @@ html.no-js
                     a(href='#forecast').b-weather-select__item.b-weather-select__item_forecast Forecast
 
                 .b-weather-now.b-weather_active
-                    .b-weather-now__data
-                        .b-weather-now__data__main
-                            span.b-weather-now__data__main_temp
-                            span.b-weather-now__data__main_sky
-                                span.b-weather-now__data__main_sky_descr
-                                span.b-weather-now__data__main_sky_fdescr
-                        .b-weather-now__data__wind.b-weather-now__data_sec
-                            span.b-weather-now__data__wind_val
-                        .b-weather-now__data__pres.b-weather-now__data_sec
-                            span.b-weather-now__data__pres_val
-                        .b-weather-now__data__hum.b-weather-now__data_sec
-                            span.b-weather-now__data__hum_val
+                    //.b-weather-now__data
+                    //    .b-weather-now__data__main
+                    //        span.b-weather-now__data__main_temp
+                    //        span.b-weather-now__data__main_sky
+                    //            span.b-weather-now__data__main_sky_descr
+                    //            span.b-weather-now__data__main_sky_fdescr
+                    //    .b-weather-now__data__wind.b-weather-now__data_sec
+                    //        span.b-weather-now__data__wind_val
+                    //    .b-weather-now__data__pres.b-weather-now__data_sec
+                    //        span.b-weather-now__data__pres_val
+                    //    .b-weather-now__data__hum.b-weather-now__data_sec
+                    //        span.b-weather-now__data__hum_val
 
                 .b-weather-forecast
 
@@ -62,6 +62,7 @@ html.no-js
 
         script.
             window.onload = function(){lego.weather_city()};
+            //(function(){lego.weather_location()});
 
         .b-map#b-map
         +i-stat

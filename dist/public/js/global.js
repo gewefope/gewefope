@@ -1,3 +1,4 @@
+/* 2014-01-05 (c) World Fly */
 var lego = {};
 
 lego.getWeather = function (type, b, c) {
@@ -94,33 +95,6 @@ lego.geoLocation = function () {
 };
 
 
-//
-///*
-//* Инициализирует карты
-//*
-//* @param lat
-//* @param lon
-//* @param zoom
-//* @param dom
-//*
-// */
-//lego.loadMap = function(lat, lon, zoom, dom){
-//    var map;
-//    function initialize() {
-//        var mapOptions = {
-//            zoom: zoom,
-//            center: new google.maps.LatLng(lat, lon),
-//            disableDefaultUI: !0,
-//            mapTypeId: google.maps.MapTypeId.TERRAIN
-//        };
-//        map = new google.maps.Map(document.getElementById(dom),
-//            mapOptions);
-//    }
-//
-//    google.maps.event.addDomListener(window, 'load', initialize);
-//};
-
-
 lego.chcontainer_init = function () {
     $('.b-chcontainer__item_loc').click(function () {
         $('.b-chcontainer__item__img_geoloc').attr('src', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiNmMDAiIHN0cm9rZT0iI2YwMCIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+');
@@ -142,6 +116,7 @@ lego.chcontainer_init = function () {
 //            document.location.href = '/location';
 //        }
             lego.geoLocation();
+            document.location.href = '/location';
         } else {
             lego.setCookie('geoLocationError', 'false');
             document.location.href = '/location';
@@ -154,6 +129,8 @@ lego.chcontainer_init = function () {
         return false;
     });
 };
+
+
 lego.search_init = function () {
     var query = lego.getURLParameter('q');
     $('.b-search__q').text(query);
@@ -196,6 +173,37 @@ lego.search_error = function () {
     });
     $('.b-loader').hide();
 };
+
+
+lego.mapLoad = function (lat, lon, dom) {
+//    lego.mapInit(lat, lon, dom);
+
+    google.maps.event.addDomListener(window, 'load', lego.mapInit(lat, lon, dom));
+//    console.log(lat + lon + dom);
+};
+
+
+/*
+ *
+ *
+ * @param lat
+ * @param lon
+ * @param dom
+ */
+lego.mapInit = function (lat, lon, dom) {
+    var mapOptions = {
+        zoom: 13,
+        center: new google.maps.LatLng(lat, lon),
+        disableDefaultUI: !0,
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    lego.mapInitParams = new google.maps.Map(document.getElementById(dom),
+        mapOptions);
+
+//    console.log('at mapinit:' + lat + lon + dom);
+};
+
+
 ////TODO: Переработать весь код в этом файле
 //
 //
@@ -730,6 +738,8 @@ lego.windParse = function (deg, speed) {
         return '';
     }
 };
+
+
 lego.weather_city = function () {
     var pathArray = window.location.pathname.split('/'),
         secondLevelLocation = pathArray[2];
@@ -741,25 +751,57 @@ lego.weather_city = function () {
 
                 $('.b-weather__locname_city').text(data.name);
                 $('.b-weather__locname_country').text(' ' + data.sys.country);
-                $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
-                $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
-                $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
-                $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
-                $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
-                $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
+
+
+                var now_template = '<div class="b-weather-now__data">' +
+                    '<div class="b-weather-now__data__main">' +
+                    '<span class="b-weather-now__data__main_temp">{temp}℃</span>' +
+                    '<span class="b-weather-now__data__main_sky">' +
+                    '<span class="b-weather-now__data__main_sky_descr">{sky}</span>' +
+                    '<span class="b-weather-now__data__main_sky_fdescr"> {sky-text}</span>' +
+                    '</span>' +
+                    '</div>' +
+                    '<div class="b-weather-now__data__wind b-weather-now__data_sec">' +
+                    '<span class="b-weather-now__data__wind_val">{wind}</span>' +
+                    '</div>' +
+                    '<div class="b-weather-now__data__pres b-weather-now__data_sec">' +
+                    '<span class="b-weather-now__data__pres_val">Pressure {pressure} hPa</span>' +
+                    '</div>' +
+                    '<div class="b-weather-now__data__hum b-weather-now__data_sec">' +
+                    '<span class="b-weather-now__data__hum_val">Humidity {humidity}%</span>' +
+                    '</div>' +
+                    '</div>';
+
+                var now_insert = now_template.replace('{temp}', (data.main.temp).toFixed(1))
+                    .replace('{sky}', data.weather[0].main)
+                    .replace('{sky-text}', data.weather[0].description)
+                    .replace('{wind}', lego.windParse(data.wind.deg, data.wind.speed))
+                    .replace('{pressure}', data.main.pressure)
+                    .replace('{humidity}', data.main.humidity);
+
+//                $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
+//                $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
+//                $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
+//                $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
+//                $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
+//                $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
                 $('.b-loader').hide();
+
+                $(now_insert).appendTo('.b-weather-now');
 
 //TODO: Разобраться с картой
 
-                google.maps.event.addDomListener(window, 'load', function () {
-                    var a = {
-                        zoom: 13,
-                        center: new google.maps.LatLng(coords.lat, coords.lon),
-                        disableDefaultUI: !0,
-                        mapTypeId: google.maps.MapTypeId.TERRAIN
-                    };
-                    new google.maps.Map(document.getElementById('b-map'), a);
-                });
+//                google.maps.event.addDomListener(window, 'load', function () {
+//                    var a = {
+//                        zoom: 13,
+//                        center: new google.maps.LatLng(coords.lat, coords.lon),
+//                        disableDefaultUI: !0,
+//                        mapTypeId: google.maps.MapTypeId.TERRAIN
+//                    };
+//                    new google.maps.Map(document.getElementById('b-map'), a);
+//                });
+
+                lego.mapLoad(data.coord.lat, data.coord.lon, 'b-map');
 
             } else {
                 console.warn('data error');
@@ -860,6 +902,7 @@ lego.weather_city = function () {
 
 };
 
+
 lego.weather_location = function () {
     var coords = {
         lat: lego.getCookie('latitude'),
@@ -876,28 +919,60 @@ lego.weather_location = function () {
                 if (data.cod == 200) {
                     $('.b-weather__locname_city').text(data.name);
                     $('.b-weather__locname_country').text(' ' + data.sys.country);
-                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
-                    $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
-                    $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
-                    $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
-                    $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
-                    $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
+//                    $('.b-weather-now__data__main_temp').text((data.main.temp).toFixed(1) + '℃');
+//                    $('.b-weather-now__data__main_sky_descr').text(' ' + data.weather[0].main);
+//                    $('.b-weather-now__data__main_sky_fdescr').text(data.weather[0].description);
+//                    $('.b-weather-now__data__wind_val').text(lego.windParse(data.wind.deg, data.wind.speed));
+//                    $('.b-weather-now__data__pres_val').text('Pressure ' + data.main.pressure + ' hPa');
+//                    $('.b-weather-now__data__hum_val').text('Humidity ' + data.main.humidity + '%');
+
+
+                    var now_template = '<div class="b-weather-now__data">' +
+                        '<div class="b-weather-now__data__main">' +
+                        '<span class="b-weather-now__data__main_temp">{temp}℃</span>' +
+                        '<span class="b-weather-now__data__main_sky">' +
+                        '<span class="b-weather-now__data__main_sky_descr">{sky}</span>' +
+                        '<span class="b-weather-now__data__main_sky_fdescr"> {sky-text}</span>' +
+                        '</span>' +
+                        '</div>' +
+                        '<div class="b-weather-now__data__wind b-weather-now__data_sec">' +
+                        '<span class="b-weather-now__data__wind_val">{wind}</span>' +
+                        '</div>' +
+                        '<div class="b-weather-now__data__pres b-weather-now__data_sec">' +
+                        '<span class="b-weather-now__data__pres_val">Pressure {pressure} hPa</span>' +
+                        '</div>' +
+                        '<div class="b-weather-now__data__hum b-weather-now__data_sec">' +
+                        '<span class="b-weather-now__data__hum_val">Humidity {humidity}%</span>' +
+                        '</div>' +
+                        '</div>';
+
+                    var now_insert = now_template.replace('{temp}', (data.main.temp).toFixed(1))
+                        .replace('{sky}', data.weather[0].main)
+                        .replace('{sky-text}', data.weather[0].description)
+                        .replace('{wind}', lego.windParse(data.wind.deg, data.wind.speed))
+                        .replace('{pressure}', data.main.pressure)
+                        .replace('{humidity}', data.main.humidity);
+
+
                     $('.b-loader').hide();
+
+                    $(now_insert).appendTo('.b-weather-now');
 
 //TODO: Разобраться с картой
 
-                    google.maps.event.addDomListener(window, 'load', function () {
-                        var a = {
-                            zoom: 13,
-                            center: new google.maps.LatLng(coords.lat, coords.lon),
-                            disableDefaultUI: !0,
-                            mapTypeId: google.maps.MapTypeId.TERRAIN
-                        };
-                        new google.maps.Map(document.getElementById('b-map'), a);
-                    });
+//                    google.maps.event.addDomListener(window, 'load', function () {
+//                        var a = {
+//                            zoom: 13,
+//                            center: new google.maps.LatLng(coords.lat, coords.lon),
+//                            disableDefaultUI: !0,
+//                            mapTypeId: google.maps.MapTypeId.TERRAIN
+//                        };
+//                        new google.maps.Map(document.getElementById('b-map'), a);
+//                    });
 
 //                    lego.loadMap(coords.lat, coords.lon, 13, 'b-map');
 
+                    lego.mapLoad(coords.lat, coords.lon, 'b-map');
 
                 } else {
                     console.warn('data error');
@@ -1004,6 +1079,7 @@ lego.weather_location = function () {
 
     lego.weather_select();
 };
+
 
 lego.weather_select = function () {
     // проверка хэша и открытие соответсвующей вкладки
