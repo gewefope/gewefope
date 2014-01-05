@@ -171,5 +171,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
-    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', 'uglify:borschik', 'svgmin']);
+    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', /*'csso',*/ 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', /*'uglify:borschik',*/ 'svgmin']);
+    grunt.registerTask('production', ['jade', 'stylus',  'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat',  'jshint:afterconcat', 'uglify:borschik', 'svgmin', 'htmlmin']);
 };

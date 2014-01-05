@@ -1,135 +1,59 @@
 <!DOCTYPE html>
 <html class="no-js">
-<head>
+  <head>
     <meta charset="utf-8"/>
-    <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
     <title>Search</title>
     <meta name="description"/>
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet"/>
     <link rel="stylesheet" href="/css/global.css"/>
-    <script>window.Modernizr = function (a, b, c) {
-        function d(a) {
-            o.cssText = a
-        }
-
-        function f(a, b) {
-            return typeof a === b
-        }
-
-        var p, w, y, i = "2.6.2", j = {}, k = !0, l = b.documentElement, m = "modernizr", n = b.createElement(m), o = n.style, r = ({}.toString, {}), u = [], v = u.slice, x = {}.hasOwnProperty;
-        y = f(x, "undefined") || f(x.call, "undefined") ? function (a, b) {
-            return b in a && f(a.constructor.prototype[b], "undefined")
-        } : function (a, b) {
-            return x.call(a, b)
-        }, Function.prototype.bind || (Function.prototype.bind = function (a) {
-            var b = this;
-            if ("function" != typeof b)throw new TypeError;
-            var c = v.call(arguments, 1), d = function () {
-                if (this instanceof d) {
-                    var e = function () {
-                    };
-                    e.prototype = b.prototype;
-                    var f = new e, g = b.apply(f, c.concat(v.call(arguments)));
-                    return Object(g) === g ? g : f
-                }
-                return b.apply(a, c.concat(v.call(arguments)))
-            };
-            return d
-        }), r.geolocation = function () {
-            return"geolocation"in navigator
-        };
-        for (var z in r)y(r, z) && (w = z.toLowerCase(), j[w] = r[z](), u.push((j[w] ? "" : "no-") + w));
-        return j.addTest = function (a, b) {
-            if ("object" == typeof a)for (var d in a)y(a, d) && j.addTest(d, a[d]); else {
-                if (a = a.toLowerCase(), j[a] !== c)return j;
-                b = "function" == typeof b ? b() : b, "undefined" != typeof k && k && (l.className += " " + (b ? "" : "no-") + a), j[a] = b
-            }
-            return j
-        }, d(""), n = p = null, j._version = i, l.className = l.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (k ? " js " + u.join(" ") : ""), j
-    }(this, this.document);</script>
-    <style>.b-footer {
-        position: static
-    }</style>
-</head>
-<body class="b-page">
-<div class="b-header b-container">
-    <div class="b-logo b-logo_slogan b-logo_link"><a href="/" class="b-logo__link">
-        <h1 class="b-logo__name b-logo">Gewefope</h1></a>
-
+    <script>window.Modernizr=function(a,b,c){function d(a){o.cssText=a}function f(a,b){return typeof a===b}var p,w,y,i="2.6.2",j={},k=!0,l=b.documentElement,m="modernizr",n=b.createElement(m),o=n.style,r=({}.toString,{}),u=[],v=u.slice,x={}.hasOwnProperty;y=f(x,"undefined")||f(x.call,"undefined")?function(a,b){return b in a&&f(a.constructor.prototype[b],"undefined")}:function(a,b){return x.call(a,b)},Function.prototype.bind||(Function.prototype.bind=function(a){var b=this;if("function"!=typeof b)throw new TypeError;var c=v.call(arguments,1),d=function(){if(this instanceof d){var e=function(){};e.prototype=b.prototype;var f=new e,g=b.apply(f,c.concat(v.call(arguments)));return Object(g)===g?g:f}return b.apply(a,c.concat(v.call(arguments)))};return d}),r.geolocation=function(){return"geolocation"in navigator};for(var z in r)y(r,z)&&(w=z.toLowerCase(),j[w]=r[z](),u.push((j[w]?"":"no-")+w));return j.addTest=function(a,b){if("object"==typeof a)for(var d in a)y(a,d)&&j.addTest(d,a[d]);else{if(a=a.toLowerCase(),j[a]!==c)return j;b="function"==typeof b?b():b,"undefined"!=typeof k&&k&&(l.className+=" "+(b?"":"no-")+a),j[a]=b}return j},d(""),n=p=null,j._version=i,l.className=l.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(k?" js "+u.join(" "):""),j}(this,this.document);</script>
+    <style>.b-footer{position:static}</style>
+  </head>
+  <body class="b-page">
+    <div class="b-header b-container">
+      <div class="b-logo b-logo_slogan b-logo_link"><a href="/" class="b-logo__link">
+          <h1 class="b-logo__name b-logo">Gewefope</h1></a>
         <h2 class="b-logo__slogan">Weather for the people</h2>
+      </div>
     </div>
-</div>
-<div class="b-container b-container_searchheader">
-    <form action="" name="searchf" class="b-search-header">
+    <div class="b-container b-container_searchheader">
+      <form action="" name="searchf" class="b-search-header">
         <h1 class="b-search-header__pagename">Search for a location:
-            <input value="" type="search" name="q" class="b-search-header__query">
+          <input value="" type="search" name="q" class="b-search-header__query">
         </h1>
-    </form>
-</div>
-<div class="b-container b-container_searchbody">
-    <div class="b-wlist"></div>
-</div>
-<div class="b-container b-container_loader b-loader b-loader_size_m"><span
-        class="b-loader__spinner b-loader__spinner_black"></span></div>
-<div class="b-footer">
-    <div class="b-footer__table">
-        <div class="b-footer__table__col b-footer__table__col_left">
-            <p class="b-footer__item">Data provided by <a class="b-link"
-                                                          href="http://openweathermap.org">OpenWeatherMap</a>.</p>
-
-            <p class="b-footer__litem">Site is available under the Creative Commons Attribution-ShareAlike License,
-                additional terms may apply.
-                <!--| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.-->
-            </p>
-
-            <p class="b-footer__ltem">©2014&nbsp;World Fly
-            </p>
-        </div>
+      </form>
     </div>
-</div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/global.js"></script>
-<script>
-    //(function(){lego.search_init()});
-    window.onload = function () {
-        lego.search_init();
-    };
-</script>
-<div class="i-stat">
+    <div class="b-container b-container_searchbody">
+      <div class="b-wlist"></div>
+    </div>
+    <div class="b-container b-container_loader b-loader b-loader_size_m"><span class="b-loader__spinner b-loader__spinner_black"></span></div>
+    <div class="b-footer">
+      <div class="b-footer__table">
+        <div class="b-footer__table__col b-footer__table__col_left">
+          <p class="b-footer__item">Data provided by <a class="b-link" href="http://openweathermap.org">OpenWeatherMap</a>.</p>
+          <p class="b-footer__litem">Site is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.
+            <!--| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.-->
+          </p>
+          <p class="b-footer__ltem">©2014&nbsp;World Fly
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="/js/global.js"></script>
     <script>
-        (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter22140653 = new Ya.Metrika({id: 22140653, webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true, trackHash: true, ut: "noindex"});
-                } catch (e) {
-                }
-            });
-            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else {
-                f();
-            }
-        })(document, window, "yandex_metrika_callbacks");
-        (function (a, b) {
-            (a[b] = a[b] || []).push(function () {
-                try {
-                    a.yaCounter206275 = new Ya.Metrika({id: 206275, webvisor: !0, clickmap: !0, trackLinks: !0, accurateTrackBounce: !0, trackHash: !0, ut: "noindex"})
-                } catch (b) {
-                }
-            })
-        }(window, "yandex_metrika_callbacks");
-        new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen) == "undefined") ? "" : ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ? screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) + ";h" + escape(document.title.substring(0, 80)) + ";" + Math.random();
-
+      //(function(){lego.search_init()});
+      window.onload = function(){lego.search_init();};
     </script>
-    <noscript><img src="//mc.yandex.ru/watch/22140653?ut=noindex" style="position:absolute; left:-9999px;" alt=""/><img
-            src="//mc.yandex.ru/watch/206275?ut=noindex" style="position:absolute; left:-9999px;" alt=""/></noscript>
-</div>
-</body>
+    <div class="i-stat">
+      <script>
+        (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter22140653 = new Ya.Metrika({id:22140653, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true, ut:"noindex"}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
+        (function(a,b){(a[b]=a[b]||[]).push(function(){try{a.yaCounter206275=new Ya.Metrika({id:206275,webvisor:!0,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,trackHash:!0,ut:"noindex"})}catch(b){}})}(window,"yandex_metrika_callbacks");
+        new Image().src = "//counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) + ";h"+escape(document.title.substring(0,80)) + ";" +Math.random();
+        
+      </script>
+      <noscript><img src="//mc.yandex.ru/watch/22140653?ut=noindex" style="position:absolute; left:-9999px;" alt=""/><img src="//mc.yandex.ru/watch/206275?ut=noindex" style="position:absolute; left:-9999px;" alt=""/></noscript>
+    </div>
+  </body>
 </html>

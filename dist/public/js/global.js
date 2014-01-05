@@ -1,4 +1,4 @@
-/* 2014-01-05 (c) World Fly */
+/* 2014-01-05 (c) World Fly */ 
 var lego = {};
 
 //lego.getWeather = function (type, b, c) {
@@ -97,6 +97,11 @@ lego.geoLocation = function (success, error) {
 };
 
 
+
+
+
+
+
 lego.chcontainer_init = function () {
     $('.b-chcontainer__item_loc').click(function () {
         $('.b-chcontainer__item__img_geoloc').attr('src', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAiIGhlaWdodD0iMTEwIj48Y2lyY2xlIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSI1NS4xMzgiIGN5PSI1Ni4xMTciIHI9IjQxLjMwNCIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSIxOC44NzUiIHkxPSI1Ni4xMzUiIHgyPSI0Ljg3NSIgeTI9IjU2LjEzNSIgZmlsbD0ibm9uZSIvPjxsaW5lIHN0cm9rZT0iIzRENEQ0RCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHgxPSI5MS44NzUiIHkxPSI1Ni4xMzUiIHgyPSIxMDQuODc1IiB5Mj0iNTYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjE5LjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjYuMTM1IiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgeDE9IjU0Ljg3NSIgeTE9IjkzLjEzNSIgeDI9IjU0Ljg3NSIgeTI9IjEwNi4xMzUiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGZpbGw9IiNmMDAiIHN0cm9rZT0iI2YwMCIgc3Ryb2tlLXdpZHRoPSIuMjUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjU1LjEzOCIgY3k9IjU2LjExNyIgcj0iMTcuMzkxIi8+PC9zdmc+');
@@ -138,6 +143,7 @@ lego.chcontainer_init = function () {
         return false;
     });
 };
+
 
 
 lego.search_init = function () {
@@ -184,6 +190,7 @@ lego.search_error = function () {
 };
 
 
+
 lego.mapLoad = function (lat, lon, dom) {
 //    lego.mapInit(lat, lon, dom);
 
@@ -211,6 +218,8 @@ lego.mapInit = function (lat, lon, dom) {
 
 //    console.log('at mapinit:' + lat + lon + dom);
 };
+
+
 
 
 ////
@@ -749,6 +758,7 @@ lego.windParse = function (deg, speed) {
 };
 
 
+
 lego.weather_city = function () {
     var pathArray = window.location.pathname.split('/'),
         secondLevelLocation = pathArray[2];
@@ -915,6 +925,8 @@ lego.weather_city = function () {
     lego.weather_select();
 
 };
+
+
 
 
 lego.weather_location = function () {
@@ -1097,6 +1109,8 @@ lego.weather_location = function () {
 
     lego.weather_select();
 };
+
+
 
 
 lego.weather_select = function () {
