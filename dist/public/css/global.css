@@ -478,10 +478,9 @@ table {
 .b-error {
   z-index: 30;
   display: none;
-  position: absolute;
   width: 100%;
   text-align: center;
-  color: #ff8282;
+  color: #ff7365;
 }
 .b-error__text {
   font-size: 25em;
@@ -490,6 +489,7 @@ table {
 }
 .b-error__descr {
   font-size: 5em;
+  padding-top: 2.5em;
 }
 
 .b-loader {

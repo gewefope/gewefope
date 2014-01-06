@@ -65,7 +65,7 @@ server.get('/api/weather/coords/:lat/:lon', function (req, res) {
                 .status(200);
         } else {
             res.status(502)
-                .send('502');
+                .send('<!doctype html><html><body><h1 style="text-align: center">502 Bad Gateway</h1></body></html>');
         }
     });
 
@@ -82,7 +82,7 @@ server.get('/api/forecast/coords/:lat/:lon', function (req, res) {
                 .status(200);
         } else {
             res.status(502)
-                .send('502');
+                .send('<!doctype html><html><body><h1 style="text-align: center">502 Bad Gateway</h1></body></html>');
         }
     });
 
@@ -95,7 +95,7 @@ server.get('/api/weather/city/:city', function (req, res) {
                 .status(200);
         } else {
             res.status(502)
-                .send('502');
+                .send('<!doctype html><html><body><h1 style="text-align: center">502 Bad Gateway</h1></body></html>');
         }
     });
 
@@ -110,7 +110,7 @@ server.get('/api/forecast/city/:query', function (req, res) {
                 .status(200);
         } else {
             res.status(502)
-                .send('502');
+                .send('<!doctype html><html><body><h1 style="text-align: center">502 Bad Gateway</h1></body></html>');
         }
     });
 
@@ -124,7 +124,7 @@ server.get('/api/search/:query', function (req, res) {
                 .status(200);
         } else {
             res.status(502)
-                .send('502');
+                .send('<!doctype html><html><body><h1 style="text-align: center">502 Bad Gateway</h1></body></html>');
         }
     });
 
@@ -139,8 +139,8 @@ server.get('/api/search/:query', function (req, res) {
 server.use(function (req, res) {
     res.status(404)
         .set('Content-Type', 'text/html')
-        .send('404')
-        //.sendfile(__dirname + '/server/404.html')
+        //.send('404')
+        .sendfile(__dirname + '/dist/pages/errors/404.html')
     ;
 });
 

@@ -528,7 +528,6 @@ lego.windParse = function (deg, speed) {
 //        $('.b-weather-now__data__wind_val').text('Wind north northwest ' + speed + 'm/s');
         return 'Wind north northwest ' + speed + 'm/s';
     } else {
-        console.warn('windParse error');
         return '';
     }
 };

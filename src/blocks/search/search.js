@@ -49,7 +49,7 @@ lego.search_init = function () {
                     var insert = template.replace('{itemid}', item.id)
                         .replace('{itemname}', item.name)
                         .replace('{itemcountry}', item.sys.country)
-                        .replace('{itemtemp}', item.main.temp)
+                        .replace('{itemtemp}', (item.main.temp).toFixed(1))
                         .replace('{itemweather}', item.weather[0].main);
                     $(insert).appendTo('.b-wlist');
                 });

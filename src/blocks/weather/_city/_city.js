@@ -108,13 +108,26 @@ lego.weather_city = function () {
                 lego.mapLoad(data.coord.lat, data.coord.lon, 'b-map');
 
             } else {
-                console.warn('data error');
-                lego.error(1);
+//                console.warn('data error');
+                lego.error({
+                    before: function(){
+                        $('.b-container-weather_weather').hide();
+                        $('.b-loader').hide();
+                    },
+                    errorText: data.message
+                });
             }
         },
         error: function (jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request Failed: ' + err);
+            lego.error({
+                before: function(){
+                    $('.b-container-weather_weather').hide();
+                    $('.b-loader').hide();
+                },
+                errorCode: '02'
+            });
         }
     });
 
@@ -196,11 +209,27 @@ lego.weather_city = function () {
 
                     $(forecast_insert).appendTo('.b-weather-forecast');
                 });
+            } else {
+//                console.warn('data error');
+                lego.error({
+                    before: function(){
+                        $('.b-container-weather_weather').hide();
+                        $('.b-loader').hide();
+                    },
+                    errorText: data.message
+                });
             }
         },
         error: function (jqxhr, textStatus, error) {
             var err = textStatus + ', ' + error;
             console.log('Request #2 Failed: ' + err);
+            lego.error({
+                before: function(){
+                    $('.b-container-weather_weather').hide();
+                    $('.b-loader').hide();
+                },
+                errorText: data.message
+            });
         }
     });
 

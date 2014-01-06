@@ -15,7 +15,8 @@ module.exports = function (grunt) {
                     "dist/pages/index.html": "src/views/index/index.jade",
                     "dist/pages/search.html": "src/views/index/search.jade",
                     "dist/pages/location.html": "src/views/weather/location.jade",
-                    "dist/pages/city.html": "src/views/weather/city.jade"
+                    "dist/pages/city.html": "src/views/weather/city.jade",
+                    "dist/pages/errors/404.html": "src/views/errors/404.jade"
                 }
             }
 
@@ -45,7 +46,7 @@ module.exports = function (grunt) {
             default: {
                 options: {
                     report: 'gzip',
-                    banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
+                    banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> © World Fly */ \n'
                 },
                 files: {
                     'dist/public/js/global.min.js': ['dist/public/js/global.js']
@@ -85,7 +86,7 @@ module.exports = function (grunt) {
             options: {
                 separator: '\n\n\n\n',
                 stripBanners: true,
-                banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
+                banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> © World Fly */ \n'
             },
             dist: {
                 src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'],
@@ -115,7 +116,12 @@ module.exports = function (grunt) {
             afterconcat: {
                 src: ['dist/public/js/global.js']
             }
-        }
+        },
+//        csslint: {
+//            strict: {
+//                src: ['dist/public/css/global.css']
+//            }
+//        }
 
     });
 
@@ -129,8 +135,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    //grunt.loadNpmTasks('grunt-contrib-csslint');
 
 
-    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', /*'csso',*/ 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', /*'uglify:borschik',*/ 'svgmin']);
+    grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', /*'csslint', 'csso',*/ 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', /*'uglify:borschik',*/ 'svgmin']);
     grunt.registerTask('production', ['jade', 'stylus',  'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat',  'jshint:afterconcat', 'uglify', 'svgmin', 'htmlmin']);
 };
