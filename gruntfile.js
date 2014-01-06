@@ -4,12 +4,18 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         jade: {
             html: {
-                files: {
-                    'dist/pages/': ['src/views/*.jade', 'src/views/**/*.jade']
-                },
                 options: {
                     pretty: true,
-                    client: false
+                    client: false,
+                    data: {
+                        timestamp: "<%= grunt.template.today('yyyy-mm-dd') %>"
+                    }
+                },
+                files: {
+                    "dist/pages/index.html": "src/views/index/index.jade",
+                    "dist/pages/search.html": "src/views/index/search.jade",
+                    "dist/pages/location.html": "src/views/weather/location.jade",
+                    "dist/pages/city.html": "src/views/weather/city.jade"
                 }
             }
 
@@ -28,7 +34,7 @@ module.exports = function (grunt) {
         },
         autoprefixer: {
             options: {
-                browsers: ['last 2 version', 'ie 9']
+                browsers: ['last 2 version', 'ie 9', 'ff 5']
             },
             single_file: {
                 src: 'dist/public/css/global.css',
@@ -36,16 +42,7 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            my_target: {
-                options: {
-                    report: 'min',
-                    banner: '/* (c) World Fly */ \n'
-                },
-                files: {
-                    'dist/public/lib.min.js': ['src/js/library.js']
-                }
-            },
-            borschik: {
+            default: {
                 options: {
                     report: 'gzip',
                     banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
@@ -99,7 +96,7 @@ module.exports = function (grunt) {
                 banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> (c) World Fly */ \n'
             },
             dist: {
-                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js'],
+                src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'],
                 dest: 'dist/public/js/global.js'
             }
         },
@@ -148,7 +145,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             beforeconcat: {
-                src: ['server.js', 'gruntfile.js', 'src/js/library.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/weather/select/select.js']
+                src: ['server.js', 'gruntfile.js', 'src/js/library.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js']
 
             },
             afterconcat: {
@@ -159,7 +156,7 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.loadNpmTasks('grunt-jade');
+    grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso');
@@ -172,5 +169,5 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('default', ['jade', 'stylus', 'autoprefixer', /*'csso',*/ 'jshint:beforeconcat', 'concat', 'jshint:afterconcat', /*'uglify:borschik',*/ 'svgmin']);
-    grunt.registerTask('production', ['jade', 'stylus',  'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat',  'jshint:afterconcat', 'uglify:borschik', 'svgmin', 'htmlmin']);
+    grunt.registerTask('production', ['jade', 'stylus',  'autoprefixer', 'csso', 'jshint:beforeconcat', 'concat',  'jshint:afterconcat', 'uglify', 'svgmin', 'htmlmin']);
 };

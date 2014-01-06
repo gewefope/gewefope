@@ -1,6 +1,6 @@
 include ../../blocks/default.jade
 
-doctype 5
+doctype html
 html.no-js
     head
         +i-head('Index')
@@ -24,9 +24,11 @@ html.no-js
                         br
                         | Geolocation
         +b-footer
-        script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        //script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.1/zepto.min.js')
         script(src='/js/global.js')
         script.
             window.onload = (function(){lego.chcontainer_init();});
             //(function(){lego.chcontainer_init()});
         +i-stat
+
