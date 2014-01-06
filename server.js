@@ -1,7 +1,6 @@
 var express = require('express'),
     server = express(),
-    request = require('request')
-    ;
+    request = require('request');
 
 
 server.set('port', process.env.PORT || 3000);
@@ -54,28 +53,6 @@ server.get('/city/:id', function (req, res) {
 // Weather api
 
 
-//server.get('/api/:first/:second/:third/:four', function (req, res) {
-//    var param = {
-//        first: req.params.first,
-//        second: req.params.second,
-//        third: req.params.third,
-//        four: req.params.four,
-//        host: 'http://api.openweathermap.org/data/2.5/',
-//        params: 'mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b'
-//    };
-//
-//    if (param.first == 'search') {
-//        request(param.host + 'find?' + param.params + '&q=' + param.second, function (err, response, body) {
-//            if (!err && response.statusCode == 200) {
-//                res.send(body);
-//            } else {
-//                res.status(502)
-//                    .send('502');
-//            }
-//        });
-//    }
-//
-//});
 
 server.get('/api/weather/coords/:lat/:lon', function (req, res) {
     var param = {

@@ -63,14 +63,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        shell: {
-            server: {
-                command: 'node server.js'
-            },
-            broschik1: {
-                command: 'node_modules/.bin/borschik --input=src/blocks/global.js --minimize=no --output=dist/public/global.js'
-            }
-        },
         htmlmin: {
             dist: {
                 options: {
@@ -98,34 +90,6 @@ module.exports = function (grunt) {
             dist: {
                 src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'],
                 dest: 'dist/public/js/global.js'
-            }
-        },
-        watch: {
-            options: {
-                atBegin: true,
-                livereload: true
-            },
-            pages: {
-                files: ['src/**/*.jade'],
-                tasks: 'jade'
-            },
-            styles: {
-                files: ['src/blocks/**/*.styl'],
-                tasks: ['stylus', 'autoprefixer', 'csso']
-            },
-            scripts: {
-                files: [
-                    'src/**/*.js'
-                ],
-                tasks: ['concat', 'uglify:borschik']
-            }
-        },
-        connect: {
-            server: {
-                options: {
-                    livereload: true,
-                    base: 'public/'
-                }
             }
         },
         svgmin: {
@@ -160,7 +124,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-stylus');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-csso');
-    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
