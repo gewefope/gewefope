@@ -6,16 +6,16 @@ lego.weather_location = function () {
     };
     if (coords.lat === undefined || coords.lon === undefined) {
         lego.geoLocation(function (position) {
-            coords.lat = position.coords.latitude;
-            coords.lon = position.coords.longitude;
-            weatherData();
+            lego.setCookie('latitude', position.coords.longitude)
+                .setCookie('longitude', position.coords.longitude);
+            loadWeatherData();
         });
 
-    } else{
-        weatherData();
+    } else {
+        loadWeatherData();
     }
 
-    function weatherData(){
+    function loadWeatherData() {
         if (coords.error != 'true') {
             //$.getJSON('http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&lat=' + coords.lat + '&lon=' + coords.lon + '&callback=?')
 //        $.getJSON('/api/weather/coords/' + coords.lat + '/' + coords.lon)
@@ -140,7 +140,7 @@ lego.weather_location = function () {
                     } else {
 //                        console.warn('data error');
                         lego.error({
-                            before: function(){
+                            before: function () {
                                 $('.b-container-weather_weather').hide();
                                 $('.b-loader').hide();
                             },
@@ -159,7 +159,7 @@ lego.weather_location = function () {
                 type: 'GET',
                 url: '/api/forecast/coords/' + coords.lat + '/' + coords.lon,
                 dataType: 'json',
-                success: function(data){
+                success: function (data) {
                     if (data.cod == 200) {
                         $.each(data.list, function (i, item) {
                             var dt = new Date(item.dt * 1000);
@@ -235,10 +235,10 @@ lego.weather_location = function () {
 
                             $(insert).appendTo('.b-weather-forecast');
                         });
-                    }else {
+                    } else {
 //                        console.warn('data error');
                         lego.error({
-                            before: function(){
+                            before: function () {
                                 $('.b-container-weather_weather').hide();
                                 $('.b-loader').hide();
                             },
@@ -250,7 +250,7 @@ lego.weather_location = function () {
                     var err = textStatus + ', ' + error;
                     console.log('Request #2 Failed: ' + err);
                     lego.error({
-                        before: function(){
+                        before: function () {
                             $('.b-container-weather_weather').hide();
                             $('.b-loader').hide();
                         },
@@ -350,7 +350,7 @@ lego.weather_location = function () {
 //
         } else {
             lego.error({
-                before: function(){
+                before: function () {
                     $('.b-container-weather_weather').hide();
                     $('.b-loader').hide();
                 },
@@ -361,8 +361,8 @@ lego.weather_location = function () {
     }
 
 
-        //tabs
+    //tabs
 
-        lego.weather_select();
-    }
-    ;
+    lego.weather_select();
+}
+;
