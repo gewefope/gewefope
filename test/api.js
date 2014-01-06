@@ -10,7 +10,7 @@ describe('Test api working\n', function () {
     require('../server.js');
 
     it('Test for /api/weather/', function (done) {
-        request.get('http://localhost:' + port + '/api/weather/-16.92/145.77', function (err, res) {
+        request.get('http://localhost:' + port + '/api/weather/coords/-16.92/145.77', function (err, res) {
             res.statusCode.should.equal(200);
             done();
         });
