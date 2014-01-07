@@ -6,7 +6,7 @@ node_js:
 
 matrix:
   allow_failures:
-    - node_js: "0.11", "0.8.x"
+    - node_js: "0.8.x"
 
 before_script:
 - npm install -g grunt-cli
