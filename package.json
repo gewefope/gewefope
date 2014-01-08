@@ -1,0 +1,19 @@
+{
+  "name": "Gewefope",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.3.5",
+    "jade": "*",
+    "less": "*",
+    "less-middleware": "*",
+    "stylus": "~0.42.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}

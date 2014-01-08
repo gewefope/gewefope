@@ -1,0 +1,21 @@
+mixin b-logo(modiferf, modifers)
+ -var mod1 = modiferf;
+ -var mod2 = modifers;
+ -if(mod1 == 'slogan' && mod2 == undefined)
+  .b-logo.b-logo_slogan
+    h1.b-logo__name.b-logo Gewefope
+    h2.b-logo__slogan Weather for the people
+ -else if(mod1 == 'slogan' && mod2 == 'link')
+   .b-logo.b-logo_slogan.b-logo_link
+      a(href='/').b-logo__link
+        h1.b-logo__name.b-logo Gewefope
+      h2.b-logo__slogan Weather for the people
+ -else if(mod1 == '' && mod2 == 'link')
+   .b-logo.b-logo_slogan.b-logo_link
+      a(href='/').b-logo__link
+        h1.b-logo__name.b-logo Gewefope
+ -else
+   .b-logo
+      h1.b-logo__name Gewefope
+  
+  

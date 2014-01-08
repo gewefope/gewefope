@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .b-wcontent
+    include ../includes/b-logo.jade
+    +b-logo('', 'link')
+    .b-wcontainer.b-wcontainer_weather
+      h1.b-weather__locname
+        span.b-weather__locname_city
+        span.b-weather__locname_country
+      .b-weather__data
+        .b-weather__data__main
+          span.b-weather__data__main_temp
+          span.b-weather__data__main_sky
+            span.b-weather__data__main_sky_descr
+            span.b-weather__data__main_sky_fdescr
+
+        .b-weather__data__wind.b-weather__data_sec
+          span.b-weather__data__wind_val
+        .b-weather__data__pres.b-weather__data_sec
+          span.b-weather__data__pres_val
+        .b-weather__data__hum.b-weather__data_sec
+          span.b-weather__data__hum_val
+    .b-wcontainer.b-wcontainer_loading
+        img(src='/images/ajax-loader.gif')
+    .b-wcontainer.b-wcontainer_error
+      .b-error
+        p.b-error__text No
+    include ../includes/b-footer.jade
+    +b-footer('link')
+
+  script.
+    function weatherError(a){var b;$(".b-container_weather").hide(),$(".b-container_error").show(),0==a?b="Geolocation error":1==a&&(b="Weather error"),$(".b-error").append("<p class='b-error__descr'>"+b+"</p>")}var coords={lat:getCookie("latitude"),lon:getCookie("longitude"),error:getCookie("geoLocationError")};!function(){(void 0===coords.lat||void 0===coords.lon)&&geoLocation(),geoLocationError||"true"==coords.error?(weatherError(0),console.warn("Geolocation error")):$.getJSON("http://api.openweathermap.org/data/2.5/weather?mode=json&units=metric&appid=39236d7efbea4f7c0fda3217a63c177b&lat="+getCookie("latitude")+"&lon="+getCookie("longitude")+"&callback=?").done(function(a){200==a.cod?($(".b-weather__locname_city").text(a.name),$(".b-weather__locname_country").text(" "+a.sys.country),$(".b-weather__data__main_temp").text(a.main.temp+"\u2103"),$(".b-weather__data__main_sky_descr").text(" "+a.weather[0].main),$(".b-weather__data__main_sky_fdescr").text(a.weather[0].description),350<=a.wind.deg&&a.wind.deg<10?$(".b-weather__data__wind_val").text("Wind north "+a.wind.speed+"m/s"):10<=a.wind.deg&&a.wind.deg<20?$(".b-weather__data__wind_val").text("Wind north northeast "+a.wind.speed+"m/s"):20<=a.wind.deg&&a.wind.deg<70?$(".b-weather__data__wind_val").text("Wind northeast "+a.wind.speed+"m/s"):70<=a.wind.deg&&a.wind.deg<80?$(".b-weather__data__wind_val").text("Wind east northeast "+a.wind.speed+"m/s"):80<=a.wind.deg&&a.wind.deg<100?$(".b-weather__data__wind_val").text("Wind east "+a.wind.speed+"m/s"):110<=a.wind.deg&&a.wind.deg<160?$(".b-weather__data__wind_val").text("Wind east southeast "+a.wind.speed+"m/s"):160<=a.wind.deg&&a.wind.deg<170?$(".b-weather__data__wind_val").text("Wind southeast "+a.wind.speed+"m/s"):170<=a.wind.deg&&a.wind.deg<190?$(".b-weather__data__wind_val").text("Wind south "+a.wind.speed+"m/s"):190<=a.wind.deg&&a.wind.deg<200?$(".b-weather__data__wind_val").text("Wind south southwest "+a.wind.speed+"m/s"):200<=a.wind.deg&&a.wind.deg<250?$(".b-weather__data__wind_val").text("Wind southwest "+a.wind.speed+"m/s"):250<=a.wind.deg&&a.wind.deg<260?$(".b-weather__data__wind_val").text("Wind west southwest "+a.wind.speed+"m/s"):260<=a.wind.deg&&a.wind.deg<280?$(".b-weather__data__wind_val").text("Wind west "+a.wind.speed+"m/s"):280<=a.wind.deg&&a.wind.deg<290?$(".b-weather__data__wind_val").text("Wind northwest west "+a.wind.speed+"m/s"):290<=a.wind.deg&&a.wind.deg<340?$(".b-weather__data__wind_val").text("Wind northwest "+a.wind.speed+"m/s"):340<=a.wind.deg&&a.wind.deg<350&&$(".b-weather__data__wind_val").text("Wind north northwest "+a.wind.speed+"m/s"),$(".b-weather__data__pres_val").text("Pressure "+a.main.pressure+" hPa"),$(".b-weather__data__hum_val").text("Humidity "+a.main.humidity+"%"),$(".b-wcontainer_loading").hide(),console.log("weather data was loaded")):(console.warn("data error"),weatherError(1))}).fail(function(a,b,c){var d=b+", "+c;console.log("Request Failed: "+d)})}();
+    

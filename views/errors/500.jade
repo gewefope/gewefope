@@ -1,0 +1,16 @@
+extends errorlayout
+
+
+block content
+  .b-content__error
+    |Internal Server Error
+
+  .b-content__descr
+    p.b-content__descr_item The server encountered an error.
+
+    p.b-content__descr_item #{error}
+
+    p.b-content__descr_item
+      |Rather of all, we already know this, but you can still 
+      a(href='mailto:support@worldfly.info')&#32;tell us about it: support@worldfly.info
+      |.

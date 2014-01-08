@@ -1,0 +1,21 @@
+doctype html
+html.no-js
+  head
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')
+    title=title
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:400,300', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/index.css?/dev_ver/'+Math.floor(Math.random()*100000))
+    style.
+      .b-bodycontent{max-width: 1500px;margin: 0 auto;width: 100%;}
+      .b-bodycontent__title{padding-left:10em;font-size: 1.3em;}
+  body
+    .b-header
+      a(href='/')
+        h1.b-logo.b-logo_item Gewefope 
+      h2.b-logo__descr.b-logo_item Weather for the people
+    
+    .b-bodycontent
+      block content
+
+    include ../includes/b-footer.jade
+    +b-footer
