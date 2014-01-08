@@ -198,11 +198,11 @@ table {
   padding: 10px 20px;
 }
 .b-container-weather_weather {
-  padding: 3em 15em 0 15em;
+  padding: 3em 5em 0 20em;
 }
 @media screen and (max-width: 800px) {
   .b-container-weather_weather {
-    padding: 1.5em 5em 0 1em;
+    padding: 1.5em 1em 0 5em;
   }
 }
 
@@ -306,6 +306,10 @@ table {
 }
 .b-weather-forecast {
   display: none;
+  padding-left: 3em;
+}
+.b-weather-forecast :last-child {
+  border-bottom: 0;
 }
 .b-weather-forecast__line {
   border-bottom: 1px dashed #cfcfcf;
@@ -313,18 +317,15 @@ table {
   width: 500px;
   font-weight: 400;
 }
-.b-weather-forecast__line :last-child {
-  border: 0;
-}
 .b-weather-forecast__section {
   display: inline-block;
+}
+.b-weather-forecast__section :last-child {
+  border-right: 0;
 }
 .b-weather-forecast__section__item {
   border-right: 1px dotted #b1b1b1;
   display: inline-block;
-}
-.b-weather-forecast__section__item :last-child {
-  border-right: 0;
 }
 .b-weather-forecast__section__date {
   -webkit-transform: rotate(90deg);
@@ -352,6 +353,9 @@ table {
   font-size: 1.4em;
   padding: 0 5px;
   width: 60px;
+}
+.b-weather-forecast__wind {
+  padding-left: 1em;
 }
 .b-weather-select__item {
   display: inline-block;
