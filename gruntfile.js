@@ -8,7 +8,7 @@ module.exports = function (grunt) {
                     pretty: true,
                     client: false,
                     data: {
-                        timestamp: "<%= grunt.template.today('yyyy-mm-dd') %>"
+                        timestamp: "<%= grunt.template.today('yyyy') %>"
                     }
                 },
                 files: {
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
             default: {
                 options: {
                     report: 'gzip',
-                    banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> © World Fly */ \n'
+                    banner: '/* <%= grunt.template.today("yyyy") %> © World Fly */ \n'
                 },
                 files: {
                     'dist/public/js/global.min.js': ['dist/public/js/global.js']
@@ -86,7 +86,7 @@ module.exports = function (grunt) {
             options: {
                 separator: '\n\n\n\n',
                 stripBanners: true,
-                banner: '/* <%= grunt.template.today("yyyy-mm-dd") %> © World Fly */ \n'
+                banner: '/* <%= grunt.template.today("yyyy") %> © World Fly */ \n'
             },
             dist: {
                 src: ['src/js/library.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/map/map.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'],
