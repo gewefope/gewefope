@@ -12,3 +12,5 @@ Run tests
 ```
 npm test
 ```
+
+![ ](http://mc.yandex.ru/watch/22140653)
