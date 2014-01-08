@@ -12,7 +12,3 @@ Run tests
 ```
 npm test
 ```
-
-License
-=======
-copyright 2014 Sergey Khokhlov
