@@ -1,0 +1,39 @@
+include ../../blocks/default.jade
+doctype html
+html
+    head
+        //meta(name='viewport', content='initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')
+        title Login - Gewefope
+        link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:400,300')
+        link(rel='stylesheet', href='/storage/css/default.css')
+    body
+        .b-page
+            .b-container.b-header
+                +b-logo('slogan', 'link')
+                +b-user('header')
+            .b-container.b-container_padding.b-container_center
+                h1.b-container__banner Sign in
+                h2.b-container__subbanner Not registered yet? <a href="/signup" class="b-link">Sign up</a>.
+                form.b-form.b-form_border.b-form_center
+                    .b-form__error
+                    .b-form__item
+                        label(for='email').b-form__item__label Email
+                        input(name='email', type='email', id='email', required='required', autofocus).b-form__input.b-form__input_email
+                    .b-form__item
+                        label(for='password').b-form__item__label Password
+                        input(name='password', type='password', id='password', required='required').b-form__input.b-form__input_password
+                    .b-form__item.b-form__item_submit
+                        button.b-form__submit Sign in
+
+
+            +b-footer
+        script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js')
+        script(src='/storage/js/global.js')
+        script.
+            window.onload = lego.checkAuth(function(){
+                $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
+            },
+            function(){
+                document.location = '/';
+            });
+            window.onload = lego.userLoginForm();

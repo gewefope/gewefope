@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--meta(name='viewport', content='initial-scale=1, width=device-width')-->
+    <title>Sign up - Gewefope</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300">
+    <link rel="stylesheet" href="/storage/css/default.css">
+  </head>
+  <body>
+    <div class="b-page">
+      <div class="b-container b-header">
+        <div class="b-logo b-logo_slogan b-logo_link"><a href="/" class="b-logo__link">
+            <h1 class="b-logo__name b-logo">Gewefope</h1></a>
+          <h2 class="b-logo__slogan">Weather for the people</h2>
+        </div>
+        <div class="b-user b-user_header"></div>
+      </div>
+      <div class="b-container b-container_padding b-container_center">
+        <h1 class="b-container__banner">Sign up</h1>
+        <h2 class="b-container__subbanner">Take advantage of all opportunities</h2>
+        <h2 class="b-container__subbanner">Already a member? <a href="/login" class="b-link">Sign in</a>.</h2>
+        <form class="b-form b-form_border b-form_center">
+          <div class="b-form__error"></div>
+          <div class="b-form__item">
+            <label for="email" class="b-form__item__label">Email</label>
+            <input name="email" type="email" id="email" required="required" autofocus class="b-form__input b-form__input_email">
+          </div>
+          <div class="b-form__item">
+            <label for="password" class="b-form__item__label">Password</label>
+            <input name="password" type="password" id="password" required="required" class="b-form__input b-form__input_password">
+          </div>
+          <!--.b-form__item-->
+          <!--    label(for='fullname').b-form__item__label Full name-->
+          <!--    input(name='fullname', type='text', id='fullname').b-form__input.b-form__input_fullname-->
+          <div class="b-form__item b-form__item_submit">
+            <!--input(type='submit', value='Sign up').b-form__input.b-form__input_submit-->
+            <p class="b-form__note">Profile will be taken from Gravatar.</p>
+            <button class="b-form__submit">Sign up</button>
+          </div>
+        </form>
+      </div>
+      <div class="b-footer">
+        <div class="b-footer__table">
+          <div class="b-footer__table__col b-footer__table__col_left">
+            <!--p.b-footer__item-->
+            <!--    | Weather data is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.-->
+            <!--    //| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.-->
+            <p class="b-footer__item">©&nbsp;2014&nbsp;World Fly
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.js"></script>
+    <script src="/storage/js/global.js"></script>
+    <script>
+      window.onload = lego.checkAuth(function(){
+          $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
+      },
+      function(){
+          document.location = '/';
+      });
+      window.onload = lego.userSignupForm();
+    </script>
+  </body>
+</html>

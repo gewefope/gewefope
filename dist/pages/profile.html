@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--meta(name='viewport', content='initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')-->
+    <title>Profile - Gewefope</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300">
+    <link rel="stylesheet" href="/storage/css/default.css">
+  </head>
+  <body>
+    <div class="b-page">
+      <div class="b-container b-header">
+        <div class="b-logo b-logo_slogan b-logo_link"><a href="/" class="b-logo__link">
+            <h1 class="b-logo__name b-logo">Gewefope</h1></a>
+          <h2 class="b-logo__slogan">Weather for the people</h2>
+        </div>
+        <div class="b-user b-user_header"></div>
+      </div>
+      <div class="b-container b-container_padding b-container_center b-container_middle">
+        <h1 class="b-container__banner">Profile</h1>
+        <div class="b-content__placeholder">
+          <div class="b-user__avatar b-user__avatar_page"></div>
+        </div>
+      </div>
+      <div class="b-footer">
+        <div class="b-footer__table">
+          <div class="b-footer__table__col b-footer__table__col_left">
+            <!--p.b-footer__item-->
+            <!--    | Weather data is available under the Creative Commons Attribution-ShareAlike License, additional terms may apply.-->
+            <!--    //| By using this site, you agree to the <a href="/legal/termsofuse">Terms of Use</a> and <a href="/legal/disclaimers">Disclaimers</a>.-->
+            <p class="b-footer__item">©&nbsp;2014&nbsp;World Fly
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js"></script>
+    <script src="/storage/js/global.js"></script>
+    <script>
+      window.onload = lego.checkAuth(function(){
+          document.location = '/login';
+      },
+      function(){
+          lego.userInfo_init();
+      });
+      window.onload = lego.userProfile();
+    </script>
+  </body>
+</html>

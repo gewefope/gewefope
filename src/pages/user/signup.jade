@@ -1,0 +1,44 @@
+include ../../blocks/default.jade
+doctype html
+html
+    head
+        //meta(name='viewport', content='initial-scale=1, width=device-width')
+        title Sign up - Gewefope
+        link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:400,300')
+        link(rel='stylesheet', href='/storage/css/default.css')
+    body
+        .b-page
+            .b-container.b-header
+                +b-logo('slogan', 'link')
+                +b-user('header')
+            .b-container.b-container_padding.b-container_center
+                h1.b-container__banner Sign up
+                h2.b-container__subbanner Take advantage of all opportunities
+                h2.b-container__subbanner Already a member? <a href="/login" class="b-link">Sign in</a>.
+                form.b-form.b-form_border.b-form_center
+                    .b-form__error
+                    .b-form__item
+                        label(for='email').b-form__item__label Email
+                        input(name='email', type='email', id='email', required='required', autofocus).b-form__input.b-form__input_email
+                    .b-form__item
+                        label(for='password').b-form__item__label Password
+                        input(name='password', type='password', id='password', required='required').b-form__input.b-form__input_password
+
+                    //.b-form__item
+                    //    label(for='fullname').b-form__item__label Full name
+                    //    input(name='fullname', type='text', id='fullname').b-form__input.b-form__input_fullname
+                    .b-form__item.b-form__item_submit
+                        //input(type='submit', value='Sign up').b-form__input.b-form__input_submit
+                        p.b-form__note Profile will be taken from Gravatar.
+                        button.b-form__submit Sign up
+            +b-footer
+        script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.js')
+        script(src='/storage/js/global.js')
+        script.
+            window.onload = lego.checkAuth(function(){
+                $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
+            },
+            function(){
+                document.location = '/';
+            });
+            window.onload = lego.userSignupForm();

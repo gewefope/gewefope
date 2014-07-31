@@ -1,0 +1,50 @@
+include ../../blocks/default.jade
+doctype html
+html
+    head
+        //meta(name='viewport', content='initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')
+        title The main page of Gewefope
+        link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:400,300')
+        link(rel='stylesheet', href='/storage/css/default.css')
+    body
+        .b-page
+            .b-container.b-header
+                +b-logo('slogan')
+                +b-user('header')
+            .b-content
+                h1.b-container__banner Welcome to Gewefope!
+                h2.b-container__subbanner The world that is developing for everyone, by everyone
+
+                .b-content__section
+                    .b-container_middle.b-container_middle_wide
+                        h2.b-content__section__header Scope
+                        .b-content__section__descr You can always find out the weather anywhere in the world with the maximum comfort.
+
+                .b-content__section
+                    .b-container_middle.b-container_middle_wide
+                        h2.b-content__section__header Customization
+                        .b-content__section__descr You can customize for yourself anything you want. You can share their experience.
+
+                .b-content__section
+                    .b-container_middle.b-container_middle_wide
+                        h2.b-content__section__header Reliability
+                        .b-content__section__descr We take the weather data from OpenWeatnerMap. They take and process data from all weather stations in the world.
+
+                .b-content__section
+                    .b-container_middle.b-container_middle_wide
+                        h2.b-content__section__header Without advertising
+                        .b-content__section__descr You will not see any ads on this site.
+
+            +b-footer
+
+        script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js')
+        script(src='/storage/js/global.js')
+        script.
+            window.onload = lego.checkAuth(function(){
+                $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
+            },
+            function(){
+            lego.userInfo_init();
+            });
+        //script.
+        //    $('.b-content__welcome').style.height = document.getElementsByTagName("body")[0].offsetHeight + "px";
