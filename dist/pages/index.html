@@ -15,35 +15,43 @@
         </div>
         <div class="b-user b-user_header"></div>
       </div>
-      <div class="b-content">
-        <h1 class="b-container__banner">Welcome to Gewefope!</h1>
-        <h2 class="b-container__subbanner">The world that is developing for everyone, by everyone</h2>
-        <div class="b-content__section">
-          <div class="b-container_middle b-container_middle_wide">
-            <h2 class="b-content__section__header">Scope</h2>
-            <div class="b-content__section__descr">You can always find out the weather anywhere in the world with the maximum comfort.</div>
-          </div>
+      <div class="b-content b-content_table">
+        <div class="b-content__hero">
+          <div class="b-coontent__hero__placeholder">
+            <h1 class="b-container__banner">Welcome to Gewefope!</h1>
+            <h2 class="b-container__subbanner">The world that is developing for everyone, by everyone</h2>
+          </div><a href="#content" class="b-content__hero__link">⌄</a>
         </div>
-        <div class="b-content__section">
-          <div class="b-container_middle b-container_middle_wide">
-            <h2 class="b-content__section__header">Customization</h2>
-            <div class="b-content__section__descr">You can customize for yourself anything you want. You can share their experience.</div>
+      </div>
+      <div id="content" class="b-content">
+        <div class="b-content__sections">
+          <div class="b-content__section">
+            <div class="b-container_middle b-container_middle_wide">
+              <h2 class="b-content__section__header">Scope</h2>
+              <div class="b-content__section__descr">You can always find out the weather anywhere in the world with the maximum comfort.</div>
+            </div>
           </div>
-        </div>
-        <div class="b-content__section">
-          <div class="b-container_middle b-container_middle_wide">
-            <h2 class="b-content__section__header">Reliability</h2>
-            <div class="b-content__section__descr">We take the weather data from OpenWeatnerMap. They take and process data from all weather stations in the world.</div>
+          <div class="b-content__section">
+            <div class="b-container_middle b-container_middle_wide">
+              <h2 class="b-content__section__header">Customization</h2>
+              <div class="b-content__section__descr">You can customize for yourself anything you want. You can share their experience.</div>
+            </div>
           </div>
-        </div>
-        <div class="b-content__section">
-          <div class="b-container_middle b-container_middle_wide">
-            <h2 class="b-content__section__header">Without advertising</h2>
-            <div class="b-content__section__descr">You will not see any ads on this site.</div>
+          <div class="b-content__section">
+            <div class="b-container_middle b-container_middle_wide">
+              <h2 class="b-content__section__header">Reliability</h2>
+              <div class="b-content__section__descr">We take the weather data from OpenWeatnerMap. They take and process data from all weather stations in the world.</div>
+            </div>
+          </div>
+          <div class="b-content__section">
+            <div class="b-container_middle b-container_middle_wide">
+              <h2 class="b-content__section__header">Without advertising</h2>
+              <div class="b-content__section__descr">You will not see any ads on this site.</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="b-footer">
+      <div class="b-footer b-footer_static">
         <div class="b-footer__table">
           <div class="b-footer__table__col b-footer__table__col_left">
             <!--p.b-footer__item-->
@@ -58,12 +66,18 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js"></script>
     <script src="/storage/js/global.js"></script>
     <script>
-      window.onload = lego.checkAuth(function(){
-          $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
-      },
-      function(){
-      lego.userInfo_init();
+      window.onload = function(){
+          lego.checkAuth(function(){
+              $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
+          },
+          function(){
+           //document.location = '/user'
+           
+          //lego.userInfo_init();     });
       });
+      var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
+      document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
+      }
     </script>
     <!--script.-->
     <!--    $('.b-content__welcome').style.height = document.getElementsByTagName("body")[0].offsetHeight + "px";-->

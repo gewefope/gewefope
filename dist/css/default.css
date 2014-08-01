@@ -473,6 +473,9 @@ h3 {
   text-align: left;
   min-width: 50px;
 }
+.b-footer_static {
+  position: static;
+}
 .b-disabled {
   opacity: 0.4;
 }
@@ -576,6 +579,11 @@ h3 {
 .b-wlist__sky {
   padding-left: 1em;
 }
+.b-content_table {
+  display: table;
+  text-align: center;
+  width: 100%;
+}
 .b-content__section {
   width: 100%;
   padding: 20px 0;
@@ -601,6 +609,18 @@ h3 {
 }
 .b-content__section__descr {
   font-size: 18px;
+}
+.b-content__hero {
+  display: table-cell;
+  vertical-align: middle;
+}
+.b-coontent__hero__placeholder {
+  padding: 0 18px 100px 18px;
+}
+.b-content__hero__link {
+  text-decoration: none;
+  font-size: 45px;
+  color: #000;
 }
 .b-map,
 #b-map {

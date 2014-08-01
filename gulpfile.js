@@ -5,11 +5,14 @@ var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var prefix = require('gulp-autoprefixer');
 var csso = require('gulp-csso');
+var uglify = require('gulp-uglify');
+
 
 gulp.task('lintClient', function () {
     return gulp.src(['src/js/library.js', 'src/blocks/user/user.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'])
         .pipe(jshint())
         .pipe(concat('global.js'))
+//        .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'))
 });
 
