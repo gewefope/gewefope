@@ -238,8 +238,11 @@ h3 {
   display: inline-block;
 }
 .b-container__banner {
-  margin: 20px 0 40px 0;
+  margin: 15px 0 35px 0;
   text-align: center;
+  font-size: 38px;
+  font-weight: 300;
+  padding: 5px 0 5px 0;
 }
 .b-container_padding {
   padding: 0 44px;
@@ -305,6 +308,25 @@ h3 {
 }
 .b-logo__link_weather {
   color: #fff;
+}
+.b-button {
+  background-color: #00b7ff;
+  color: #fff;
+  font-size: 16px;
+  border: 0;
+}
+.b-button_large {
+  font-size: 35px;
+}
+.b-button_user {
+  width: 100px;
+  height: 30px;
+}
+.b-text_center {
+  text-align: center;
+}
+.b-text_tiny {
+  color: #4e4e4e;
 }
 .b-search-header__pagename {
   font-size: 1.7em;
@@ -621,6 +643,9 @@ h3 {
   text-decoration: none;
   font-size: 45px;
   color: #000;
+}
+.b-content_index {
+  border-bottom: 1px solid #e4e4e4;
 }
 .b-map,
 #b-map {

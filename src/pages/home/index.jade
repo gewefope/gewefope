@@ -11,14 +11,15 @@ html
             .b-container.b-header
                 +b-logo('slogan')
                 +b-user('header')
-            .b-content.b-content_table
+            .b-content.b-content_index.b-content_table
                 .b-content__hero
                     .b-coontent__hero__placeholder
-                        h1.b-container__banner Weather forecast, which you were looking for
-                        h2.b-container__subbanner The world that is developing for everyone, by everyone
+                        h2.b-container__banner Weather forecast, which you were looking for
+                        h3.b-container__subbanner The world that is developing for everyone, by everyone
                     a(href='#content').b-content__hero__link ⌄
 
-            .b-content#content
+            .b-content.b-content_index#content
+                h2.b-container__banner Our features
                 .b-content__sections
                     .b-content__section
                         .b-container_middle.b-container_middle_wide
@@ -39,6 +40,19 @@ html
                         .b-container_middle.b-container_middle_wide
                            h2.b-content__section__header Without advertising
                            .b-content__section__descr You will not see any ads on this site.
+                    //.b-content__section
+                    //    .b-container_middle.b-container_middle_wide.b-container_center
+                    //        h2.b-content__section__header You can try right now
+                    //        button.b-button_large Sign up
+                p(style='padding-top:100px').b-text.b-text_center
+                    a(href='#signup').b-content__hero__link ⌄
+
+            .b-content.b-content_table#signup
+                .b-content__hero
+                    .b-coontent__hero__placeholder
+                        h2.b-container__banner You can try <del>right now</del> in future
+                        button(onclick='document.location=\'/signup\'').b-button.b-button_large Sign up
+                        p.b-text.b-text_tiny We will notify you as soon as the future will become a true. Also you will be able to follow the process of development on this site.
 
             +b-footer('static')
 
@@ -54,8 +68,9 @@ html
 
                 //lego.userInfo_init();     });
             });
-            var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
-            document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
+            //var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
+            //document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
+            $('.b-content').css('min-height', window.innerHeight + "px");
             }
         //script.
         //    $('.b-content__welcome').style.height = document.getElementsByTagName("body")[0].offsetHeight + "px";

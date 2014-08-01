@@ -15,15 +15,16 @@
         </div>
         <div class="b-user b-user_header"></div>
       </div>
-      <div class="b-content b-content_table">
+      <div class="b-content b-content_index b-content_table">
         <div class="b-content__hero">
           <div class="b-coontent__hero__placeholder">
-            <h1 class="b-container__banner">Weather forecast, which you were looking for</h1>
-            <h2 class="b-container__subbanner">The world that is developing for everyone, by everyone</h2>
+            <h2 class="b-container__banner">Weather forecast, which you were looking for</h2>
+            <h3 class="b-container__subbanner">The world that is developing for everyone, by everyone</h3>
           </div><a href="#content" class="b-content__hero__link">⌄</a>
         </div>
       </div>
-      <div id="content" class="b-content">
+      <div id="content" class="b-content b-content_index">
+        <h2 class="b-container__banner">Our features</h2>
         <div class="b-content__sections">
           <div class="b-content__section">
             <div class="b-container_middle b-container_middle_wide">
@@ -48,6 +49,20 @@
               <h2 class="b-content__section__header">Without advertising</h2>
               <div class="b-content__section__descr">You will not see any ads on this site.</div>
             </div>
+          </div>
+          <!--.b-content__section-->
+          <!--    .b-container_middle.b-container_middle_wide.b-container_center-->
+          <!--        h2.b-content__section__header You can try right now-->
+          <!--        button.b-button_large Sign up-->
+        </div>
+        <p style="padding-top:100px" class="b-text b-text_center"><a href="#signup" class="b-content__hero__link">⌄</a></p>
+      </div>
+      <div id="signup" class="b-content b-content_table">
+        <div class="b-content__hero">
+          <div class="b-coontent__hero__placeholder">
+            <h2 class="b-container__banner">You can try <del>right now</del> in future</h2>
+            <button onclick="document.location='/signup'" class="b-button b-button_large">Sign up</button>
+            <p class="b-text b-text_tiny">We will notify you as soon as the future will become a true. Also you will be able to follow the process of development on this site.</p>
           </div>
         </div>
       </div>
@@ -75,8 +90,9 @@
            
           //lego.userInfo_init();     });
       });
-      var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
-      document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
+      //var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
+      //document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
+      $('.b-content').css('min-height', window.innerHeight + "px");
       }
     </script>
     <!--script.-->
