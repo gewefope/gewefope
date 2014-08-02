@@ -13,7 +13,7 @@
           <h1 class="b-logo__name b-logo">Gewefope</h1>
           <h2 class="b-logo__slogan">Weather for the people</h2>
         </div>
-        <div class="b-user b-user_header"></div>
+        <div class="b-user b-user_header"><a href="/signup" class="b-link">Sign up</a>&nbsp;<a href="/login" class="b-link">Login</a></div>
       </div>
       <div class="b-content b-content_index b-content_table">
         <div class="b-content__hero">
@@ -83,13 +83,13 @@
     <script>
       window.onload = function(){
           lego.checkAuth(function(){
-              $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
+              //$('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
           },
           function(){
            //document.location = '/user'
            
-          //lego.userInfo_init();     });
-      });
+          lego.userInfo_init();     });
+      //});
       //var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
       //document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
       $('.b-content').css('min-height', window.innerHeight + "px");

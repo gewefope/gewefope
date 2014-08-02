@@ -62,13 +62,13 @@ html
         script.
             window.onload = function(){
                 lego.checkAuth(function(){
-                    $('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
+                    //$('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
                 },
                 function(){
                  //document.location = '/user'
 
-                //lego.userInfo_init();     });
-            });
+                lego.userInfo_init();     });
+            //});
             //var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
             //document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
             $('.b-content').css('min-height', window.innerHeight + "px");
