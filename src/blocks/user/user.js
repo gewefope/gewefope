@@ -51,7 +51,7 @@ lego.userInfo_init = function () {
 
 
 lego.userLoginForm = function () {
-    $('.b-form__submit').on('click', function () {
+    $('.b-button_user').on('click', function () {
         var userData = {
             email: $('.b-form__input_email').val(),
             password: $('.b-form__input_password').val()
@@ -108,7 +108,7 @@ lego.userLoginForm = function () {
 
 
 lego.userSignupForm = function () {
-    $('.b-form__submit').on('click', function () {
+    $('.b-button_user').on('click', function () {
         $('.b-form__error').removeClass('b-form__error_visible');
         var userData = {
             email: $('.b-form__input_email').val(),
