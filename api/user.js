@@ -1,4 +1,4 @@
-module.exports = function (app, request, session) {
+module.exports = function (app, request) {
     app.post('/api/v1/user/signup', function (req, res) {
         //TODO: Переделать на парсинг тела запроса
         var userData = {
@@ -127,5 +127,9 @@ module.exports = function (app, request, session) {
     base64.decode = function (encoded) {
         return new Buffer(encoded || '', 'base64').toString('utf8');
     };
+
+
+
+
 };
 
