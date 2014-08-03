@@ -3,9 +3,6 @@
   src: local('Linear');
   src: url("//archive.worldfly.org/gewefope/0.0.1/font/linear.woff"), url("//archive.worldfly.org/gewefope/0.0.1/font/linear.ttf");
 }
-.b-text_linear {
-  font-family: Linear;
-}
 html,
 body,
 div,
@@ -175,37 +172,6 @@ h3 {
 .b-link_weather {
   color: #fae6f3 !important;
 }
- {
-@-o-keyframes spin {
-  0% {
-    -o-transform: rotate(0deg)
-  }
-  100% {
-    -o-transform: rotate(360deg)
-  }
-} @-moz-keyframes spin {
-    0% {
-      -moz-transform: rotate(0deg)
-    }
-    100% {
-      -moz-transform: rotate(360deg)
-    }
-  } @-webkit-keyframes spin {
-      0% {
-        -webkit-transform: rotate(0deg)
-      }
-      100% {
-        -webkit-transform: rotate(360deg)
-      }
-    } @keyframes spin {
-        0% {
-          transform: rotate(0deg)
-        }
-        100% {
-          transform: rotate(360deg)
-        }
-      }
-}
 .b-loader {
   position: relative;
   display: inline-block;
@@ -221,7 +187,8 @@ h3 {
   opacity: 0.4;
   background: url("/img/loader.svg");
   background-size: 100% 100%;
-  animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
 }
 .b-loader_size_s {
   width: 16px;
@@ -233,6 +200,26 @@ h3 {
 }
 .b-loader__spinner_black {
   background-image: url("/img/loader_black.svg");
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 .b-container__item {
   display: inline-block;
@@ -327,6 +314,9 @@ h3 {
 }
 .b-text_tiny {
   color: #4e4e4e;
+}
+.b-text_linear {
+  font-family: Linear;
 }
 .b-search-header__pagename {
   font-size: 1.7em;
@@ -434,7 +424,8 @@ h3 {
 }
 .b-form__error {
   visibility: hidden;
-  transition: visibility 1s ease-out 0.5s;
+  -webkit-transition: visibility 1s ease-out 0.5s;
+          transition: visibility 1s ease-out 0.5s;
 }
 .b-form__error_visible {
   visibility: visible !important;

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "node_modules/.bin/_mocha"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +31,11 @@
     "gulp-jshint": "~1.6.2",
     "gulp-autoprefixer": "0.0.7",
     "gulp-csso": "~0.2.9",
-    "gulp-uglify": "~0.3.1"
+    "gulp-uglify": "~0.3.1",
+    "gulp-rename": "~1.2.0",
+    "gulp-header": "~1.0.5",
+    "gulp-util": "~3.0.0",
+    "mocha": "~1.21.3",
+    "should": "~4.0.4"
   }
 }
