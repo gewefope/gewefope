@@ -18,7 +18,7 @@ lego.checkAuth = function (errorCallback, Callback) {
                 errorCallback();
                 console.error(xhr, type);
             }
-        })
+        });
     }
 };
 
@@ -41,16 +41,16 @@ lego.userInfo_init = function () {
 
     $('.b-user__logout__link').on('click', function () {
         lego.setCookie('sid', null);
-        localStorage['email'] = null;
-        localStorage['objectId'] = null;
-        localStorage['fullname'] = null;
-        localStorage['displayname'] = null;
-        localStorage['location'] = null;
-        localStorage['emailHash'] = null;
+        localStorage.email = null;
+        localStorage.objectId = null;
+        localStorage.fullname = null;
+        localStorage.displayname = null;
+        localStorage.location = null;
+        localStorage.emailHash = null;
         document.location = '/';
 
         return false;
-    })
+    });
 };
 
 
@@ -66,34 +66,34 @@ lego.userLoginForm = function () {
             url: '/api/v1/user/login?ZW1haWw=' + encodeURIComponent(window.btoa(userData.email)) + '&cGFzc3dvcmQ=' + encodeURIComponent(window.btoa(userData.password)),
             dataType: 'json',
             success: function (data) {
-                if (data.error != null || data.error != undefined) {
+                if (data.error !== null || data.error !== undefined) {
 //                    $('<span class="b-form__error__descr">Invalid username or password</span>').appendTo('.b-form__error');
                     $('.b-form__error').addClass('b-form__error_visible').html('<span class="b-form__error__descr">Invalid email or password</span>');
 
                 } else {
                     lego.setCookie('sid', data.sessionToken);
-                    localStorage['emailHash'] = lego.md5(data.username);
-                    localStorage['email'] = data.username;
-                    localStorage['objectId'] = data.objectId;
+                    localStorage.emailHash = lego.md5(data.username);
+                    localStorage.email = data.username;
+                    localStorage.objectId = data.objectId;
                     $.ajax({
                         type: 'GET',
-                        url: 'http://www.gravatar.com/' + localStorage['emailHash'] + '.json?callback=?',
+                        url: 'http://www.gravatar.com/' + localStorage.emailHash + '.json?callback=?',
                         dataType: 'jsonp',
                         success: function (Profiledata) {
                             if (Profiledata != '"User not found"') {
-                                localStorage['fullname'] = Profiledata.entry[0].name.formatted;
-                                localStorage['displayname'] = Profiledata.entry[0].displayName;
-                                localStorage['location'] = Profiledata.entry[0].currentLocation;
+                                localStorage.fullname = Profiledata.entry[0].name.formatted;
+                                localStorage.displayname = Profiledata.entry[0].displayName;
+                                localStorage.location = Profiledata.entry[0].currentLocation;
                             } else {
-                                localStorage['displayname'] = localStorage['email']
+                                localStorage.displayname = localStorage.email;
                             }
 
 
                             document.location = '/';
                         },
                         error: function () {
-                            localStorage['email'] = data.username;
-                            localStorage['displayname'] = localStorage['email']
+                            localStorage.email = data.username;
+                            localStorage.displayname = localStorage.email;
 
 
                             document.location = '/';
@@ -119,7 +119,7 @@ lego.userSignupForm = function () {
             password: $('.b-form__input_password').val(),
             fullname: $('.b-form__input_fullname').val()
         };
-        if (userData.email == '' || userData.password == '') {
+        if (userData.email === '' || userData.password === '') {
             $('.b-form__error').addClass('b-form__error_visible').html('<span class="b-form__error__descr">Invalid email or password</span>');
         } else {
 
@@ -128,7 +128,7 @@ lego.userSignupForm = function () {
                 url: '/api/v1/user/signup?ZW1haWw=' + encodeURIComponent(window.btoa(userData.email)) + '&cGFzc3dvcmQ=' + encodeURIComponent(window.btoa(userData.password)) + '&ZnVsbG5hbWU=' + encodeURIComponent(window.btoa(userData.fullname)),
                 dataType: 'json',
                 success: function (data) {
-                    if (data.error != null || data.error != undefined) {
+                    if (data.error !== null || data.error !== undefined) {
 //                        if(data.error == 'username 123 already taken'){
 //                            $('.b-form__error').addClass('b-form__error_visible').html('<span class="b-form__error__descr">Invalid email or password</span>');
 //                        }
@@ -137,28 +137,28 @@ lego.userSignupForm = function () {
 
                     } else {
                         lego.setCookie('sid', data.sessionToken);
-                        localStorage['emailHash'] = lego.md5(data.username);
-                        localStorage['email'] = data.username;
-                        localStorage['objectId'] = data.objectId;
+                        localStorage.emailHash = lego.md5(data.username);
+                        localStorage.email = data.username;
+                        localStorage.objectId = data.objectId;
                         $.ajax({
                             type: 'GET',
-                            url: 'http://www.gravatar.com/' + localStorage['emailHash'] + '.json?callback=?',
+                            url: 'http://www.gravatar.com/' + localStorage.emailHash + '.json?callback=?',
                             dataType: 'jsonp',
                             success: function (Profiledata) {
                                 if (Profiledata != '"User not found"') {
-                                    localStorage['fullname'] = Profiledata.entry[0].name.formatted;
-                                    localStorage['displayname'] = Profiledata.entry[0].displayName;
-                                    localStorage['location'] = Profiledata.entry[0].currentLocation;
+                                    localStorage.fullname = Profiledata.entry[0].name.formatted;
+                                    localStorage.displayname = Profiledata.entry[0].displayName;
+                                    localStorage.location = Profiledata.entry[0].currentLocation;
                                 } else {
-                                    localStorage['displayname'] = localStorage['email']
+                                    localStorage.displayname = localStorage.email;
                                 }
 
 
                                 document.location = '/';
                             },
                             error: function () {
-                                localStorage['email'] = data.username;
-                                localStorage['displayname'] = localStorage['email'];
+                                localStorage.email = data.username;
+                                localStorage.displayname = localStorage.email;
 
 
                                 document.location = '/';

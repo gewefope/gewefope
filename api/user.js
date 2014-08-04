@@ -7,7 +7,7 @@ module.exports = function (app, request) {
             'full_name': base64.decode(req.param('ZnVsbG5hbWU'))
         };
 
-        if (userData.username == '' || userData.password == '') {
+        if (userData.username === '' || userData.password === '') {
             res.status(400).send('{code: 400, error: \'Invalid email or password\'}');
         } else {
             request({
@@ -115,7 +115,7 @@ module.exports = function (app, request) {
                 } else {
                     res.status(502).send("{error: 'Bad Getaway'}");
                 }
-            })
+            });
     });
 
     var base64 = {};

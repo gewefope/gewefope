@@ -1,8 +1,8 @@
-var express = require('express')
-    , request = require('request')
-    , bodyParser = require('body-parser')
-    , app = express()
-    , cookieParser = require('cookie-parser')
+var express = require('express'),
+    request = require('request'),
+    bodyParser = require('body-parser'),
+    app = express(),
+    cookieParser = require('cookie-parser')
     ;
 
 app.use(bodyParser());

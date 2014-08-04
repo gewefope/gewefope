@@ -12,6 +12,7 @@ var rename = require("gulp-rename");
 gulp.task('lintClient', function () {
     gulp.src(['src/js/library.js', 'src/blocks/user/user.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'])
         .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(concat('global.js'))
         .pipe(jshint())
         .pipe(gulp.dest('./dist/js/'))
@@ -25,6 +26,7 @@ gulp.task('lintClient', function () {
 gulp.task('lintServer', function () {
     return gulp.src(['server.js', 'api/weather.js', 'api/user.js', 'gulpfile.js'])
         .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('jade', function () {
@@ -33,7 +35,7 @@ gulp.task('jade', function () {
         .pipe(jade({
             pretty: true
         }))
-        .pipe(gulp.dest('./dist/pages/'))
+        .pipe(gulp.dest('./dist/pages/'));
 
 });
 
@@ -41,12 +43,17 @@ gulp.task('css', function () {
     gulp.src('src/blocks/default.styl')
         .pipe(stylus())
         .pipe(prefix("last 2 versions"))
-        .pipe(gulp.dest('./dist/css/'));
+        .pipe(gulp.dest('./dist/css/'))
+        .pipe(gulp.src('dist/css/default.css')
+            .pipe(csso())
+            .pipe(rename('default.min.css'))
+            .pipe(gulp.dest('./dist/css/'))
+    );
 
-    gulp.src('dist/css/default.css')
-        .pipe(csso())
-        .pipe(rename('default.min.css'))
-        .pipe(gulp.dest('./dist/css/'));
+//    gulp.src('dist/css/default.css')
+//        .pipe(csso())
+//        .pipe(rename('default.min.css'))
+//        .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('default', ['lintServer', 'lintClient', 'jade', 'css']);
