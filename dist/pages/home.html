@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!--meta(name='viewport', content='initial-scale=1, width=device-width')-->
-    <title>Sign up - Gewefope</title>
+    <!--meta(name='viewport', content='initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')-->
+    <title>Profile - Gewefope</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300">
     <link rel="stylesheet" href="/storage/css/default.css">
   </head>
@@ -15,29 +15,8 @@
         </div>
         <div class="b-user b-user_header"><a href="/signup" class="b-link">Sign up</a>&nbsp;<a href="/login" class="b-link">Login</a></div>
       </div>
-      <div class="b-container b-container_padding b-container_center">
-        <h1 class="b-container__banner">Sign up</h1>
-        <h2 class="b-container__subbanner">Take advantage of all opportunities</h2>
-        <h2 class="b-container__subbanner">Already a member? <a href="/login" class="b-link">Sign in</a>.</h2>
-        <form class="b-form b-form_border b-form_center">
-          <div class="b-form__error"></div>
-          <div class="b-form__item">
-            <label for="email" class="b-form__item__label">Email</label>
-            <input name="email" type="email" id="email" required="required" autofocus class="b-form__input b-form__input_email">
-          </div>
-          <div class="b-form__item">
-            <label for="password" class="b-form__item__label">Password</label>
-            <input name="password" type="password" id="password" required="required" class="b-form__input b-form__input_password">
-          </div>
-          <!--.b-form__item-->
-          <!--    label(for='fullname').b-form__item__label Full name-->
-          <!--    input(name='fullname', type='text', id='fullname').b-form__input.b-form__input_fullname-->
-          <div class="b-form__item b-form__item_submit">
-            <!--input(type='submit', value='Sign up').b-form__input.b-form__input_submit-->
-            <p class="b-form__note">Profile will be taken from Gravatar.</p>
-            <button class="b-button b-button_user">Sign up</button>
-          </div>
-        </form>
+      <div class="b-container">
+        <h1 class="b-container__banner">Profile</h1>
       </div>
       <div class="b-footer">
         <div class="b-footer__table">
@@ -51,9 +30,9 @@
         </div>
       </div>
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js"></script>
     <script src="/storage/js/global.js"></script>
-    <script src="/storage/js/pages/signup.js"></script>
+    <script src="/storage/js/pages/home.js"></script>
     <div class="i-stat">
       <script>
         (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter22140653 = new Ya.Metrika({id:22140653, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");

@@ -20,66 +20,68 @@ app.use('/storage/js', express.static('dist/js'));
 app.use('/storage/css', express.static('dist/css'));
 
 app.get('/', function (req, res) {
-    checkAuth(res, req.cookies.sid, function () {
+    checkAuth(req.cookies.sid, function () {
+        res.redirect('/home');
+    }, function () {
         res.status(200).sendfile('dist/pages/index.html');
     });
 
-//    if(req.cookies.sid === undefined) {
-//        res.status(200).sendfile('dist/pages/index.html');
-//    } else{
-//        request({
-//                url: 'https://api.parse.com/1/users/me',
-//                method: 'GET',
-//                headers: {
-//                    'X-Parse-Application-Id': 'i9zXXLCVxa2uoJSNLTMqCphcVE6TTbYg2Z0CUePB',
-//                    'X-Parse-REST-API-Key': '1vuZo4FGudiLWwgUCV9aAuBmI07kCrJfTmLHuxLz',
-//                    'X-Parse-Session-Token': req.cookies.sid
-//                }
-//            },
-//            function (error, response, body) {
-//                if (body.error === 'invalid session') {
-//                    res.status(200).sendfile('dist/pages/index.html');
-//                } else {
-//                    res.redirect('/home');
-//                }
-//            });
-//    }
+
 });
 
 app.get('/login', function (req, res) {
-    checkAuth(res, req.cookies.sid, function () {
+    checkAuth(req.cookies.sid, function () {
+        res.redirect('/home');
+    }, function () {
         res.status(200).sendfile('dist/pages/login.html');
     });
 //    res.status(200).sendfile('dist/pages/login.html');
 });
 
 app.get('/signup', function (req, res) {
-    checkAuth(res, req.cookies.sid, function () {
+    checkAuth(req.cookies.sid, function () {
+        res.redirect('/home');
+    }, function () {
         res.status(200).sendfile('dist/pages/signup.html');
     });
 //    res.status(200).sendfile('dist/pages/signup.html');
 });
 
 app.get('/profile', function (req, res) {
-    res.status(200).sendfile('dist/pages/profile.html');
+    checkAuth(req.cookies.sid, function () {
+        res.status(200).sendfile('dist/pages/profile.html');
+
+    }, function () {
+        res.redirect('/login');
+    });
+
 });
 
 app.get('/home', function (req, res) {
-    res.status(200).send('dist/pages/profile.html');
+    checkAuth(req.cookies.sid, function () {
+        res.status(200).sendfile('dist/pages/home.html');
+
+    }, function () {
+        res.redirect('/login');
+    });
+
 });
 
 app.get('/logout', function (req, res) {
-    res.clearCookie('sid').send('<!doctype html><html><head><script>localStorage[\'email\'] = null;localStorage[\'objectId\'] = null;localStorage[\'fullname\'] = null;localStorage[\'displayname\'] = null;localStorage[\'location\'] = null;localStorage[\'emailHash\'] = null;document.location = \'/\';</script></head><body>Wait...</body></html>').redirect('/');
-
+    if (req.param.nojs === 'true') {
+        res.clearCookie('sid').redirect('/');
+    } else {
+        res.clearCookie('sid').send('<!doctype html><html><head><script>localStorage[\'email\'] = null;localStorage[\'objectId\'] = null;localStorage[\'fullname\'] = null;localStorage[\'displayname\'] = null;localStorage[\'location\'] = null;localStorage[\'emailHash\'] = null;document.location = \'/\';</script></head><body>Wait...<noscript><meta http-equiv="refresh" content="0; url=/logout?nojs=true"></noscript></body></html>');
+    }
 });
 
 require('http').createServer(app).listen(app.get('port'), function () {
     console.log('Server listening on port ' + app.get('port'));
 });
 
-function checkAuth(res, sid, callBack) {
+function checkAuth(sid, callBack, errorCallBack) {
     if (sid === undefined) {
-        callBack();
+        errorCallBack();
     } else {
         request({
                 url: 'https://api.parse.com/1/users/me',
@@ -92,9 +94,10 @@ function checkAuth(res, sid, callBack) {
             },
             function (error, response, body) {
                 if (body.error === 'invalid session') {
-                    callBack();
+                    errorCallBack();
                 } else {
-                    res.redirect('/home');
+                    callBack();
+
                 }
             });
     }

@@ -1,4 +1,4 @@
-include ../../blocks/default.jade
+include ../../blocks/default
 doctype html
 html
     head
@@ -29,14 +29,8 @@ html
             +b-footer
         script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js')
         script(src='/storage/js/global.js')
-        script.
-            window.onload = lego.checkAuth(function(){
-                //$('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user');
-            },
-            function(){
-                document.location = '/';
-            });
-            window.onload = lego.userLoginForm();
+        script(src='/storage/js/pages/login.js')
+
 
 
         +i-stat

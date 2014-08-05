@@ -1,4 +1,4 @@
-include ../../blocks/default.jade
+include ../../blocks/default
 doctype html
 html
     head
@@ -59,20 +59,9 @@ html
 
         script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js')
         script(src='/storage/js/global.js')
-        script.
-            window.onload = function(){
-                lego.checkAuth(function(){
-                    //$('<a class="b-link" href="/signup">Sign up</a> <a class="b-link" href="/login">Login</a>').appendTo('.b-user')
-                },
-                function(){
-                 //document.location = '/user'
+        script(src='/storage/js/pages/index.js')
 
-                lego.userInfo_init();     });
-            //});
-            //var heroHeight = window.innerHeight - document.getElementsByClassName('b-header')[0].clientHeight;
-            //document.getElementsByClassName('b-content__hero')[0].style.height = heroHeight + "px";
-            $('.b-content').css('min-height', window.innerHeight + "px");
-            }
+
         //script.
         //    $('.b-content__welcome').style.height = document.getElementsByTagName("body")[0].offsetHeight + "px";
 

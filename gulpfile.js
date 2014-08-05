@@ -9,21 +9,30 @@ var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
 
 
-gulp.task('lintClient', function () {
+gulp.task('jsClient', function () {
     gulp.src(['src/js/library.js', 'src/blocks/user/user.js', 'src/blocks/map/map.js', 'src/blocks/chcontainer/chcontainer.js', 'src/blocks/search/search.js', 'src/blocks/weather/weather.js', 'src/blocks/weather/_city/_city.js', 'src/blocks/weather/_location/_location.js', 'src/blocks/error/error.js', 'src/blocks/weather/select/select.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
-        .pipe(concat('global.js'))
+        .pipe(concat('default.js'))
         .pipe(jshint())
         .pipe(gulp.dest('./dist/js/'))
+        .pipe(gulp.src(['./dist/js/default.js', 'src/js/runtime.js'])
+            .pipe(concat('global.js'))
+            .pipe(gulp.dest('./dist/js/'))
+    )
         .pipe(gulp.src('./dist/js/global.js')
             .pipe(uglify())
             .pipe(rename('global.min.js'))
             .pipe(gulp.dest('./dist/js/'))
     );
+    gulp.src(['./src/pages/home/home.js','./src/pages/index/index.js', './src/pages/login/login.js', '/src/pages/signup/signup.js', './src/pages/profile/profile.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(gulp.dest('./dist/js/pages/'));
+
 });
 
-gulp.task('lintServer', function () {
+gulp.task('jsServer', function () {
     return gulp.src(['server.js', 'api/weather.js', 'api/user.js', 'gulpfile.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
@@ -31,7 +40,7 @@ gulp.task('lintServer', function () {
 
 gulp.task('jade', function () {
 
-    gulp.src(['./src/pages/home/index.jade','./src/pages/user/login.jade','./src/pages/user/signup.jade','./src/pages/user/profile.jade'])
+    gulp.src(['./src/pages/index/index.jade','./src/pages/login/login.jade','./src/pages/signup/signup.jade','./src/pages/profile/profile.jade', './src/pages/home/home.jade'])
         .pipe(jade({
             pretty: true
         }))
@@ -56,4 +65,4 @@ gulp.task('css', function () {
 //        .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('default', ['lintServer', 'lintClient', 'jade', 'css']);
+gulp.task('default', ['jsServer', 'jsClient', 'jade', 'css']);

@@ -304,3 +304,27 @@ lego.md5 = function (string) {
 
     return temp.toLowerCase();
 };
+
+lego.checkAuth = function (errorCallback, Callback) {
+    var sid = lego.getCookie('sid');
+    if (sid === null || sid === undefined) {
+        errorCallback();
+    } else {
+        $.ajax({
+            type: 'GET',
+            url: '/api/v1/user/me?sid=' + sid,
+            dataType: 'json',
+            success: function (data) {
+                if (data.error === 'invalid session') {
+                    errorCallback();
+                } else {
+                    Callback(data);
+                }
+            },
+            error: function (xhr, type) {
+                errorCallback();
+                console.error(xhr, type);
+            }
+        });
+    }
+};

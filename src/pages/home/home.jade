@@ -1,4 +1,4 @@
-include ../../blocks/default.jade
+include ../../blocks/default
 doctype html
 html
     head
@@ -11,25 +11,16 @@ html
             .b-container.b-header
                 +b-logo('slogan', 'link')
                 +b-user('header')
-            .b-container.b-container_padding.b-container_center.b-container_middle
+            .b-container
                 h1.b-container__banner Profile
-                .b-content__placeholder
-                    .b-user__avatar.b-user__avatar_page
-
 
 
 
             +b-footer
         script(src='//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.2/zepto.min.js')
         script(src='/storage/js/global.js')
-        script.
-            window.onload = lego.checkAuth(function(){
-                document.location = '/login';
-            },
-            function(){
-                lego.userInfo_init();
-            });
-            window.onload = lego.userProfile();
+        script(src='/storage/js/pages/home.js')
+
 
 
         +i-stat
