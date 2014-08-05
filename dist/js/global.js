@@ -304,6 +304,7 @@ lego.md5 = function (string) {
 
     return temp.toLowerCase();
 };
+
 lego.checkAuth = function (errorCallback, Callback) {
     var sid = lego.getCookie('sid');
     if (sid === null || sid === undefined) {
@@ -327,6 +328,7 @@ lego.checkAuth = function (errorCallback, Callback) {
         });
     }
 };
+
 
 lego.userInfo_init = function () {
 //    var userData = {

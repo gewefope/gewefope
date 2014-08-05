@@ -1,0 +1,6 @@
+match / {
+<div class="">
+    <div class="">Weather in your preferd location</div>
+    <div class=""><span class="">{ home.location.name }</span> <span class="">{ home.location.weather }</span></div>
+</div>
+}

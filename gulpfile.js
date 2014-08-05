@@ -59,6 +59,17 @@ gulp.task('css', function () {
             .pipe(gulp.dest('./dist/css/'))
     );
 
+    gulp.src('./src/pages/home/home.styl')
+        .pipe(stylus())
+        .pipe(prefix("last 2 versions"))
+        .pipe(gulp.dest('./dist/css/pages'))
+        .pipe(gulp.src('dist/css/pages/home.css')
+            .pipe(csso())
+            .pipe(rename('home.min.css'))
+            .pipe(gulp.dest('./dist/css/pages'))
+    );
+
+
 //    gulp.src('dist/css/default.css')
 //        .pipe(csso())
 //        .pipe(rename('default.min.css'))
