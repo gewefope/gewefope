@@ -1,7 +1,9 @@
-Gewefope [![Build Status](https://travis-ci.org/Gewefope/gewefope.svg?branch=master)](https://travis-ci.org/Gewefope/gewefope)
+Gewefope [![Build Status](https://travis-ci.org/gewefope/gewefope.svg?branch=master)](https://travis-ci.org/gewefope/gewefope)
 ========
 
 Website with weather forecast.
+
+You can try last version on [debug.gewefope.com](http://debug.gewefope.com)
 
 Build and run
 ```
@@ -15,5 +17,6 @@ Run tests
 ```
 npm test
 ```
+
 
 ![ ](http://mc.yandex.ru/watch/22140653)
