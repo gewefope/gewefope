@@ -10,4 +10,4 @@ deploy:
     secure: CRl8rabG6zRPpq5LlyE0yNpKDin90p3zDLOalbxuz/IZlJtlxagCWdcJwSY8Et7K8pOXIufM1gGiV2Zs0n0RxNXv6ml0pkEkOmfOTL8KFiTV6SCEX0zaPGUkCU33pq8xS/g0aacfBP3FrCjCOWZH0NrljNFvkeYPrJwawSgbav0=
   app: gwfp
   on:
-    repo: Gewefope/gewefope
+    repo: gewefope/gewefope
