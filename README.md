@@ -3,7 +3,7 @@ Gewefope [![Build Status](https://travis-ci.org/gewefope/gewefope.svg?branch=mas
 
 Website with weather forecast.
 
-You can try last version on [debug.gewefope.com](http://debug.gewefope.com)
+You can try last version on [debug.gewefope.com](https://debug.gewefope.com)
 
 Build and run
 ```
