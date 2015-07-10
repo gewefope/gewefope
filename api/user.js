@@ -14,8 +14,8 @@ module.exports = function (app, request) {
                     url: 'https://api.parse.com/1/users',
                     method: 'POST',
                     headers: {
-                        'X-Parse-Application-Id': 'i9zXXLCVxa2uoJSNLTMqCphcVE6TTbYg2Z0CUePB',
-                        'X-Parse-REST-API-Key': '1vuZo4FGudiLWwgUCV9aAuBmI07kCrJfTmLHuxLz',
+                        'X-Parse-Application-Id': process.env.API_ID,
+                        'X-Parse-REST-API-Key': process.env.API_KEY,
                         'Content-Type': 'application/json'
                     },
                     body: '{"username":"' + userData.username + '", "password":"' + userData.password + '", "full_name":"' + userData.full_name + '"}'
@@ -47,8 +47,8 @@ module.exports = function (app, request) {
                 url: 'https://api.parse.com/1/login',
                 method: 'GET',
                 headers: {
-                    'X-Parse-Application-Id': 'i9zXXLCVxa2uoJSNLTMqCphcVE6TTbYg2Z0CUePB',
-                    'X-Parse-REST-API-Key': '1vuZo4FGudiLWwgUCV9aAuBmI07kCrJfTmLHuxLz',
+                    'X-Parse-Application-Id': process.env.API_ID,
+                    'X-Parse-REST-API-Key': process.env.API_KEY,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({"username": userData.username, "password": userData.password})
@@ -67,8 +67,8 @@ module.exports = function (app, request) {
                 url: 'https://api.parse.com/1/users/me',
                 method: 'GET',
                 headers: {
-                    'X-Parse-Application-Id': 'i9zXXLCVxa2uoJSNLTMqCphcVE6TTbYg2Z0CUePB',
-                    'X-Parse-REST-API-Key': '1vuZo4FGudiLWwgUCV9aAuBmI07kCrJfTmLHuxLz',
+                    'X-Parse-Application-Id': process.env.API_ID,
+                    'X-Parse-REST-API-Key': process.env.API_KEY,
                     'X-Parse-Session-Token': req.param('sid')
                 }
             },
@@ -88,8 +88,8 @@ module.exports = function (app, request) {
                 url: 'https://api.parse.com/1/users/' + req.params.userid,
                 method: 'PUT',
                 headers: {
-                    'X-Parse-Application-Id': 'i9zXXLCVxa2uoJSNLTMqCphcVE6TTbYg2Z0CUePB',
-                    'X-Parse-REST-API-Key': '1vuZo4FGudiLWwgUCV9aAuBmI07kCrJfTmLHuxLz',
+                    'X-Parse-Application-Id': process.env.API_ID,
+                    'X-Parse-REST-API-Key': process.env.API_KEY,
                     'X-Parse-Session-Token': req.param('sid'),
                     'Content-Type': 'application/json'
                 },
